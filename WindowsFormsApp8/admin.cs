@@ -72,7 +72,7 @@ namespace WindowsFormsApp8
             pnlPhongChieu.Visible = false;
 
             
-
+ 
 
         }
 
