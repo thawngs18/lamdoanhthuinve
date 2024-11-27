@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp8
 {
-    public partial class DangNhap : Form
+    public partial class LichChieu : Form
     {
-        public DangNhap()
+        public LichChieu()
         {
             InitializeComponent();
         }
+
+       
     }
 }
