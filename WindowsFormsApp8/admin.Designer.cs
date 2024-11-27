@@ -897,9 +897,9 @@
             // 
             this.panel1.Controls.Add(this.grpDuLieu);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(18, 483);
+            this.panel1.Location = new System.Drawing.Point(18, 97);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(663, 343);
+            this.panel1.Size = new System.Drawing.Size(663, 356);
             this.panel1.TabIndex = 13;
             // 
             // pnlLoaiManHinh
