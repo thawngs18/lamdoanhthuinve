@@ -17,6 +17,10 @@ namespace WindowsFormsApp8
             InitializeComponent();
         }
 
-       
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();   
+            form.ShowDialog();
+        }
     }
 }

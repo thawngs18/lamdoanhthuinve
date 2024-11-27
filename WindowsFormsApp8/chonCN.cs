@@ -17,6 +17,10 @@ namespace WindowsFormsApp8
             InitializeComponent();
         }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LichChieu form1 = new LichChieu();
+            form1.ShowDialog();
+        }
     }
 }

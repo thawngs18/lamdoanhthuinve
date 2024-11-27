@@ -16,5 +16,11 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            chonCN chonCN = new chonCN();
+            chonCN.ShowDialog();
+        }
     }
 }
