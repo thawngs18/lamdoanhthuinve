@@ -16,7 +16,5 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-
-       
     }
 }

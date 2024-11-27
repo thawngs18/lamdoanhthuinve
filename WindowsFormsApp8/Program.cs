@@ -16,7 +16,7 @@ namespace WindowsFormsApp8
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LichChieu());
+            Application.Run(new Form1());
         }
     }
 }
