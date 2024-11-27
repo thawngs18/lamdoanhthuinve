@@ -24,6 +24,7 @@ namespace WindowsFormsApp8
             pnlDoanhThu.Visible = true;
             pnlKhachHang.Visible = false;
             pnlNhanVien.Visible = false;
+            panel1.Visible = false;
         }
 
     
@@ -34,6 +35,7 @@ namespace WindowsFormsApp8
             pnlKhachHang.Visible = true;
             pnlNhanVien.Visible = false;
             pnlDoanhThu.Visible = false;
+            panel1.Visible = false;
 
         }
 
@@ -42,6 +44,9 @@ namespace WindowsFormsApp8
             pnlDoanhThu.Visible = false;
             pnlKhachHang.Visible = false;
             pnlNhanVien.Visible = false;
+            panel1.Visible = false;
+            panel2.Visible = false;
+            grpDuLieu.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -50,20 +55,50 @@ namespace WindowsFormsApp8
             pnlNhanVien.Visible = true;
             pnlDoanhThu.Visible = false;
             pnlKhachHang.Visible = false;
+            
         }
 
-        private void label37_Click(object sender, EventArgs e)
+
+        private void button18_Click(object sender, EventArgs e)
         {
+            this.Text = "Loai Man Hinh";
+            pnlLoaiManHinh.Visible = true;
+            pnlDoanhThu.Visible = false;
+            pnlKhachHang.Visible = false;
+            pnlNhanVien.Visible = false;
+            panel1.Visible = true;
+            panel2.Visible = true;
+            grpDuLieu.Visible = true;
+            pnlPhongChieu.Visible = false;
+
+            
+
 
         }
 
-        private void label38_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Text = "Du Lieu";
+            panel1.Visible = true;
+            pnlNhanVien.Visible = false;
+            pnlDoanhThu.Visible = false;
+            pnlKhachHang.Visible = false;
+            panel1.Visible = true;
+            panel2.Visible = true;
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button19_Click(object sender, EventArgs e)
         {
+            this.Text = "Phong Chieu";
+            pnlDoanhThu.Visible = false;
+            pnlKhachHang.Visible = false;
+            pnlNhanVien.Visible = false;
+            panel1.Visible = true;
+            panel2.Visible = true;
+            grpDuLieu.Visible = true;
+            pnlPhongChieu.Visible = true;
+            pnlLoaiManHinh.Visible = false;
+
 
         }
     }
