@@ -43,12 +43,14 @@ namespace WindowsFormsApp8
                 x = 11;   
                 for (int j = 0; j < v2; j++)
                 {
-                    Button btnDay = new Button();
-                    btnDay.Location = new System.Drawing.Point(x, y);
-                    btnDay.Size = new System.Drawing.Size(30, 23);
-                    btnDay.Text = ((char)d).ToString();
-                    btnDay.BackColor = Color.White;
-                    panel2.Controls.Add(btnDay);
+                    Label lblDay = new Label();
+                    lblDay.Location = new System.Drawing.Point(x, y);
+                    lblDay.Size = new System.Drawing.Size(30, 23);
+                    lblDay.Text = ((char)d).ToString();
+                    lblDay.BackColor = Color.Black;
+                    lblDay.TextAlign = ContentAlignment.MiddleCenter;
+                    lblDay.ForeColor = Color.White;
+                    panel2.Controls.Add(lblDay);
                     x += kc;
                 }
                 y += kc;
@@ -73,11 +75,32 @@ namespace WindowsFormsApp8
                     btnGhe.Size = new System.Drawing.Size(30, 23);
                     btnGhe.Text = d++.ToString();
                     btnGhe.BackColor = Color.White;
+                    btnGhe.TextAlign = ContentAlignment.MiddleCenter;
                     panel1.Controls.Add(btnGhe);
+                    btnGhe.Click += BtnGhe_Click;
                     x += kc;                  
                 }
                 y += kc;
             } 
         }
+
+        private void BtnGhe_Click(object sender, EventArgs e)
+        {
+            Button b = sender as Button;
+            if(b.BackColor == Color.Gray)
+            {
+                MessageBox.Show("Ghe da dat");
+            }
+            else if (b.BackColor == Color.White)
+            {
+                b.BackColor = Color.Red;
+            }
+            else if (b.BackColor == Color.Red)
+            {
+                b.BackColor = Color.White;
+            }
+        }
+
+
     }
 }
