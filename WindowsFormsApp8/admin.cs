@@ -51,5 +51,20 @@ namespace WindowsFormsApp8
             pnlDoanhThu.Visible = false;
             pnlKhachHang.Visible = false;
         }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label38_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
