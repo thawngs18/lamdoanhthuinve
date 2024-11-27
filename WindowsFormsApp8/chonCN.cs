@@ -22,5 +22,11 @@ namespace WindowsFormsApp8
             LichChieu form1 = new LichChieu();
             form1.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            admin ad  = new admin();
+            ad.ShowDialog();
+        }
     }
 }
