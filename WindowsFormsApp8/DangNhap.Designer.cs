@@ -43,7 +43,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(195, 38);
             this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // textBox2
             // 
@@ -62,7 +62,7 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Mat Khau";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+
             // 
             // label2
             // 
@@ -72,7 +72,7 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Tai Khoan";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+
             // 
             // panel1
             // 
