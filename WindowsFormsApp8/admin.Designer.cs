@@ -767,7 +767,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 667);
+            this.ClientSize = new System.Drawing.Size(874, 876);
             this.Controls.Add(this.pnlKhachHang);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnlNhanVien);
