@@ -90,6 +90,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlDoanhThu.SuspendLayout();
             this.pnlNhanVien.SuspendLayout();
@@ -97,6 +107,8 @@
             this.pnlKhachHang.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -769,11 +781,105 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Mã KH";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(18, 483);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(663, 343);
+            this.panel1.TabIndex = 13;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button24);
+            this.panel2.Controls.Add(this.button23);
+            this.panel2.Controls.Add(this.button22);
+            this.panel2.Controls.Add(this.button21);
+            this.panel2.Controls.Add(this.button20);
+            this.panel2.Controls.Add(this.button19);
+            this.panel2.Controls.Add(this.button18);
+            this.panel2.Location = new System.Drawing.Point(4, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(155, 337);
+            this.panel2.TabIndex = 14;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(0, 3);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(152, 42);
+            this.button18.TabIndex = 14;
+            this.button18.Text = "button18";
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(0, 50);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(152, 42);
+            this.button19.TabIndex = 15;
+            this.button19.Text = "button19";
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(0, 97);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(152, 42);
+            this.button20.TabIndex = 16;
+            this.button20.Text = "button20";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(0, 144);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(152, 42);
+            this.button21.TabIndex = 17;
+            this.button21.Text = "button21";
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(0, 192);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(152, 42);
+            this.button22.TabIndex = 15;
+            this.button22.Text = "button22";
+            this.button22.UseVisualStyleBackColor = true;
+            // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(0, 240);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(152, 42);
+            this.button23.TabIndex = 18;
+            this.button23.Text = "button23";
+            this.button23.UseVisualStyleBackColor = true;
+            // 
+            // button24
+            // 
+            this.button24.Location = new System.Drawing.Point(0, 288);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(152, 42);
+            this.button24.TabIndex = 19;
+            this.button24.Text = "button24";
+            this.button24.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(164, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(496, 335);
+            this.panel3.TabIndex = 15;
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 876);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlKhachHang);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnlNhanVien);
@@ -794,6 +900,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -862,5 +970,15 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Panel panel3;
     }
 }
