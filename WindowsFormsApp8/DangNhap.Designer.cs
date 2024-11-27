@@ -52,12 +52,11 @@
             // 
             // textBox2
             // 
-            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(64, 86);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(295, 37);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 0;
             // 
             // label3
             // 
@@ -102,7 +101,7 @@
             this.button1.Location = new System.Drawing.Point(93, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 58);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Dang Nhap";
             this.button1.UseVisualStyleBackColor = false;
             // 
