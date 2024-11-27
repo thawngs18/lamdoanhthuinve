@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp8
 {
-    public partial class Form2 : Form
+    public partial class DangNhap : Form
     {
-        public Form2()
+        public DangNhap()
         {
             InitializeComponent();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
