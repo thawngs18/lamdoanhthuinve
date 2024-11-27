@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp8
 {
-    public partial class DangNhap : Form
+    public partial class chonCN : Form
     {
-        public DangNhap()
+        public chonCN()
         {
             InitializeComponent();
         }
 
-       
+
     }
 }
