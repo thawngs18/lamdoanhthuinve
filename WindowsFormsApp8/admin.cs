@@ -60,18 +60,35 @@ namespace WindowsFormsApp8
 
         private void button18_Click(object sender, EventArgs e)
         {
+            //this.Text = "Loai Man Hinh";
+            //pnlLoaiManHinh.Visible = true;
+            //pnlDoanhThu.Visible = false;
+            //pnlKhachHang.Visible = false;
+            //pnlNhanVien.Visible = false;
+            //panel1.Visible = true;
+            //panel2.Visible = true;
+            //grpDuLieu.Visible = true;
+            //pnlPhongChieu.Visible = false;
+
             this.Text = "Loai Man Hinh";
+
+            // Danh sách các panel
+            Panel[] panels = { pnlLoaiManHinh, pnlDoanhThu, pnlKhachHang, pnlNhanVien, panel1, panel2, pnlPhongChieu };
+
+            // Ẩn tất cả các panel
+            foreach (var panel in panels)
+            {
+                panel.Visible = false;
+            }
+
+            // Hiển thị panel cần thiết
             pnlLoaiManHinh.Visible = true;
-            pnlDoanhThu.Visible = false;
-            pnlKhachHang.Visible = false;
-            pnlNhanVien.Visible = false;
             panel1.Visible = true;
             panel2.Visible = true;
             grpDuLieu.Visible = true;
-            pnlPhongChieu.Visible = false;
 
-            
- 
+
+
 
         }
 
