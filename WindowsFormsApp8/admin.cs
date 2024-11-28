@@ -55,7 +55,6 @@ namespace WindowsFormsApp8
             pnlNhanVien.Visible = true;
             pnlDoanhThu.Visible = false;
             pnlKhachHang.Visible = false;
-            
         }
 
 
