@@ -20,7 +20,9 @@ namespace WindowsFormsApp8
         private void button1_Click(object sender, EventArgs e)
         {
             chonCN chonCN = new chonCN();
+            DialogResult result = MessageBox.Show("Dang nhap thanh cong","Thong bao",MessageBoxButtons.OK, MessageBoxIcon.Warning);
             chonCN.ShowDialog();
+            
         }
     }
 }
