@@ -22,150 +22,111 @@ namespace WindowsFormsApp8
         }
         string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim_login;Trusted_Connection=True;";
 
+        private void admin_Load(object sender, EventArgs e)
+        {
+            Panel[] panels = {panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai,pnlPhongChieu };
+            foreach (var pan in panels) {
+                pan.Visible = false;
+            }
+        }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Text = "Nhan Vien";
+            Panel[] panels = {panel2,pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai,pnlPhongChieu };
+            foreach (var pan in panels)
+            {
+                pan.Visible = false;
+            }
+            pnlNV.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Text = "Khach Hang";
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            foreach (var panel in p)
+            { panel.Visible = false; }
+            pnlKH.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Text = "Doanh Thu";
-            Panel[] p = {  panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlDoanhThu.Visible = true;
 
         }
 
-    
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            this.Text = "Khach Hang";
-            Panel[] p = {  panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
-            foreach (var panel in p)
-            { panel.Visible = false; }
-            pnlKhachHang.Visible = true;
-
-        }
-
-        private void admin_Load(object sender, EventArgs e)
-        {
-            Panel[] p = {  panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
-            foreach (var panel in p)
-            { panel.Visible = false; }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Text = "Nhan Vien";
-            Panel[] p = { panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
-            foreach (var panel in p)
-            { panel.Visible = false; }
-
-            pnlNhanVien.Visible = true;
-
-        }
-
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-            Panel[] p = {panel2,pnlDinhDang, pnlKhachHang,pnlDoanhThu,pnlLichChieu,pnlLoaiManHinh,pnlNhanVien,pnlPhim,pnlPhongChieu,pnlTheLoai};
-            foreach (var panel in p)
-                { panel.Visible = false; }
-           
-            panel2.Visible = true;
-            pnlLoaiManHinh.Visible = true;
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Text = "Du Lieu";
-            Panel[] p = { panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
-          
             panel2.Visible = true;
+        }
 
+        private void button18_Click(object sender, EventArgs e)
+        {
+            this.Text = "Loai Man Hinh";
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            foreach (var panel in p)
+            { panel.Visible = false; }
+            panel2.Visible = true;
+            pnlLoaiManHinh.Visible = true;
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            Panel[] p = {  panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            this.Text = "Phong Chieu";
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
-         
             panel2.Visible = true;
             pnlPhongChieu.Visible = true;
-
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
-            Panel[] p = {  panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            this.Text = "The Loai";
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
-          
             panel2.Visible = true;
             pnlTheLoai.Visible = true;
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            Panel[] p = {  panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            this.Text = "Phim";
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
-          
             panel2.Visible = true;
             pnlPhim.Visible = true;
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
-            Panel[] p = {  panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            this.Text = "Dinh Dang";
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
-        
             panel2.Visible = true;
             pnlDinhDang.Visible = true;
         }
 
         private void button23_Click(object sender, EventArgs e)
         {
-            Panel[] p = { panel2, pnlDinhDang, pnlKhachHang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNhanVien, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            this.Text = "Lich Chieu";
+            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
-
             panel2.Visible = true;
             pnlLichChieu.Visible = true;
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-    {
-        try
-        {
-            connection.Open();
-
-            // Câu truy vấn
-            string query = "SELECT * FROM KhachHang";
-
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-
-            // Gán dữ liệu vào DataGridView
-            dgvKH.DataSource = dataTable;
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Lỗi: " + ex.Message);
-        }
-    }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
