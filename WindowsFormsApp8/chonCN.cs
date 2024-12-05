@@ -12,9 +12,10 @@ namespace WindowsFormsApp8
 {
     public partial class chonCN : Form
     {
-        public chonCN()
+        public chonCN(string cn)
         {
             InitializeComponent();
+            label3.Text = cn;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -27,6 +28,15 @@ namespace WindowsFormsApp8
         {
             admin ad  = new admin();
             ad.ShowDialog();
+        }
+
+        private void chonCN_Load(object sender, EventArgs e)
+        {
+            if(label3.Text == "BV")
+            {
+                button1.Enabled = false;
+            }
+
         }
     }
 }

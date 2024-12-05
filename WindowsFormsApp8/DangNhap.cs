@@ -19,8 +19,40 @@ namespace WindowsFormsApp8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            chonCN chonCN = new chonCN();
+           
+
+            string cn = "";
+            if (radioButton1.Checked == true)
+            {
+                cn = "BV";
+            }
+            else if (radioButton2.Checked == true)
+            {
+                cn = "QL";
+            }
+            chonCN chonCN = new chonCN(cn);
+            DialogResult result = MessageBox.Show("Dang nhap thanh cong", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             chonCN.ShowDialog();
+
+
+        }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            if (radioButton1.Checked == true)
+            {
+                textBox3.Text = "BV";
+            }
+            else if (radioButton2.Checked == true)
+            {
+                textBox3.Text = "QL";
+            }
         }
     }
 }
