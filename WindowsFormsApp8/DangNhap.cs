@@ -36,5 +36,23 @@ namespace WindowsFormsApp8
 
 
         }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            if (radioButton1.Checked == true)
+            {
+                textBox3.Text = "BV";
+            }
+            else if (radioButton2.Checked == true)
+            {
+                textBox3.Text = "QL";
+            }
+        }
     }
 }
