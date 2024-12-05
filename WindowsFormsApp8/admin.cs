@@ -127,6 +127,7 @@ namespace WindowsFormsApp8
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlLichChieu.Visible = true;
+
         }
     }
 }
