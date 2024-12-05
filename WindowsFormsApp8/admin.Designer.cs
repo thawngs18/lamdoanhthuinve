@@ -37,7 +37,6 @@
             this.pnlDoanhThu = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlNhanVien = new System.Windows.Forms.Panel();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button14 = new System.Windows.Forms.Button();
@@ -68,7 +66,7 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.pnlKhachHang = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvKH = new System.Windows.Forms.DataGridView();
             this.button12 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -105,7 +103,6 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.listView5 = new System.Windows.Forms.ListView();
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
@@ -114,7 +111,6 @@
             this.button36 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
-            this.listView7 = new System.Windows.Forms.ListView();
             this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
@@ -146,7 +142,6 @@
             this.textBox35 = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.listView8 = new System.Windows.Forms.ListView();
             this.button38 = new System.Windows.Forms.Button();
             this.button39 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
@@ -169,7 +164,6 @@
             this.textBox38 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.listView9 = new System.Windows.Forms.ListView();
             this.button41 = new System.Windows.Forms.Button();
             this.button42 = new System.Windows.Forms.Button();
             this.button43 = new System.Windows.Forms.Button();
@@ -178,7 +172,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.listView4 = new System.Windows.Forms.ListView();
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
@@ -189,7 +182,6 @@
             this.textBox29 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.listView6 = new System.Windows.Forms.ListView();
             this.button31 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
@@ -201,12 +193,20 @@
             this.button20 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.dgvNV = new System.Windows.Forms.DataGridView();
+            this.dgvDT = new System.Windows.Forms.DataGridView();
+            this.dgvLMH = new System.Windows.Forms.DataGridView();
+            this.dgvPC = new System.Windows.Forms.DataGridView();
+            this.dgvTL = new System.Windows.Forms.DataGridView();
+            this.dgvP = new System.Windows.Forms.DataGridView();
+            this.dgvDD = new System.Windows.Forms.DataGridView();
+            this.dgvLC = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlDoanhThu.SuspendLayout();
             this.pnlNhanVien.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlKhachHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.pnlPhongChieu.SuspendLayout();
@@ -217,6 +217,14 @@
             this.pnlLoaiManHinh.SuspendLayout();
             this.pnlTheLoai.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLMH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLC)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -288,9 +296,9 @@
             // 
             // pnlDoanhThu
             // 
+            this.pnlDoanhThu.Controls.Add(this.dgvDT);
             this.pnlDoanhThu.Controls.Add(this.textBox1);
             this.pnlDoanhThu.Controls.Add(this.label4);
-            this.pnlDoanhThu.Controls.Add(this.listView1);
             this.pnlDoanhThu.Controls.Add(this.button7);
             this.pnlDoanhThu.Controls.Add(this.button6);
             this.pnlDoanhThu.Controls.Add(this.label3);
@@ -317,22 +325,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(404, 309);
+            this.label4.Location = new System.Drawing.Point(385, 312);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Tổng Doanh Thu";
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(77, 89);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(567, 196);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // button7
             // 
@@ -419,7 +417,7 @@
             // 
             // pnlNhanVien
             // 
-            this.pnlNhanVien.Controls.Add(this.listView3);
+            this.pnlNhanVien.Controls.Add(this.dgvNV);
             this.pnlNhanVien.Controls.Add(this.button13);
             this.pnlNhanVien.Controls.Add(this.textBox9);
             this.pnlNhanVien.Controls.Add(this.button14);
@@ -432,16 +430,6 @@
             this.pnlNhanVien.Name = "pnlNhanVien";
             this.pnlNhanVien.Size = new System.Drawing.Size(661, 359);
             this.pnlNhanVien.TabIndex = 12;
-            // 
-            // listView3
-            // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(64, 154);
-            this.listView3.Margin = new System.Windows.Forms.Padding(2);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(579, 192);
-            this.listView3.TabIndex = 7;
-            this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // button13
             // 
@@ -645,7 +633,7 @@
             // 
             // pnlKhachHang
             // 
-            this.pnlKhachHang.Controls.Add(this.dataGridView1);
+            this.pnlKhachHang.Controls.Add(this.dgvKH);
             this.pnlKhachHang.Controls.Add(this.button12);
             this.pnlKhachHang.Controls.Add(this.textBox8);
             this.pnlKhachHang.Controls.Add(this.button11);
@@ -659,13 +647,13 @@
             this.pnlKhachHang.Size = new System.Drawing.Size(661, 359);
             this.pnlKhachHang.TabIndex = 11;
             // 
-            // dataGridView1
+            // dgvKH
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(64, 155);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(577, 191);
-            this.dataGridView1.TabIndex = 7;
+            this.dgvKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKH.Location = new System.Drawing.Point(64, 155);
+            this.dgvKH.Name = "dgvKH";
+            this.dgvKH.Size = new System.Drawing.Size(577, 191);
+            this.dgvKH.TabIndex = 7;
             // 
             // button12
             // 
@@ -891,6 +879,7 @@
             // 
             // pnlPhongChieu
             // 
+            this.pnlPhongChieu.Controls.Add(this.dgvPC);
             this.pnlPhongChieu.Controls.Add(this.textBox22);
             this.pnlPhongChieu.Controls.Add(this.textBox21);
             this.pnlPhongChieu.Controls.Add(this.textBox20);
@@ -905,7 +894,6 @@
             this.pnlPhongChieu.Controls.Add(this.textBox17);
             this.pnlPhongChieu.Controls.Add(this.label20);
             this.pnlPhongChieu.Controls.Add(this.label21);
-            this.pnlPhongChieu.Controls.Add(this.listView5);
             this.pnlPhongChieu.Controls.Add(this.button28);
             this.pnlPhongChieu.Controls.Add(this.button29);
             this.pnlPhongChieu.Controls.Add(this.button30);
@@ -1047,16 +1035,6 @@
             this.label21.TabIndex = 4;
             this.label21.Text = "Mã Phòng";
             // 
-            // listView5
-            // 
-            this.listView5.HideSelection = false;
-            this.listView5.Location = new System.Drawing.Point(15, 63);
-            this.listView5.Margin = new System.Windows.Forms.Padding(2);
-            this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(304, 163);
-            this.listView5.TabIndex = 3;
-            this.listView5.UseCompatibleStateImageBehavior = false;
-            // 
             // button28
             // 
             this.button28.Location = new System.Drawing.Point(245, 6);
@@ -1089,11 +1067,11 @@
             // 
             // pnlPhim
             // 
+            this.pnlPhim.Controls.Add(this.dgvP);
             this.pnlPhim.Controls.Add(this.button37);
             this.pnlPhim.Controls.Add(this.button36);
             this.pnlPhim.Controls.Add(this.button35);
             this.pnlPhim.Controls.Add(this.button34);
-            this.pnlPhim.Controls.Add(this.listView7);
             this.pnlPhim.Controls.Add(this.dateTimePicker6);
             this.pnlPhim.Controls.Add(this.checkedListBox1);
             this.pnlPhim.Controls.Add(this.dateTimePicker5);
@@ -1159,16 +1137,6 @@
             this.button34.TabIndex = 18;
             this.button34.Text = "Sửa";
             this.button34.UseVisualStyleBackColor = true;
-            // 
-            // listView7
-            // 
-            this.listView7.HideSelection = false;
-            this.listView7.Location = new System.Drawing.Point(10, 211);
-            this.listView7.Margin = new System.Windows.Forms.Padding(2);
-            this.listView7.Name = "listView7";
-            this.listView7.Size = new System.Drawing.Size(504, 130);
-            this.listView7.TabIndex = 37;
-            this.listView7.UseCompatibleStateImageBehavior = false;
             // 
             // dateTimePicker6
             // 
@@ -1374,6 +1342,7 @@
             // 
             // pnlDinhDang
             // 
+            this.pnlDinhDang.Controls.Add(this.dgvDD);
             this.pnlDinhDang.Controls.Add(this.comboBox3);
             this.pnlDinhDang.Controls.Add(this.comboBox2);
             this.pnlDinhDang.Controls.Add(this.label44);
@@ -1384,7 +1353,6 @@
             this.pnlDinhDang.Controls.Add(this.textBox35);
             this.pnlDinhDang.Controls.Add(this.label41);
             this.pnlDinhDang.Controls.Add(this.label42);
-            this.pnlDinhDang.Controls.Add(this.listView8);
             this.pnlDinhDang.Controls.Add(this.button38);
             this.pnlDinhDang.Controls.Add(this.button39);
             this.pnlDinhDang.Controls.Add(this.button40);
@@ -1392,6 +1360,7 @@
             this.pnlDinhDang.Name = "pnlDinhDang";
             this.pnlDinhDang.Size = new System.Drawing.Size(564, 350);
             this.pnlDinhDang.TabIndex = 19;
+            this.pnlDinhDang.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDinhDang_Paint);
             // 
             // comboBox3
             // 
@@ -1490,16 +1459,6 @@
             this.label42.TabIndex = 4;
             this.label42.Text = "Mã Định Dạng";
             // 
-            // listView8
-            // 
-            this.listView8.HideSelection = false;
-            this.listView8.Location = new System.Drawing.Point(15, 63);
-            this.listView8.Margin = new System.Windows.Forms.Padding(2);
-            this.listView8.Name = "listView8";
-            this.listView8.Size = new System.Drawing.Size(299, 163);
-            this.listView8.TabIndex = 3;
-            this.listView8.UseCompatibleStateImageBehavior = false;
-            // 
             // button38
             // 
             this.button38.Location = new System.Drawing.Point(245, 6);
@@ -1532,6 +1491,7 @@
             // 
             // pnlLichChieu
             // 
+            this.pnlLichChieu.Controls.Add(this.dgvLC);
             this.pnlLichChieu.Controls.Add(this.comboBox4);
             this.pnlLichChieu.Controls.Add(this.textBox41);
             this.pnlLichChieu.Controls.Add(this.textBox40);
@@ -1546,7 +1506,6 @@
             this.pnlLichChieu.Controls.Add(this.textBox38);
             this.pnlLichChieu.Controls.Add(this.label48);
             this.pnlLichChieu.Controls.Add(this.label49);
-            this.pnlLichChieu.Controls.Add(this.listView9);
             this.pnlLichChieu.Controls.Add(this.button41);
             this.pnlLichChieu.Controls.Add(this.button42);
             this.pnlLichChieu.Controls.Add(this.button43);
@@ -1735,16 +1694,6 @@
             this.label49.TabIndex = 4;
             this.label49.Text = "Mã Lịch Chiếu";
             // 
-            // listView9
-            // 
-            this.listView9.HideSelection = false;
-            this.listView9.Location = new System.Drawing.Point(15, 63);
-            this.listView9.Margin = new System.Windows.Forms.Padding(2);
-            this.listView9.Name = "listView9";
-            this.listView9.Size = new System.Drawing.Size(323, 257);
-            this.listView9.TabIndex = 3;
-            this.listView9.UseCompatibleStateImageBehavior = false;
-            // 
             // button41
             // 
             this.button41.Location = new System.Drawing.Point(197, 6);
@@ -1774,18 +1723,19 @@
             this.button43.TabIndex = 0;
             this.button43.Text = "Thêm";
             this.button43.UseVisualStyleBackColor = true;
+            this.button43.Click += new System.EventHandler(this.button43_Click);
             // 
             // pnlLoaiManHinh
             // 
+            this.pnlLoaiManHinh.Controls.Add(this.dgvLMH);
             this.pnlLoaiManHinh.Controls.Add(this.textBox13);
             this.pnlLoaiManHinh.Controls.Add(this.textBox4);
             this.pnlLoaiManHinh.Controls.Add(this.label19);
             this.pnlLoaiManHinh.Controls.Add(this.label18);
-            this.pnlLoaiManHinh.Controls.Add(this.listView4);
             this.pnlLoaiManHinh.Controls.Add(this.button27);
             this.pnlLoaiManHinh.Controls.Add(this.button26);
             this.pnlLoaiManHinh.Controls.Add(this.button25);
-            this.pnlLoaiManHinh.Location = new System.Drawing.Point(186, 483);
+            this.pnlLoaiManHinh.Location = new System.Drawing.Point(183, 478);
             this.pnlLoaiManHinh.Name = "pnlLoaiManHinh";
             this.pnlLoaiManHinh.Size = new System.Drawing.Size(570, 343);
             this.pnlLoaiManHinh.TabIndex = 15;
@@ -1828,16 +1778,6 @@
             this.label18.TabIndex = 4;
             this.label18.Text = "Loại Màn Hình";
             // 
-            // listView4
-            // 
-            this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(15, 63);
-            this.listView4.Margin = new System.Windows.Forms.Padding(2);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(304, 163);
-            this.listView4.TabIndex = 3;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            // 
             // button27
             // 
             this.button27.Location = new System.Drawing.Point(245, 6);
@@ -1870,17 +1810,17 @@
             // 
             // pnlTheLoai
             // 
+            this.pnlTheLoai.Controls.Add(this.dgvTL);
             this.pnlTheLoai.Controls.Add(this.textBox23);
             this.pnlTheLoai.Controls.Add(this.label31);
             this.pnlTheLoai.Controls.Add(this.textBox28);
             this.pnlTheLoai.Controls.Add(this.textBox29);
             this.pnlTheLoai.Controls.Add(this.label32);
             this.pnlTheLoai.Controls.Add(this.label33);
-            this.pnlTheLoai.Controls.Add(this.listView6);
             this.pnlTheLoai.Controls.Add(this.button31);
             this.pnlTheLoai.Controls.Add(this.button32);
             this.pnlTheLoai.Controls.Add(this.button33);
-            this.pnlTheLoai.Location = new System.Drawing.Point(186, 481);
+            this.pnlTheLoai.Location = new System.Drawing.Point(183, 478);
             this.pnlTheLoai.Name = "pnlTheLoai";
             this.pnlTheLoai.Size = new System.Drawing.Size(570, 350);
             this.pnlTheLoai.TabIndex = 18;
@@ -1942,16 +1882,6 @@
             this.label33.Size = new System.Drawing.Size(78, 13);
             this.label33.TabIndex = 4;
             this.label33.Text = "Mã Thể Loại";
-            // 
-            // listView6
-            // 
-            this.listView6.HideSelection = false;
-            this.listView6.Location = new System.Drawing.Point(15, 63);
-            this.listView6.Margin = new System.Windows.Forms.Padding(2);
-            this.listView6.Name = "listView6";
-            this.listView6.Size = new System.Drawing.Size(299, 163);
-            this.listView6.TabIndex = 3;
-            this.listView6.UseCompatibleStateImageBehavior = false;
             // 
             // button31
             // 
@@ -2073,6 +2003,70 @@
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
+            // dgvNV
+            // 
+            this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNV.Location = new System.Drawing.Point(64, 154);
+            this.dgvNV.Name = "dgvNV";
+            this.dgvNV.Size = new System.Drawing.Size(579, 188);
+            this.dgvNV.TabIndex = 8;
+            // 
+            // dgvDT
+            // 
+            this.dgvDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDT.Location = new System.Drawing.Point(78, 90);
+            this.dgvDT.Name = "dgvDT";
+            this.dgvDT.Size = new System.Drawing.Size(565, 187);
+            this.dgvDT.TabIndex = 11;
+            // 
+            // dgvLMH
+            // 
+            this.dgvLMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLMH.Location = new System.Drawing.Point(15, 63);
+            this.dgvLMH.Name = "dgvLMH";
+            this.dgvLMH.Size = new System.Drawing.Size(304, 160);
+            this.dgvLMH.TabIndex = 8;
+            // 
+            // dgvPC
+            // 
+            this.dgvPC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPC.Location = new System.Drawing.Point(15, 63);
+            this.dgvPC.Name = "dgvPC";
+            this.dgvPC.Size = new System.Drawing.Size(304, 167);
+            this.dgvPC.TabIndex = 18;
+            // 
+            // dgvTL
+            // 
+            this.dgvTL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTL.Location = new System.Drawing.Point(15, 63);
+            this.dgvTL.Name = "dgvTL";
+            this.dgvTL.Size = new System.Drawing.Size(299, 161);
+            this.dgvTL.TabIndex = 18;
+            // 
+            // dgvP
+            // 
+            this.dgvP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvP.Location = new System.Drawing.Point(10, 211);
+            this.dgvP.Name = "dgvP";
+            this.dgvP.Size = new System.Drawing.Size(506, 130);
+            this.dgvP.TabIndex = 41;
+            // 
+            // dgvDD
+            // 
+            this.dgvDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDD.Location = new System.Drawing.Point(15, 64);
+            this.dgvDD.Name = "dgvDD";
+            this.dgvDD.Size = new System.Drawing.Size(299, 157);
+            this.dgvDD.TabIndex = 14;
+            // 
+            // dgvLC
+            // 
+            this.dgvLC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLC.Location = new System.Drawing.Point(15, 63);
+            this.dgvLC.Name = "dgvLC";
+            this.dgvLC.Size = new System.Drawing.Size(324, 248);
+            this.dgvLC.TabIndex = 21;
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2102,7 +2096,7 @@
             this.groupBox2.PerformLayout();
             this.pnlKhachHang.ResumeLayout(false);
             this.pnlKhachHang.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -2121,6 +2115,14 @@
             this.pnlTheLoai.ResumeLayout(false);
             this.pnlTheLoai.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLMH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLC)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2136,7 +2138,6 @@
         private System.Windows.Forms.Panel pnlDoanhThu;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label3;
@@ -2165,7 +2166,6 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Panel pnlNhanVien;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button button14;
@@ -2200,7 +2200,6 @@
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ListView listView4;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Panel pnlPhongChieu;
@@ -2218,7 +2217,6 @@
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ListView listView5;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button30;
@@ -2227,7 +2225,6 @@
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button31;
-        private System.Windows.Forms.ListView listView6;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox textBox29;
@@ -2246,7 +2243,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ListView listView7;
         private System.Windows.Forms.DateTimePicker dateTimePicker6;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker5;
@@ -2270,7 +2266,6 @@
         private System.Windows.Forms.TextBox textBox35;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.ListView listView8;
         private System.Windows.Forms.Button button38;
         private System.Windows.Forms.Button button39;
         private System.Windows.Forms.Button button40;
@@ -2279,7 +2274,6 @@
         private System.Windows.Forms.Button button43;
         private System.Windows.Forms.Button button42;
         private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.ListView listView9;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox textBox38;
@@ -2299,6 +2293,14 @@
         private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Panel pnlLichChieu;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvKH;
+        private System.Windows.Forms.DataGridView dgvNV;
+        private System.Windows.Forms.DataGridView dgvDT;
+        private System.Windows.Forms.DataGridView dgvLMH;
+        private System.Windows.Forms.DataGridView dgvPC;
+        private System.Windows.Forms.DataGridView dgvP;
+        private System.Windows.Forms.DataGridView dgvTL;
+        private System.Windows.Forms.DataGridView dgvDD;
+        private System.Windows.Forms.DataGridView dgvLC;
     }
 }

@@ -153,13 +153,23 @@ namespace WindowsFormsApp8
             adapter.Fill(dataTable);
 
             // Gán dữ liệu vào DataGridView
-            dataGridView1.DataSource = dataTable;
+            dgvKH.DataSource = dataTable;
         }
         catch (Exception ex)
         {
             MessageBox.Show("Lỗi: " + ex.Message);
         }
     }
+        }
+
+        private void pnlDinhDang_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button43_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
