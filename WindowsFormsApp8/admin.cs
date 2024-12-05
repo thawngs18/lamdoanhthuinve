@@ -172,48 +172,5 @@ namespace WindowsFormsApp8
         {
 
         }
-
-        private void button9_Click(object sender, EventArgs e)
-        {   
-            string customerID = textBox2.Text;
-            string customerName = textBox3.Text;
-            string phone = textBox6.Text;
-            int cmnd = int.Parse(textBox7.Text);
-            string address = textBox5.Text;
-            int dtl = 0;
-            DateTime ns = dateTimePicker3.Value;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "INSERT INTO KhachHang(id,HoTen,SDT,CMND,DiaChi,NgaySinh,DiemTichLuy) VALUES (@id,@Name,@Phone,@cmnd,@DC,@ns,@dtl)";
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Name", customerName);
-                        cmd.Parameters.AddWithValue("@Phone", phone);
-                        cmd.Parameters.AddWithValue("@DC", address);
-                        cmd.Parameters.AddWithValue("@id", customerID);
-                        cmd.Parameters.AddWithValue("@cmnd", cmnd);
-                        cmd.Parameters.AddWithValue("@ns", ns);
-                        cmd.Parameters.AddWithValue("@dtl", dtl);
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Thêm khách hàng thành công!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm khách hàng thất bại.");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message);
-                }
-            }
-        }
     }
 }
