@@ -35,6 +35,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlDoanhThu = new System.Windows.Forms.Panel();
+            this.dgvDT = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlNhanVien = new System.Windows.Forms.Panel();
+            this.dgvNV = new System.Windows.Forms.DataGridView();
             this.button13 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button14 = new System.Windows.Forms.Button();
@@ -89,6 +91,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlPhongChieu = new System.Windows.Forms.Panel();
+            this.dgvPC = new System.Windows.Forms.DataGridView();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -107,6 +110,7 @@
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.pnlPhim = new System.Windows.Forms.Panel();
+            this.dgvP = new System.Windows.Forms.DataGridView();
             this.button37 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
@@ -132,6 +136,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.pnlDinhDang = new System.Windows.Forms.Panel();
+            this.dgvDD = new System.Windows.Forms.DataGridView();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
@@ -146,6 +151,7 @@
             this.button39 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
             this.pnlLichChieu = new System.Windows.Forms.Panel();
+            this.dgvLC = new System.Windows.Forms.DataGridView();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox41 = new System.Windows.Forms.TextBox();
             this.textBox40 = new System.Windows.Forms.TextBox();
@@ -168,6 +174,7 @@
             this.button42 = new System.Windows.Forms.Button();
             this.button43 = new System.Windows.Forms.Button();
             this.pnlLoaiManHinh = new System.Windows.Forms.Panel();
+            this.dgvLMH = new System.Windows.Forms.DataGridView();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -176,6 +183,7 @@
             this.button26 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.pnlTheLoai = new System.Windows.Forms.Panel();
+            this.dgvTL = new System.Windows.Forms.DataGridView();
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.textBox28 = new System.Windows.Forms.TextBox();
@@ -193,38 +201,30 @@
             this.button20 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
-            this.dgvNV = new System.Windows.Forms.DataGridView();
-            this.dgvDT = new System.Windows.Forms.DataGridView();
-            this.dgvLMH = new System.Windows.Forms.DataGridView();
-            this.dgvPC = new System.Windows.Forms.DataGridView();
-            this.dgvTL = new System.Windows.Forms.DataGridView();
-            this.dgvP = new System.Windows.Forms.DataGridView();
-            this.dgvDD = new System.Windows.Forms.DataGridView();
-            this.dgvLC = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlDoanhThu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).BeginInit();
             this.pnlNhanVien.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.pnlKhachHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.pnlPhongChieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
             this.pnlPhim.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvP)).BeginInit();
             this.pnlDinhDang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDD)).BeginInit();
             this.pnlLichChieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLC)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.pnlLoaiManHinh.SuspendLayout();
-            this.pnlTheLoai.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLMH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
+            this.pnlTheLoai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLC)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -312,6 +312,14 @@
             this.pnlDoanhThu.Name = "pnlDoanhThu";
             this.pnlDoanhThu.Size = new System.Drawing.Size(661, 359);
             this.pnlDoanhThu.TabIndex = 8;
+            // 
+            // dgvDT
+            // 
+            this.dgvDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDT.Location = new System.Drawing.Point(78, 90);
+            this.dgvDT.Name = "dgvDT";
+            this.dgvDT.Size = new System.Drawing.Size(565, 187);
+            this.dgvDT.TabIndex = 11;
             // 
             // textBox1
             // 
@@ -430,6 +438,14 @@
             this.pnlNhanVien.Name = "pnlNhanVien";
             this.pnlNhanVien.Size = new System.Drawing.Size(661, 359);
             this.pnlNhanVien.TabIndex = 12;
+            // 
+            // dgvNV
+            // 
+            this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNV.Location = new System.Drawing.Point(64, 154);
+            this.dgvNV.Name = "dgvNV";
+            this.dgvNV.Size = new System.Drawing.Size(579, 188);
+            this.dgvNV.TabIndex = 8;
             // 
             // button13
             // 
@@ -630,6 +646,7 @@
             this.button17.TabIndex = 1;
             this.button17.Text = "Xem";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // pnlKhachHang
             // 
@@ -902,6 +919,14 @@
             this.pnlPhongChieu.Size = new System.Drawing.Size(564, 350);
             this.pnlPhongChieu.TabIndex = 16;
             // 
+            // dgvPC
+            // 
+            this.dgvPC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPC.Location = new System.Drawing.Point(15, 63);
+            this.dgvPC.Name = "dgvPC";
+            this.dgvPC.Size = new System.Drawing.Size(304, 167);
+            this.dgvPC.TabIndex = 18;
+            // 
             // textBox22
             // 
             this.textBox22.Location = new System.Drawing.Point(412, 258);
@@ -1097,6 +1122,14 @@
             this.pnlPhim.Name = "pnlPhim";
             this.pnlPhim.Size = new System.Drawing.Size(571, 350);
             this.pnlPhim.TabIndex = 19;
+            // 
+            // dgvP
+            // 
+            this.dgvP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvP.Location = new System.Drawing.Point(10, 211);
+            this.dgvP.Name = "dgvP";
+            this.dgvP.Size = new System.Drawing.Size(506, 130);
+            this.dgvP.TabIndex = 41;
             // 
             // button37
             // 
@@ -1362,6 +1395,14 @@
             this.pnlDinhDang.TabIndex = 19;
             this.pnlDinhDang.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDinhDang_Paint);
             // 
+            // dgvDD
+            // 
+            this.dgvDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDD.Location = new System.Drawing.Point(15, 64);
+            this.dgvDD.Name = "dgvDD";
+            this.dgvDD.Size = new System.Drawing.Size(299, 157);
+            this.dgvDD.TabIndex = 14;
+            // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
@@ -1513,6 +1554,14 @@
             this.pnlLichChieu.Name = "pnlLichChieu";
             this.pnlLichChieu.Size = new System.Drawing.Size(567, 350);
             this.pnlLichChieu.TabIndex = 20;
+            // 
+            // dgvLC
+            // 
+            this.dgvLC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLC.Location = new System.Drawing.Point(15, 63);
+            this.dgvLC.Name = "dgvLC";
+            this.dgvLC.Size = new System.Drawing.Size(324, 248);
+            this.dgvLC.TabIndex = 21;
             // 
             // comboBox4
             // 
@@ -1740,6 +1789,14 @@
             this.pnlLoaiManHinh.Size = new System.Drawing.Size(570, 343);
             this.pnlLoaiManHinh.TabIndex = 15;
             // 
+            // dgvLMH
+            // 
+            this.dgvLMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLMH.Location = new System.Drawing.Point(15, 63);
+            this.dgvLMH.Name = "dgvLMH";
+            this.dgvLMH.Size = new System.Drawing.Size(304, 160);
+            this.dgvLMH.TabIndex = 8;
+            // 
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(412, 98);
@@ -1824,6 +1881,14 @@
             this.pnlTheLoai.Name = "pnlTheLoai";
             this.pnlTheLoai.Size = new System.Drawing.Size(570, 350);
             this.pnlTheLoai.TabIndex = 18;
+            // 
+            // dgvTL
+            // 
+            this.dgvTL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTL.Location = new System.Drawing.Point(15, 63);
+            this.dgvTL.Name = "dgvTL";
+            this.dgvTL.Size = new System.Drawing.Size(299, 161);
+            this.dgvTL.TabIndex = 18;
             // 
             // textBox23
             // 
@@ -1922,7 +1987,7 @@
             this.panel2.Controls.Add(this.button20);
             this.panel2.Controls.Add(this.button19);
             this.panel2.Controls.Add(this.button18);
-            this.panel2.Location = new System.Drawing.Point(25, 475);
+            this.panel2.Location = new System.Drawing.Point(23, 478);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(155, 353);
             this.panel2.TabIndex = 14;
@@ -2003,70 +2068,6 @@
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
-            // dgvNV
-            // 
-            this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNV.Location = new System.Drawing.Point(64, 154);
-            this.dgvNV.Name = "dgvNV";
-            this.dgvNV.Size = new System.Drawing.Size(579, 188);
-            this.dgvNV.TabIndex = 8;
-            // 
-            // dgvDT
-            // 
-            this.dgvDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDT.Location = new System.Drawing.Point(78, 90);
-            this.dgvDT.Name = "dgvDT";
-            this.dgvDT.Size = new System.Drawing.Size(565, 187);
-            this.dgvDT.TabIndex = 11;
-            // 
-            // dgvLMH
-            // 
-            this.dgvLMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLMH.Location = new System.Drawing.Point(15, 63);
-            this.dgvLMH.Name = "dgvLMH";
-            this.dgvLMH.Size = new System.Drawing.Size(304, 160);
-            this.dgvLMH.TabIndex = 8;
-            // 
-            // dgvPC
-            // 
-            this.dgvPC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPC.Location = new System.Drawing.Point(15, 63);
-            this.dgvPC.Name = "dgvPC";
-            this.dgvPC.Size = new System.Drawing.Size(304, 167);
-            this.dgvPC.TabIndex = 18;
-            // 
-            // dgvTL
-            // 
-            this.dgvTL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTL.Location = new System.Drawing.Point(15, 63);
-            this.dgvTL.Name = "dgvTL";
-            this.dgvTL.Size = new System.Drawing.Size(299, 161);
-            this.dgvTL.TabIndex = 18;
-            // 
-            // dgvP
-            // 
-            this.dgvP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvP.Location = new System.Drawing.Point(10, 211);
-            this.dgvP.Name = "dgvP";
-            this.dgvP.Size = new System.Drawing.Size(506, 130);
-            this.dgvP.TabIndex = 41;
-            // 
-            // dgvDD
-            // 
-            this.dgvDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDD.Location = new System.Drawing.Point(15, 64);
-            this.dgvDD.Name = "dgvDD";
-            this.dgvDD.Size = new System.Drawing.Size(299, 157);
-            this.dgvDD.TabIndex = 14;
-            // 
-            // dgvLC
-            // 
-            this.dgvLC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLC.Location = new System.Drawing.Point(15, 63);
-            this.dgvLC.Name = "dgvLC";
-            this.dgvLC.Size = new System.Drawing.Size(324, 248);
-            this.dgvLC.TabIndex = 21;
-            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2090,8 +2091,10 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlDoanhThu.ResumeLayout(false);
             this.pnlDoanhThu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).EndInit();
             this.pnlNhanVien.ResumeLayout(false);
             this.pnlNhanVien.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.pnlKhachHang.ResumeLayout(false);
@@ -2102,27 +2105,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.pnlPhongChieu.ResumeLayout(false);
             this.pnlPhongChieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).EndInit();
             this.pnlPhim.ResumeLayout(false);
             this.pnlPhim.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvP)).EndInit();
             this.pnlDinhDang.ResumeLayout(false);
             this.pnlDinhDang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDD)).EndInit();
             this.pnlLichChieu.ResumeLayout(false);
             this.pnlLichChieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLC)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.pnlLoaiManHinh.ResumeLayout(false);
             this.pnlLoaiManHinh.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLMH)).EndInit();
             this.pnlTheLoai.ResumeLayout(false);
             this.pnlTheLoai.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLMH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLC)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
