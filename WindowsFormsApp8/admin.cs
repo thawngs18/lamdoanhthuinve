@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
+
 
 namespace WindowsFormsApp8
 {
@@ -16,7 +19,8 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-    
+        string connectionString = "Server=MSI\\SQLEXPRESS;Database=rapphim_login;Trusted_Connection=True;";
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -130,6 +134,32 @@ namespace WindowsFormsApp8
 
             panel2.Visible = true;
             pnlLichChieu.Visible = true;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+    {
+        try
+        {
+            connection.Open();
+
+            // Câu truy vấn
+            string query = "SELECT * FROM KhachHang";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            // Gán dữ liệu vào DataGridView
+            dataGridView1.DataSource = dataTable;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Lỗi: " + ex.Message);
+        }
+    }
         }
     }
 }

@@ -68,7 +68,6 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.pnlKhachHang = new System.Windows.Forms.Panel();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.button12 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -201,6 +200,7 @@
             this.button20 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlDoanhThu.SuspendLayout();
             this.pnlNhanVien.SuspendLayout();
@@ -216,6 +216,7 @@
             this.pnlLoaiManHinh.SuspendLayout();
             this.pnlTheLoai.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -644,7 +645,7 @@
             // 
             // pnlKhachHang
             // 
-            this.pnlKhachHang.Controls.Add(this.listView2);
+            this.pnlKhachHang.Controls.Add(this.dataGridView1);
             this.pnlKhachHang.Controls.Add(this.button12);
             this.pnlKhachHang.Controls.Add(this.textBox8);
             this.pnlKhachHang.Controls.Add(this.button11);
@@ -657,16 +658,6 @@
             this.pnlKhachHang.Name = "pnlKhachHang";
             this.pnlKhachHang.Size = new System.Drawing.Size(661, 359);
             this.pnlKhachHang.TabIndex = 11;
-            // 
-            // listView2
-            // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(64, 154);
-            this.listView2.Margin = new System.Windows.Forms.Padding(2);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(579, 192);
-            this.listView2.TabIndex = 7;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // button12
             // 
@@ -729,6 +720,7 @@
             this.button8.TabIndex = 1;
             this.button8.Text = "Xem";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // groupBox1
             // 
@@ -2073,6 +2065,14 @@
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(64, 155);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(577, 174);
+            this.dataGridView1.TabIndex = 7;
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2120,6 +2120,7 @@
             this.pnlTheLoai.ResumeLayout(false);
             this.pnlTheLoai.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2161,7 +2162,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Panel pnlNhanVien;
@@ -2299,5 +2299,6 @@
         private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Panel pnlLichChieu;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
