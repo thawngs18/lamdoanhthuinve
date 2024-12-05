@@ -20,6 +20,7 @@ namespace WindowsFormsApp8
         private void button1_Click(object sender, EventArgs e)
         {
            
+
             string cn = "";
             if (radioButton1.Checked == true)
             {

@@ -19,7 +19,7 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-        string connectionString = "Server=MSI\\SQLEXPRESS;Database=rapphim_login;Trusted_Connection=True;";
+        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim_login;Trusted_Connection=True;";
 
 
         private void button1_Click_1(object sender, EventArgs e)
