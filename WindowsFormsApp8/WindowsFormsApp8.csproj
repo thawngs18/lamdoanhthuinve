@@ -59,11 +59,11 @@
     <Compile Include="DatLaiMK.Designer.cs">
       <DependentUpon>DatLaiMK.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="BanVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BanVe.Designer.cs">
+      <DependentUpon>BanVe.cs</DependentUpon>
     </Compile>
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
@@ -94,8 +94,8 @@
     <EmbeddedResource Include="DatLaiMK.resx">
       <DependentUpon>DatLaiMK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="BanVe.resx">
+      <DependentUpon>BanVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="chonCN.resx">
       <DependentUpon>chonCN.cs</DependentUpon>

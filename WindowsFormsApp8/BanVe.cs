@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace WindowsFormsApp8
 {
 
-    public partial class Form1 : Form
+    public partial class BanVe : Form
     {
         public static string GetAsciiString(int[] numbers)
         {
@@ -24,7 +24,7 @@ namespace WindowsFormsApp8
 
             return sb.ToString();
         }
-        public Form1()
+        public BanVe()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp8
 {
-    partial class Form1
+    partial class BanVe
     {
         /// <summary>
         /// Required designer variable.
