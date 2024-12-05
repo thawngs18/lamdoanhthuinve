@@ -163,14 +163,6 @@ namespace WindowsFormsApp8
     }
         }
 
-        private void pnlDinhDang_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void button43_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
