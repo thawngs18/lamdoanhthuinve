@@ -1701,7 +1701,7 @@
             this.pnlNV.Controls.Add(this.label15);
             this.pnlNV.Controls.Add(this.label14);
             this.pnlNV.Controls.Add(this.label1);
-            this.pnlNV.Location = new System.Drawing.Point(23, 95);
+            this.pnlNV.Location = new System.Drawing.Point(791, 77);
             this.pnlNV.Name = "pnlNV";
             this.pnlNV.Size = new System.Drawing.Size(712, 396);
             this.pnlNV.TabIndex = 22;
@@ -1757,6 +1757,7 @@
             this.btnThemNV.TabIndex = 13;
             this.btnThemNV.Text = "Them";
             this.btnThemNV.UseVisualStyleBackColor = true;
+            this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
             // 
             // btnXemNV
             // 
@@ -1766,6 +1767,7 @@
             this.btnXemNV.TabIndex = 12;
             this.btnXemNV.Text = "Xem";
             this.btnXemNV.UseVisualStyleBackColor = true;
+            this.btnXemNV.Click += new System.EventHandler(this.btnXemNV_Click);
             // 
             // txtCCCDNV
             // 

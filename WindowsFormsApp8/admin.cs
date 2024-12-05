@@ -24,8 +24,9 @@ namespace WindowsFormsApp8
 
         private void admin_Load(object sender, EventArgs e)
         {
-            Panel[] panels = {panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai,pnlPhongChieu };
-            foreach (var pan in panels) {
+            Panel[] panels = { panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            foreach (var pan in panels)
+            {
                 pan.Visible = false;
             }
         }
@@ -33,7 +34,7 @@ namespace WindowsFormsApp8
         private void button3_Click(object sender, EventArgs e)
         {
             this.Text = "Nhan Vien";
-            Panel[] panels = {panel2,pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai,pnlPhongChieu };
+            Panel[] panels = { panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
             foreach (var pan in panels)
             {
                 pan.Visible = false;
@@ -128,6 +129,75 @@ namespace WindowsFormsApp8
             panel2.Visible = true;
             pnlLichChieu.Visible = true;
 
+        }
+
+        private void btnXemNV_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM NhanVien";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvNV.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnThemNV_Click(object sender, EventArgs e)
+        {
+            {
+                string idnv = txtMaNV.Text;
+                string tennv = txtHoTenNV.Text;
+                string ns = txtDateNV.Text;
+                string dc = txtDCNV.Text;
+                string sdt = txtSDTNV.Text;
+                int cmnd = int.Parse(txtCCCDNV.Text);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO NhanVien(id,HoTen,NgaySinh,DiaChi,SDT,CMND) VALUES (@id,@Name,@ns,@Address,@Phone,@cmnd)";
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@Name",tennv);
+                            cmd.Parameters.AddWithValue("@Phone",sdt);
+                            cmd.Parameters.AddWithValue("@Address",dc);
+                            cmd.Parameters.AddWithValue("@id",idnv);
+                            cmd.Parameters.AddWithValue("@cmnd", cmnd);
+                            cmd.Parameters.AddWithValue("@ns", ns);
+                            
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm Nhan Vien thành công!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm Nhan Vien thất bại.");
+                            }
+                        }
+                        btnXemNV.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
