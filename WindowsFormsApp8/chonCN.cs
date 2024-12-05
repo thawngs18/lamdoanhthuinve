@@ -12,9 +12,10 @@ namespace WindowsFormsApp8
 {
     public partial class chonCN : Form
     {
-        public chonCN(string cn)
+        public chonCN(string cn,string name)
         {
             InitializeComponent();
+            button4.Text = name;
             label3.Text = cn;
         }
 
