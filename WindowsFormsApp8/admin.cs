@@ -99,6 +99,7 @@ namespace WindowsFormsApp8
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlTheLoai.Visible = true;
+            LoadTheLoaiToCheckedListBox();
         }
 
         private void button21_Click(object sender, EventArgs e)
@@ -1115,6 +1116,43 @@ namespace WindowsFormsApp8
                 MessageBox.Show("Vui lòng chọn một hàng để sửa.");
             }
         }
+        //Phim
+
+        private void LoadTheLoaiToCheckedListBox()
+        {
+            // Chuỗi kết nối tới cơ sở dữ liệu
+            using (SqlConnection conn = new SqlConnection(connectionString)) ;
+
+                // Truy vấn lấy tên thể loại
+                string query = "SELECT TenTheLoai FROM TheLoai";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    // Xóa danh sách cũ trước khi thêm mới
+                    clbTheLoaiP.Items.Clear();
+
+                    // Thêm từng tên thể loại vào CheckedListBox
+                    while (reader.Read())
+                    {
+                        clbTheLoaiP.Items.Add(reader["TenTheLoai"].ToString());
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
 
         private void btnXemP_Click(object sender, EventArgs e)
         {
@@ -1140,6 +1178,8 @@ namespace WindowsFormsApp8
                 }
             }
         }
+
+
     }
    
 }
