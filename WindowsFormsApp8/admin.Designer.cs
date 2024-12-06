@@ -313,7 +313,7 @@
             this.pnlPhongChieu.Controls.Add(this.btnSuaPC);
             this.pnlPhongChieu.Controls.Add(this.btnXoaPC);
             this.pnlPhongChieu.Controls.Add(this.btnThemPC);
-            this.pnlPhongChieu.Location = new System.Drawing.Point(837, 308);
+            this.pnlPhongChieu.Location = new System.Drawing.Point(178, 480);
             this.pnlPhongChieu.Name = "pnlPhongChieu";
             this.pnlPhongChieu.Size = new System.Drawing.Size(564, 350);
             this.pnlPhongChieu.TabIndex = 16;
@@ -531,7 +531,7 @@
             this.pnlPhim.Controls.Add(this.label29);
             this.pnlPhim.Controls.Add(this.label28);
             this.pnlPhim.Controls.Add(this.label27);
-            this.pnlPhim.Location = new System.Drawing.Point(183, 478);
+            this.pnlPhim.Location = new System.Drawing.Point(781, 480);
             this.pnlPhim.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPhim.Name = "pnlPhim";
             this.pnlPhim.Size = new System.Drawing.Size(571, 350);
@@ -1308,7 +1308,7 @@
             this.pnlTheLoai.Controls.Add(this.button31);
             this.pnlTheLoai.Controls.Add(this.button32);
             this.pnlTheLoai.Controls.Add(this.button33);
-            this.pnlTheLoai.Location = new System.Drawing.Point(183, 478);
+            this.pnlTheLoai.Location = new System.Drawing.Point(781, 98);
             this.pnlTheLoai.Name = "pnlTheLoai";
             this.pnlTheLoai.Size = new System.Drawing.Size(570, 350);
             this.pnlTheLoai.TabIndex = 18;
