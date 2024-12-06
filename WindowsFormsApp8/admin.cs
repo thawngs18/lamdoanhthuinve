@@ -722,6 +722,216 @@ namespace WindowsFormsApp8
             }
 
         }
+
+  //phong chieu
+
+
+        private void btnThemPC_Click(object sender, EventArgs e)
+        {
+            {
+                string idPC = txtMaPc.Text;
+                string tenPC = txtTenPC.Text;
+                string idMh = txtMHPC.Text;
+                int scn = int.Parse(txtChoNgoiPC.Text);
+                int tt = int.Parse(txtTinhTrangPc.Text);
+                int shghe = int.Parse(txtHangGhePC.Text);
+                int sghemothang = int.Parse(txtGheMoiHangPC.Text);
+
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO PhongChieu(id, TenPhong, idManHinh, SoChoNgoi, TinhTrang, SoHangGhe, SoGheMotHang) VALUES (@id,@Name,@idmh,@scn,@tt,@shghe,@sogh1hang)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idPC);
+                            cmd.Parameters.AddWithValue("@Name", tenPC);
+                            cmd.Parameters.AddWithValue("@idmh", idMh);
+                            cmd.Parameters.AddWithValue("@scn", scn);
+                            cmd.Parameters.AddWithValue("@tt", tt);
+                            cmd.Parameters.AddWithValue("@shghe", shghe);
+                            cmd.Parameters.AddWithValue("@sogh1hang",sghemothang );
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm phong chieu thanh cong!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm phong chieu that bai.");
+                            }
+                        }
+                        btnXemPC.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnXemPC_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM PhongChieu";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvPC.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnXoaPC_Click(object sender, EventArgs e)
+        {
+
+            if (dgvPC.SelectedRows.Count > 0)
+            {
+
+                var id = dgvPC.SelectedRows[0].Cells["id"].Value;
+
+                // Xác nhận trước khi xóa
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khach hang này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM PhongChieu WHERE id = @id";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Xóa phong chieu thanh cong!");
+                                    btnXemPC.PerformClick(); // Tải lại danh sách sau khi xóa
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa phong chieu that bai ");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một phong chieu để xóa.");
+            }
+
+        }
+
+
+        private void btnSuaPC_Click(object sender, EventArgs e)
+        {
+            if (dgvPC.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvPC.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có ID hợp lệ trong hàng được chọn.");
+                    return;
+                }
+
+
+                // Lấy thông tin mới từ TextBox
+                string idPC = txtMaPc.Text;
+                string tenPC = txtTenPC.Text;
+                string idMh = txtMHPC.Text;
+                int scn = int.Parse(txtChoNgoiPC.Text);
+                int tt = int.Parse(txtTinhTrangPc.Text);
+                int shghe = int.Parse(txtHangGhePC.Text);
+                int sghemothang = int.Parse(txtGheMoiHangPC.Text);
+
+
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE PhongChieu SET TenPhong = @Name,  idManHinh = @idmh, SoChoNgoi = @scn, TinhTrang = @tt, SoHangGhe = @shghe, SoGheMotHang = @sogh1hang WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idPC);
+                            cmd.Parameters.AddWithValue("@Name", tenPC);
+                            cmd.Parameters.AddWithValue("@idmh", idMh);
+                            cmd.Parameters.AddWithValue("@scn", scn);
+                            cmd.Parameters.AddWithValue("@tt", tt);
+                            cmd.Parameters.AddWithValue("@shghe", shghe);
+                            cmd.Parameters.AddWithValue("@sogh1hang", sghemothang);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                btnXemPC.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy phong chieu để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+        }
+
+        private void dgvPC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvPC.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgvPC.SelectedRows[0];
+                txtMaPc.Text = row.Cells["id"].Value?.ToString();
+                txtTenPC.Text = row.Cells["TenPhong"].Value?.ToString();
+                txtMHPC.Text = row.Cells["idManHinh"].Value?.ToString();
+                txtChoNgoiPC.Text = row.Cells["SoChoNgoi"].Value?.ToString();
+                txtTinhTrangPc.Text = row.Cells["TinhTrang"].Value?.ToString();
+                txtHangGhePC.Text = row.Cells["SoHangGhe"].Value?.ToString();
+                txtGheMoiHangPC.Text = row.Cells["SoGheMotHang"].Value?.ToString();
+
+            }
+        }
     }
-    
+   
 }

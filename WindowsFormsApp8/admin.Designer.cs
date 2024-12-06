@@ -35,24 +35,25 @@
             this.button5 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlPhongChieu = new System.Windows.Forms.Panel();
+            this.btnXemPC = new System.Windows.Forms.Button();
             this.dgvPC = new System.Windows.Forms.DataGridView();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtGheMoiHangPC = new System.Windows.Forms.TextBox();
+            this.txtHangGhePC = new System.Windows.Forms.TextBox();
+            this.txtTinhTrangPc = new System.Windows.Forms.TextBox();
+            this.txtChoNgoiPC = new System.Windows.Forms.TextBox();
+            this.txtMHPC = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtTenPC = new System.Windows.Forms.TextBox();
+            this.txtMaPc = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
+            this.btnSuaPC = new System.Windows.Forms.Button();
+            this.btnXoaPC = new System.Windows.Forms.Button();
+            this.btnThemPC = new System.Windows.Forms.Button();
             this.pnlPhim = new System.Windows.Forms.Panel();
             this.dgvP = new System.Windows.Forms.DataGridView();
             this.button37 = new System.Windows.Forms.Button();
@@ -293,28 +294,39 @@
             // 
             // pnlPhongChieu
             // 
+            this.pnlPhongChieu.Controls.Add(this.btnXemPC);
             this.pnlPhongChieu.Controls.Add(this.dgvPC);
-            this.pnlPhongChieu.Controls.Add(this.textBox22);
-            this.pnlPhongChieu.Controls.Add(this.textBox21);
-            this.pnlPhongChieu.Controls.Add(this.textBox20);
-            this.pnlPhongChieu.Controls.Add(this.textBox19);
-            this.pnlPhongChieu.Controls.Add(this.textBox18);
+            this.pnlPhongChieu.Controls.Add(this.txtGheMoiHangPC);
+            this.pnlPhongChieu.Controls.Add(this.txtHangGhePC);
+            this.pnlPhongChieu.Controls.Add(this.txtTinhTrangPc);
+            this.pnlPhongChieu.Controls.Add(this.txtChoNgoiPC);
+            this.pnlPhongChieu.Controls.Add(this.txtMHPC);
             this.pnlPhongChieu.Controls.Add(this.label26);
             this.pnlPhongChieu.Controls.Add(this.label25);
             this.pnlPhongChieu.Controls.Add(this.label24);
             this.pnlPhongChieu.Controls.Add(this.label23);
             this.pnlPhongChieu.Controls.Add(this.label22);
-            this.pnlPhongChieu.Controls.Add(this.textBox16);
-            this.pnlPhongChieu.Controls.Add(this.textBox17);
+            this.pnlPhongChieu.Controls.Add(this.txtTenPC);
+            this.pnlPhongChieu.Controls.Add(this.txtMaPc);
             this.pnlPhongChieu.Controls.Add(this.label20);
             this.pnlPhongChieu.Controls.Add(this.label21);
-            this.pnlPhongChieu.Controls.Add(this.button28);
-            this.pnlPhongChieu.Controls.Add(this.button29);
-            this.pnlPhongChieu.Controls.Add(this.button30);
-            this.pnlPhongChieu.Location = new System.Drawing.Point(183, 478);
+            this.pnlPhongChieu.Controls.Add(this.btnSuaPC);
+            this.pnlPhongChieu.Controls.Add(this.btnXoaPC);
+            this.pnlPhongChieu.Controls.Add(this.btnThemPC);
+            this.pnlPhongChieu.Location = new System.Drawing.Point(837, 308);
             this.pnlPhongChieu.Name = "pnlPhongChieu";
             this.pnlPhongChieu.Size = new System.Drawing.Size(564, 350);
             this.pnlPhongChieu.TabIndex = 16;
+            // 
+            // btnXemPC
+            // 
+            this.btnXemPC.Location = new System.Drawing.Point(371, 6);
+            this.btnXemPC.Name = "btnXemPC";
+            this.btnXemPC.Size = new System.Drawing.Size(73, 49);
+            this.btnXemPC.TabIndex = 19;
+            this.btnXemPC.Text = "Xem";
+            this.btnXemPC.UseVisualStyleBackColor = true;
+            this.btnXemPC.Click += new System.EventHandler(this.btnXemPC_Click);
             // 
             // dgvPC
             // 
@@ -324,46 +336,47 @@
             this.dgvPC.RowHeadersWidth = 51;
             this.dgvPC.Size = new System.Drawing.Size(304, 167);
             this.dgvPC.TabIndex = 18;
+            this.dgvPC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPC_CellClick);
             // 
-            // textBox22
+            // txtGheMoiHangPC
             // 
-            this.textBox22.Location = new System.Drawing.Point(412, 258);
-            this.textBox22.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(76, 20);
-            this.textBox22.TabIndex = 17;
+            this.txtGheMoiHangPC.Location = new System.Drawing.Point(412, 258);
+            this.txtGheMoiHangPC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtGheMoiHangPC.Name = "txtGheMoiHangPC";
+            this.txtGheMoiHangPC.Size = new System.Drawing.Size(76, 20);
+            this.txtGheMoiHangPC.TabIndex = 17;
             // 
-            // textBox21
+            // txtHangGhePC
             // 
-            this.textBox21.Location = new System.Drawing.Point(412, 228);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(76, 20);
-            this.textBox21.TabIndex = 16;
+            this.txtHangGhePC.Location = new System.Drawing.Point(412, 228);
+            this.txtHangGhePC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHangGhePC.Name = "txtHangGhePC";
+            this.txtHangGhePC.Size = new System.Drawing.Size(76, 20);
+            this.txtHangGhePC.TabIndex = 16;
             // 
-            // textBox20
+            // txtTinhTrangPc
             // 
-            this.textBox20.Location = new System.Drawing.Point(412, 195);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(76, 20);
-            this.textBox20.TabIndex = 15;
+            this.txtTinhTrangPc.Location = new System.Drawing.Point(412, 195);
+            this.txtTinhTrangPc.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTinhTrangPc.Name = "txtTinhTrangPc";
+            this.txtTinhTrangPc.Size = new System.Drawing.Size(76, 20);
+            this.txtTinhTrangPc.TabIndex = 15;
             // 
-            // textBox19
+            // txtChoNgoiPC
             // 
-            this.textBox19.Location = new System.Drawing.Point(412, 162);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(76, 20);
-            this.textBox19.TabIndex = 14;
+            this.txtChoNgoiPC.Location = new System.Drawing.Point(412, 162);
+            this.txtChoNgoiPC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtChoNgoiPC.Name = "txtChoNgoiPC";
+            this.txtChoNgoiPC.Size = new System.Drawing.Size(76, 20);
+            this.txtChoNgoiPC.TabIndex = 14;
             // 
-            // textBox18
+            // txtMHPC
             // 
-            this.textBox18.Location = new System.Drawing.Point(412, 129);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(76, 20);
-            this.textBox18.TabIndex = 13;
+            this.txtMHPC.Location = new System.Drawing.Point(412, 129);
+            this.txtMHPC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMHPC.Name = "txtMHPC";
+            this.txtMHPC.Size = new System.Drawing.Size(76, 20);
+            this.txtMHPC.TabIndex = 13;
             // 
             // label26
             // 
@@ -420,21 +433,21 @@
             this.label22.TabIndex = 8;
             this.label22.Text = "Màn Hình";
             // 
-            // textBox16
+            // txtTenPC
             // 
-            this.textBox16.Location = new System.Drawing.Point(412, 98);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(76, 20);
-            this.textBox16.TabIndex = 7;
+            this.txtTenPC.Location = new System.Drawing.Point(412, 98);
+            this.txtTenPC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenPC.Name = "txtTenPC";
+            this.txtTenPC.Size = new System.Drawing.Size(76, 20);
+            this.txtTenPC.TabIndex = 7;
             // 
-            // textBox17
+            // txtMaPc
             // 
-            this.textBox17.Location = new System.Drawing.Point(412, 61);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(76, 20);
-            this.textBox17.TabIndex = 6;
+            this.txtMaPc.Location = new System.Drawing.Point(412, 61);
+            this.txtMaPc.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaPc.Name = "txtMaPc";
+            this.txtMaPc.Size = new System.Drawing.Size(76, 20);
+            this.txtMaPc.TabIndex = 6;
             // 
             // label20
             // 
@@ -458,35 +471,38 @@
             this.label21.TabIndex = 4;
             this.label21.Text = "Mã Phòng";
             // 
-            // button28
+            // btnSuaPC
             // 
-            this.button28.Location = new System.Drawing.Point(245, 6);
-            this.button28.Margin = new System.Windows.Forms.Padding(2);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(73, 49);
-            this.button28.TabIndex = 2;
-            this.button28.Text = "Sửa";
-            this.button28.UseVisualStyleBackColor = true;
+            this.btnSuaPC.Location = new System.Drawing.Point(245, 6);
+            this.btnSuaPC.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSuaPC.Name = "btnSuaPC";
+            this.btnSuaPC.Size = new System.Drawing.Size(73, 49);
+            this.btnSuaPC.TabIndex = 2;
+            this.btnSuaPC.Text = "Sửa";
+            this.btnSuaPC.UseVisualStyleBackColor = true;
+            this.btnSuaPC.Click += new System.EventHandler(this.btnSuaPC_Click);
             // 
-            // button29
+            // btnXoaPC
             // 
-            this.button29.Location = new System.Drawing.Point(129, 6);
-            this.button29.Margin = new System.Windows.Forms.Padding(2);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(73, 49);
-            this.button29.TabIndex = 1;
-            this.button29.Text = "Xóa";
-            this.button29.UseVisualStyleBackColor = true;
+            this.btnXoaPC.Location = new System.Drawing.Point(129, 6);
+            this.btnXoaPC.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoaPC.Name = "btnXoaPC";
+            this.btnXoaPC.Size = new System.Drawing.Size(73, 49);
+            this.btnXoaPC.TabIndex = 1;
+            this.btnXoaPC.Text = "Xóa";
+            this.btnXoaPC.UseVisualStyleBackColor = true;
+            this.btnXoaPC.Click += new System.EventHandler(this.btnXoaPC_Click);
             // 
-            // button30
+            // btnThemPC
             // 
-            this.button30.Location = new System.Drawing.Point(19, 6);
-            this.button30.Margin = new System.Windows.Forms.Padding(2);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(73, 49);
-            this.button30.TabIndex = 0;
-            this.button30.Text = "Thêm";
-            this.button30.UseVisualStyleBackColor = true;
+            this.btnThemPC.Location = new System.Drawing.Point(19, 6);
+            this.btnThemPC.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThemPC.Name = "btnThemPC";
+            this.btnThemPC.Size = new System.Drawing.Size(73, 49);
+            this.btnThemPC.TabIndex = 0;
+            this.btnThemPC.Text = "Thêm";
+            this.btnThemPC.UseVisualStyleBackColor = true;
+            this.btnThemPC.Click += new System.EventHandler(this.btnThemPC_Click);
             // 
             // pnlPhim
             // 
@@ -1184,7 +1200,7 @@
             this.pnlLoaiManHinh.Controls.Add(this.button27);
             this.pnlLoaiManHinh.Controls.Add(this.button26);
             this.pnlLoaiManHinh.Controls.Add(this.button25);
-            this.pnlLoaiManHinh.Location = new System.Drawing.Point(825, 485);
+            this.pnlLoaiManHinh.Location = new System.Drawing.Point(176, 485);
             this.pnlLoaiManHinh.Name = "pnlLoaiManHinh";
             this.pnlLoaiManHinh.Size = new System.Drawing.Size(570, 343);
             this.pnlLoaiManHinh.TabIndex = 15;
@@ -2106,23 +2122,23 @@
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Panel pnlPhongChieu;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtGheMoiHangPC;
+        private System.Windows.Forms.TextBox txtHangGhePC;
+        private System.Windows.Forms.TextBox txtTinhTrangPc;
+        private System.Windows.Forms.TextBox txtChoNgoiPC;
+        private System.Windows.Forms.TextBox txtMHPC;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtTenPC;
+        private System.Windows.Forms.TextBox txtMaPc;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button btnSuaPC;
+        private System.Windows.Forms.Button btnXoaPC;
+        private System.Windows.Forms.Button btnThemPC;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button33;
@@ -2278,5 +2294,6 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.DataGridView dgvKH;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnXemPC;
     }
 }
