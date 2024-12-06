@@ -303,6 +303,7 @@ namespace WindowsFormsApp8
                     }
                     catch (Exception ex)
                     {
+
                         MessageBox.Show("Lỗi: " + ex.Message);
                     }
                 }
