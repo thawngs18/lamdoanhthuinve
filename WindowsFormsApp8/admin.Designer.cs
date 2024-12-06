@@ -118,6 +118,7 @@
             this.button42 = new System.Windows.Forms.Button();
             this.button43 = new System.Windows.Forms.Button();
             this.pnlLoaiManHinh = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.dgvLMH = new System.Windows.Forms.DataGridView();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -199,7 +200,6 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlPhongChieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
@@ -1189,6 +1189,16 @@
             this.pnlLoaiManHinh.Size = new System.Drawing.Size(570, 343);
             this.pnlLoaiManHinh.TabIndex = 15;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(349, 8);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(66, 42);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Xem";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // dgvLMH
             // 
             this.dgvLMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1197,6 +1207,7 @@
             this.dgvLMH.RowHeadersWidth = 51;
             this.dgvLMH.Size = new System.Drawing.Size(304, 160);
             this.dgvLMH.TabIndex = 8;
+            this.dgvLMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLMH_CellClick);
             // 
             // textBox13
             // 
@@ -1245,6 +1256,7 @@
             this.button27.TabIndex = 2;
             this.button27.Text = "Sửa";
             this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // button26
             // 
@@ -1255,6 +1267,7 @@
             this.button26.TabIndex = 1;
             this.button26.Text = "Xóa";
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // button25
             // 
@@ -1265,6 +1278,7 @@
             this.button25.TabIndex = 0;
             this.button25.Text = "Thêm";
             this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // pnlTheLoai
             // 
@@ -2012,16 +2026,6 @@
             this.label55.Size = new System.Drawing.Size(89, 18);
             this.label55.TabIndex = 0;
             this.label55.Text = "Chọn phim";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(349, 8);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(66, 42);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Xem";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // admin
             // 

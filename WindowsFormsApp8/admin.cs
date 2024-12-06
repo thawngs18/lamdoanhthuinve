@@ -544,7 +544,7 @@ namespace WindowsFormsApp8
 
         }
 
-        //xem Loai man hinh
+        //Loai man hinh
         private void button6_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -568,6 +568,159 @@ namespace WindowsFormsApp8
                     MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            {
+                string idMH = textBox4.Text;
+                string tenMH = textBox13.Text;
+
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO LoaiManHinh(id,TenMH) VALUES (@id,@Name)";
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id",idMH);
+                            cmd.Parameters.AddWithValue("@Name",tenMH);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm loai man hinh thanh cong!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm loai man hinh that bai.");
+                            }
+                        }
+                        button6.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void dgvLMH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvLMH.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgvLMH.SelectedRows[0];
+                textBox4.Text = row.Cells["id"].Value?.ToString();
+                textBox13.Text = row.Cells["TenMH"].Value?.ToString();
+            }
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            if (dgvLMH.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvLMH.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có ID hợp lệ trong hàng được chọn.");
+                    return;
+                }
+
+
+                // Lấy thông tin mới từ TextBox
+                string id = textBox4.Text;
+                string tenMH = textBox13.Text;
+
+
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE LoaiManHinh SET TenMH = @Name WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@ID", id);
+                            cmd.Parameters.AddWithValue("@Name", tenMH);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                button6.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy loai man hinh để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            if (dgvLMH.SelectedRows.Count > 0)
+            {
+
+                var id = dgvLMH.SelectedRows[0].Cells["id"].Value;
+
+                // Xác nhận trước khi xóa
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khach hang này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM LoaiManHinh WHERE id = @id";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Xóa loai man hinh thanh cong!");
+                                    button6.PerformClick(); // Tải lại danh sách sau khi xóa
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa loai man hinh that bai ");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một loai man hinh để xóa.");
+            }
+
         }
     }
     
