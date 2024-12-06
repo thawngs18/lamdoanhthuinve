@@ -146,6 +146,7 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.pnlKH = new System.Windows.Forms.Panel();
+            this.dgvKH = new System.Windows.Forms.DataGridView();
             this.nmupdownKH = new System.Windows.Forms.NumericUpDown();
             this.btnsearchkh = new System.Windows.Forms.Button();
             this.btnXoaKh = new System.Windows.Forms.Button();
@@ -198,7 +199,7 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
-            this.dgv_KH = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlPhongChieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
@@ -215,12 +216,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTL)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlKH.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmupdownKH)).BeginInit();
             this.pnlNV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
             this.pnlDoanhThu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDoanhThu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_KH)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -1174,6 +1175,7 @@
             // 
             // pnlLoaiManHinh
             // 
+            this.pnlLoaiManHinh.Controls.Add(this.button6);
             this.pnlLoaiManHinh.Controls.Add(this.dgvLMH);
             this.pnlLoaiManHinh.Controls.Add(this.textBox13);
             this.pnlLoaiManHinh.Controls.Add(this.textBox4);
@@ -1182,7 +1184,7 @@
             this.pnlLoaiManHinh.Controls.Add(this.button27);
             this.pnlLoaiManHinh.Controls.Add(this.button26);
             this.pnlLoaiManHinh.Controls.Add(this.button25);
-            this.pnlLoaiManHinh.Location = new System.Drawing.Point(183, 478);
+            this.pnlLoaiManHinh.Location = new System.Drawing.Point(825, 485);
             this.pnlLoaiManHinh.Name = "pnlLoaiManHinh";
             this.pnlLoaiManHinh.Size = new System.Drawing.Size(570, 343);
             this.pnlLoaiManHinh.TabIndex = 15;
@@ -1470,7 +1472,7 @@
             // 
             // pnlKH
             // 
-            this.pnlKH.Controls.Add(this.dgv_KH);
+            this.pnlKH.Controls.Add(this.dgvKH);
             this.pnlKH.Controls.Add(this.nmupdownKH);
             this.pnlKH.Controls.Add(this.btnsearchkh);
             this.pnlKH.Controls.Add(this.btnXoaKh);
@@ -1491,14 +1493,28 @@
             this.pnlKH.Controls.Add(this.label11);
             this.pnlKH.Controls.Add(this.label4);
             this.pnlKH.Controls.Add(this.LblMaKh);
-            this.pnlKH.Location = new System.Drawing.Point(30, 93);
+            this.pnlKH.Location = new System.Drawing.Point(28, 91);
             this.pnlKH.Name = "pnlKH";
             this.pnlKH.Size = new System.Drawing.Size(712, 396);
             this.pnlKH.TabIndex = 21;
             // 
+            // dgvKH
+            // 
+            this.dgvKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKH.Location = new System.Drawing.Point(38, 186);
+            this.dgvKH.Name = "dgvKH";
+            this.dgvKH.Size = new System.Drawing.Size(594, 187);
+            this.dgvKH.TabIndex = 7;
+            this.dgvKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKH_CellClick);
+            // 
             // nmupdownKH
             // 
-            this.nmupdownKH.Location = new System.Drawing.Point(627, 27);
+            this.nmupdownKH.Location = new System.Drawing.Point(621, 20);
+            this.nmupdownKH.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nmupdownKH.Name = "nmupdownKH";
             this.nmupdownKH.Size = new System.Drawing.Size(65, 20);
             this.nmupdownKH.TabIndex = 6;
@@ -1521,6 +1537,7 @@
             this.btnXoaKh.TabIndex = 3;
             this.btnXoaKh.Text = "Xoa";
             this.btnXoaKh.UseVisualStyleBackColor = true;
+            this.btnXoaKh.Click += new System.EventHandler(this.btnXoaKh_Click);
             // 
             // btnSuaKh
             // 
@@ -1531,6 +1548,7 @@
             this.btnSuaKh.TabIndex = 2;
             this.btnSuaKh.Text = "Sua";
             this.btnSuaKh.UseVisualStyleBackColor = true;
+            this.btnSuaKh.Click += new System.EventHandler(this.btnSuaKh_Click);
             // 
             // btnThemKh
             // 
@@ -1541,6 +1559,7 @@
             this.btnThemKh.TabIndex = 2;
             this.btnThemKh.Text = "Them KH";
             this.btnThemKh.UseVisualStyleBackColor = true;
+            this.btnThemKh.Click += new System.EventHandler(this.btnThemKh_Click);
             // 
             // btnXemKh
             // 
@@ -1551,6 +1570,7 @@
             this.btnXemKh.TabIndex = 2;
             this.btnXemKh.Text = "Xem";
             this.btnXemKh.UseVisualStyleBackColor = true;
+            this.btnXemKh.Click += new System.EventHandler(this.btnXemKh_Click);
             // 
             // txtsearchkh
             // 
@@ -1993,13 +2013,15 @@
             this.label55.TabIndex = 0;
             this.label55.Text = "Chọn phim";
             // 
-            // dgv_KH
+            // button6
             // 
-            this.dgv_KH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_KH.Location = new System.Drawing.Point(38, 186);
-            this.dgv_KH.Name = "dgv_KH";
-            this.dgv_KH.Size = new System.Drawing.Size(594, 187);
-            this.dgv_KH.TabIndex = 7;
+            this.button6.Location = new System.Drawing.Point(349, 8);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(66, 42);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Xem";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // admin
             // 
@@ -2045,6 +2067,7 @@
             this.panel2.ResumeLayout(false);
             this.pnlKH.ResumeLayout(false);
             this.pnlKH.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmupdownKH)).EndInit();
             this.pnlNV.ResumeLayout(false);
             this.pnlNV.PerformLayout();
@@ -2052,7 +2075,6 @@
             this.pnlDoanhThu.ResumeLayout(false);
             this.pnlDoanhThu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDoanhThu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_KH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2197,7 +2219,6 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.DataGridView dgvKH;
         private System.Windows.Forms.Panel pnlKH;
         private System.Windows.Forms.TextBox txtHoTenKH;
         private System.Windows.Forms.TextBox txtMaKh;
@@ -2215,7 +2236,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgvkhachhang;
         private System.Windows.Forms.TextBox txtCMNDKH;
         private System.Windows.Forms.TextBox txtNsKH;
         private System.Windows.Forms.Label label13;
@@ -2252,6 +2272,7 @@
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.DataGridView dgv_KH;
+        private System.Windows.Forms.DataGridView dgvKH;
+        private System.Windows.Forms.Button button6;
     }
 }

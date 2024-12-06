@@ -20,7 +20,7 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim_login;Trusted_Connection=True;";
+        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim;Trusted_Connection=True;";
 
         private void admin_Load(object sender, EventArgs e)
         {
@@ -40,6 +40,7 @@ namespace WindowsFormsApp8
                 pan.Visible = false;
             }
             pnlNV.Visible = true;
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -325,6 +326,247 @@ namespace WindowsFormsApp8
                 txtDCNV.Text = row.Cells["DiaChi"].Value?.ToString();
                 txtSDTNV.Text = row.Cells["SDT"].Value?.ToString();
                 txtCCCDNV.Text = row.Cells["CMND"].Value?.ToString();
+            }
+        }
+
+        private void btnXemKh_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM KhachHang";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvKH.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void btnThemKh_Click(object sender, EventArgs e)
+        {
+            {
+                string idnv = txtMaKh.Text;
+                string tennv = txtHoTenKH.Text;
+                string ns = txtNsKH.Text;
+                string dc = txtDiaChiKH.Text;
+                string sdt = txtSDTKH.Text;
+                int cmnd = int.Parse(txtCMNDKH.Text);
+                int dtl =  int.Parse(nmupdownKH.Value.ToString());
+                
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO KhachHang(id,HoTen,NgaySinh,DiaChi,SDT,CMND,DiemTichLuy) VALUES (@id,@Name,@ns,@Address,@Phone,@cmnd,@dtl)";
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@Name", tennv);
+                            cmd.Parameters.AddWithValue("@Phone", sdt);
+                            cmd.Parameters.AddWithValue("@Address", dc);
+                            cmd.Parameters.AddWithValue("@id", idnv);
+                            cmd.Parameters.AddWithValue("@cmnd", cmnd);
+                            cmd.Parameters.AddWithValue("@ns", ns);
+                            cmd.Parameters.AddWithValue("@dtl",dtl);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm khach hang thanh cong!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm khach hang that bai.");
+                            }
+                        }
+                        btnXemKh.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+
+        }
+
+        private void btnXoaKh_Click(object sender, EventArgs e)
+        {
+            if (dgvKH.SelectedRows.Count > 0)
+            {
+
+                var id = dgvKH.SelectedRows[0].Cells["id"].Value;
+
+                // Xác nhận trước khi xóa
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khach hang này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM KhachHang WHERE id = @idkh";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@idkh", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Xóa khach hang thanh cong!");
+                                    btnXemKh.PerformClick(); // Tải lại danh sách sau khi xóa
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa khach hang that bai ");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một khach hang để xóa.");
+            }
+
+        }
+
+        private void btnSuaKh_Click(object sender, EventArgs e)
+        {
+            if (dgvKH.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvKH.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có ID hợp lệ trong hàng được chọn.");
+                    return;
+                }
+
+
+                // Lấy thông tin mới từ TextBox
+                string idkh = txtMaKh.Text;
+                string tenkh = txtHoTenKH.Text;
+                string ns = txtNsKH.Text;
+                string dc = txtDiaChiKH.Text;
+                string sdt = txtSDTKH.Text;
+                int cmnd = int.Parse(txtCMNDKH.Text);
+                int dtl = int.Parse(nmupdownKH.Value.ToString());
+
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE KhachHang SET HoTen = @Name,NgaySinh = @ns,DiaChi = @Address,SDT = @Phone,CMND = @cmnd,DiemTichLuy = @dtl WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Name", tenkh);
+                            cmd.Parameters.AddWithValue("@Phone", sdt);
+                            cmd.Parameters.AddWithValue("@Address", dc);
+                            cmd.Parameters.AddWithValue("@id", idkh);
+                            cmd.Parameters.AddWithValue("@cmnd", cmnd);
+                            cmd.Parameters.AddWithValue("@ns", ns);
+                            cmd.Parameters.AddWithValue("@dtl",dtl);
+
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                btnXemKh.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy khach hang để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+
+        }
+
+        private void dgvKH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvKH.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgvKH.SelectedRows[0];
+                txtMaKh.Text = row.Cells["id"].Value?.ToString();
+                txtHoTenKH.Text = row.Cells["HoTen"].Value?.ToString();
+                txtNsKH.Text = row.Cells["NgaySinh"].Value?.ToString();
+                txtDiaChiKH.Text = row.Cells["DiaChi"].Value?.ToString();
+                txtSDTKH.Text = row.Cells["SDT"].Value?.ToString();
+                txtCMNDKH.Text = row.Cells["CMND"].Value?.ToString();
+                var value = row.Cells["DiemTichLuy"].Value;
+                if (value != null && decimal.TryParse(value.ToString(), out decimal diemTichLuy))
+                {
+                    nmupdownKH.Value = diemTichLuy; // Gán giá trị vào NumericUpDown
+                }
+                else
+                {
+                    nmupdownKH.Value = nmupdownKH.Minimum; // Gán giá trị mặc định nếu không hợp lệ
+                }
+            }
+
+        }
+
+        //xem Loai man hinh
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM LoaiManHinh";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvLMH.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
             }
         }
     }
