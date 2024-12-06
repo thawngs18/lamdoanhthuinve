@@ -146,18 +146,18 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.pnlKH = new System.Windows.Forms.Panel();
-            this.nmupdown = new System.Windows.Forms.NumericUpDown();
+            this.nmupdownKH = new System.Windows.Forms.NumericUpDown();
             this.btnsearchkh = new System.Windows.Forms.Button();
             this.btnXoaKh = new System.Windows.Forms.Button();
             this.btnSuaKh = new System.Windows.Forms.Button();
             this.btnThemKh = new System.Windows.Forms.Button();
             this.btnXemKh = new System.Windows.Forms.Button();
             this.txtsearchkh = new System.Windows.Forms.TextBox();
-            this.txtCMND = new System.Windows.Forms.TextBox();
-            this.txtSDT = new System.Windows.Forms.TextBox();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtNs = new System.Windows.Forms.TextBox();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.txtCMNDKH = new System.Windows.Forms.TextBox();
+            this.txtSDTKH = new System.Windows.Forms.TextBox();
+            this.txtDiaChiKH = new System.Windows.Forms.TextBox();
+            this.txtNsKH = new System.Windows.Forms.TextBox();
+            this.txtHoTenKH = new System.Windows.Forms.TextBox();
             this.txtMaKh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -198,6 +198,7 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
+            this.dgv_KH = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlPhongChieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
@@ -214,11 +215,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTL)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlKH.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmupdown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmupdownKH)).BeginInit();
             this.pnlNV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
             this.pnlDoanhThu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDoanhThu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_KH)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -1468,18 +1470,19 @@
             // 
             // pnlKH
             // 
-            this.pnlKH.Controls.Add(this.nmupdown);
+            this.pnlKH.Controls.Add(this.dgv_KH);
+            this.pnlKH.Controls.Add(this.nmupdownKH);
             this.pnlKH.Controls.Add(this.btnsearchkh);
             this.pnlKH.Controls.Add(this.btnXoaKh);
             this.pnlKH.Controls.Add(this.btnSuaKh);
             this.pnlKH.Controls.Add(this.btnThemKh);
             this.pnlKH.Controls.Add(this.btnXemKh);
             this.pnlKH.Controls.Add(this.txtsearchkh);
-            this.pnlKH.Controls.Add(this.txtCMND);
-            this.pnlKH.Controls.Add(this.txtSDT);
-            this.pnlKH.Controls.Add(this.txtDiaChi);
-            this.pnlKH.Controls.Add(this.txtNs);
-            this.pnlKH.Controls.Add(this.txtHoTen);
+            this.pnlKH.Controls.Add(this.txtCMNDKH);
+            this.pnlKH.Controls.Add(this.txtSDTKH);
+            this.pnlKH.Controls.Add(this.txtDiaChiKH);
+            this.pnlKH.Controls.Add(this.txtNsKH);
+            this.pnlKH.Controls.Add(this.txtHoTenKH);
             this.pnlKH.Controls.Add(this.txtMaKh);
             this.pnlKH.Controls.Add(this.label3);
             this.pnlKH.Controls.Add(this.label2);
@@ -1488,18 +1491,17 @@
             this.pnlKH.Controls.Add(this.label11);
             this.pnlKH.Controls.Add(this.label4);
             this.pnlKH.Controls.Add(this.LblMaKh);
-            this.pnlKH.Location = new System.Drawing.Point(26, 94);
+            this.pnlKH.Location = new System.Drawing.Point(30, 93);
             this.pnlKH.Name = "pnlKH";
             this.pnlKH.Size = new System.Drawing.Size(712, 396);
             this.pnlKH.TabIndex = 21;
             // 
-            // nmupdown
+            // nmupdownKH
             // 
-            this.nmupdown.Location = new System.Drawing.Point(627, 27);
-            this.nmupdown.Name = "nmupdown";
-            this.nmupdown.Size = new System.Drawing.Size(65, 20);
-            this.nmupdown.TabIndex = 6;
- 
+            this.nmupdownKH.Location = new System.Drawing.Point(627, 27);
+            this.nmupdownKH.Name = "nmupdownKH";
+            this.nmupdownKH.Size = new System.Drawing.Size(65, 20);
+            this.nmupdownKH.TabIndex = 6;
             // 
             // btnsearchkh
             // 
@@ -1517,7 +1519,7 @@
             this.btnXoaKh.Name = "btnXoaKh";
             this.btnXoaKh.Size = new System.Drawing.Size(75, 23);
             this.btnXoaKh.TabIndex = 3;
-            this.btnXoaKh.Text = "Xoa Kh";
+            this.btnXoaKh.Text = "Xoa";
             this.btnXoaKh.UseVisualStyleBackColor = true;
             // 
             // btnSuaKh
@@ -1527,7 +1529,7 @@
             this.btnSuaKh.Name = "btnSuaKh";
             this.btnSuaKh.Size = new System.Drawing.Size(75, 23);
             this.btnSuaKh.TabIndex = 2;
-            this.btnSuaKh.Text = "Sua KH";
+            this.btnSuaKh.Text = "Sua";
             this.btnSuaKh.UseVisualStyleBackColor = true;
             // 
             // btnThemKh
@@ -1547,7 +1549,7 @@
             this.btnXemKh.Name = "btnXemKh";
             this.btnXemKh.Size = new System.Drawing.Size(75, 23);
             this.btnXemKh.TabIndex = 2;
-            this.btnXemKh.Text = "XemKH";
+            this.btnXemKh.Text = "Xem";
             this.btnXemKh.UseVisualStyleBackColor = true;
             // 
             // txtsearchkh
@@ -1557,40 +1559,40 @@
             this.txtsearchkh.Size = new System.Drawing.Size(100, 20);
             this.txtsearchkh.TabIndex = 1;
             // 
-            // txtCMND
+            // txtCMNDKH
             // 
-            this.txtCMND.Location = new System.Drawing.Point(348, 91);
-            this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(100, 20);
-            this.txtCMND.TabIndex = 1;
+            this.txtCMNDKH.Location = new System.Drawing.Point(348, 91);
+            this.txtCMNDKH.Name = "txtCMNDKH";
+            this.txtCMNDKH.Size = new System.Drawing.Size(100, 20);
+            this.txtCMNDKH.TabIndex = 1;
             // 
-            // txtSDT
+            // txtSDTKH
             // 
-            this.txtSDT.Location = new System.Drawing.Point(348, 55);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(100, 20);
-            this.txtSDT.TabIndex = 1;
+            this.txtSDTKH.Location = new System.Drawing.Point(348, 55);
+            this.txtSDTKH.Name = "txtSDTKH";
+            this.txtSDTKH.Size = new System.Drawing.Size(100, 20);
+            this.txtSDTKH.TabIndex = 1;
             // 
-            // txtDiaChi
+            // txtDiaChiKH
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(348, 19);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(100, 20);
-            this.txtDiaChi.TabIndex = 1;
+            this.txtDiaChiKH.Location = new System.Drawing.Point(348, 19);
+            this.txtDiaChiKH.Name = "txtDiaChiKH";
+            this.txtDiaChiKH.Size = new System.Drawing.Size(100, 20);
+            this.txtDiaChiKH.TabIndex = 1;
             // 
-            // txtNs
+            // txtNsKH
             // 
-            this.txtNs.Location = new System.Drawing.Point(115, 87);
-            this.txtNs.Name = "txtNs";
-            this.txtNs.Size = new System.Drawing.Size(100, 20);
-            this.txtNs.TabIndex = 1;
+            this.txtNsKH.Location = new System.Drawing.Point(115, 87);
+            this.txtNsKH.Name = "txtNsKH";
+            this.txtNsKH.Size = new System.Drawing.Size(100, 20);
+            this.txtNsKH.TabIndex = 1;
             // 
-            // txtHoTen
+            // txtHoTenKH
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(115, 53);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(100, 20);
-            this.txtHoTen.TabIndex = 1;
+            this.txtHoTenKH.Location = new System.Drawing.Point(115, 53);
+            this.txtHoTenKH.Name = "txtHoTenKH";
+            this.txtHoTenKH.Size = new System.Drawing.Size(100, 20);
+            this.txtHoTenKH.TabIndex = 1;
             // 
             // txtMaKh
             // 
@@ -1690,7 +1692,7 @@
             this.pnlNV.Controls.Add(this.label15);
             this.pnlNV.Controls.Add(this.label14);
             this.pnlNV.Controls.Add(this.label1);
-            this.pnlNV.Location = new System.Drawing.Point(791, 77);
+            this.pnlNV.Location = new System.Drawing.Point(31, 98);
             this.pnlNV.Name = "pnlNV";
             this.pnlNV.Size = new System.Drawing.Size(712, 396);
             this.pnlNV.TabIndex = 22;
@@ -1703,6 +1705,7 @@
             this.dgvNV.RowHeadersWidth = 51;
             this.dgvNV.Size = new System.Drawing.Size(636, 150);
             this.dgvNV.TabIndex = 18;
+            this.dgvNV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNV_CellClick);
             // 
             // btnTKNV
             // 
@@ -1738,6 +1741,7 @@
             this.btnSuaNV.TabIndex = 14;
             this.btnSuaNV.Text = "Sửa";
             this.btnSuaNV.UseVisualStyleBackColor = true;
+            this.btnSuaNV.Click += new System.EventHandler(this.btnSuaNV_Click);
             // 
             // btnThemNV
             // 
@@ -1892,7 +1896,7 @@
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(355, 322);
+            this.label58.Location = new System.Drawing.Point(345, 322);
             this.label58.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(125, 18);
@@ -1989,6 +1993,14 @@
             this.label55.TabIndex = 0;
             this.label55.Text = "Chọn phim";
             // 
+            // dgv_KH
+            // 
+            this.dgv_KH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_KH.Location = new System.Drawing.Point(38, 186);
+            this.dgv_KH.Name = "dgv_KH";
+            this.dgv_KH.Size = new System.Drawing.Size(594, 187);
+            this.dgv_KH.TabIndex = 7;
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2033,14 +2045,14 @@
             this.panel2.ResumeLayout(false);
             this.pnlKH.ResumeLayout(false);
             this.pnlKH.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmupdown)).EndInit();
-
+            ((System.ComponentModel.ISupportInitialize)(this.nmupdownKH)).EndInit();
             this.pnlNV.ResumeLayout(false);
             this.pnlNV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).EndInit();
             this.pnlDoanhThu.ResumeLayout(false);
             this.pnlDoanhThu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDoanhThu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_KH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2187,7 +2199,7 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.DataGridView dgvKH;
         private System.Windows.Forms.Panel pnlKH;
-        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.TextBox txtHoTenKH;
         private System.Windows.Forms.TextBox txtMaKh;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -2198,16 +2210,16 @@
         private System.Windows.Forms.Button btnThemKh;
         private System.Windows.Forms.Button btnXemKh;
         private System.Windows.Forms.TextBox txtsearchkh;
-        private System.Windows.Forms.TextBox txtSDT;
-        private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.TextBox txtSDTKH;
+        private System.Windows.Forms.TextBox txtDiaChiKH;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvkhachhang;
-        private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.TextBox txtNs;
+        private System.Windows.Forms.TextBox txtCMNDKH;
+        private System.Windows.Forms.TextBox txtNsKH;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown nmupdown;
+        private System.Windows.Forms.NumericUpDown nmupdownKH;
         private System.Windows.Forms.Panel pnlNV;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label16;
@@ -2240,5 +2252,6 @@
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.DataGridView dgv_KH;
     }
 }

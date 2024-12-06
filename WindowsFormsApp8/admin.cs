@@ -202,10 +202,10 @@ namespace WindowsFormsApp8
 
         private void btnXoaNV_Click(object sender, EventArgs e)
         {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+      
                 if (dgvNV.SelectedRows.Count > 0)
                 {
-                    // Lấy CustomerID từ hàng được chọn
+                    
                     var id = dgvNV.SelectedRows[0].Cells["id"].Value;
 
                     // Xác nhận trước khi xóa
@@ -248,5 +248,84 @@ namespace WindowsFormsApp8
                 }
 
         }
+
+        private void btnSuaNV_Click(object sender, EventArgs e)
+        {
+            if (dgvNV.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvNV.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có ID hợp lệ trong hàng được chọn.");
+                    return;
+                }
+
+
+                // Lấy thông tin mới từ TextBox
+                string idnv = txtMaNV.Text;
+                string tennv = txtHoTenNV.Text;
+                string ns = txtDateNV.Text;
+                string dc = txtDCNV.Text;
+                string sdt = txtSDTNV.Text;
+                int cmnd = int.Parse(txtCCCDNV.Text);
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE NhanVien SET HoTen = @Name,NgaySinh = @ns,DiaChi = @Address,SDT = @Phone,CMND = @cmnd WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Name", tennv);
+                            cmd.Parameters.AddWithValue("@Phone", sdt);
+                            cmd.Parameters.AddWithValue("@Address", dc);
+                            cmd.Parameters.AddWithValue("@id", idnv);
+                            cmd.Parameters.AddWithValue("@cmnd", cmnd);
+                            cmd.Parameters.AddWithValue("@ns", ns);
+
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                btnXemNV.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy nhân viên để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+        }
+
+        private void dgvNV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvNV.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgvNV.SelectedRows[0];
+                txtMaNV.Text = row.Cells["id"].Value?.ToString();
+                txtHoTenNV.Text = row.Cells["HoTen"].Value?.ToString();
+                txtDateNV.Text = row.Cells["NgaySinh"].Value?.ToString();
+                txtDCNV.Text = row.Cells["DiaChi"].Value?.ToString();
+                txtSDTNV.Text = row.Cells["SDT"].Value?.ToString();
+                txtCCCDNV.Text = row.Cells["CMND"].Value?.ToString();
+            }
+        }
     }
+    
 }
