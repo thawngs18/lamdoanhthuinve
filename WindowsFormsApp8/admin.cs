@@ -932,6 +932,214 @@ namespace WindowsFormsApp8
 
             }
         }
+        // Thể Loại
+        private void btnXemTL_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM TheLoai";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvTL.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnThemTL_Click(object sender, EventArgs e)
+        {
+            {
+                string idTL = txtMaTheLoai.Text;
+                string tenTL = txtTenTheLoai.Text;
+                string idMT = txtMoTaTL.Text;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO TheLoai(id, TenTheLoai , MoTa) VALUES (@id,@Name,@comment)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idTL);
+                            cmd.Parameters.AddWithValue("@Name", tenTL);
+                            cmd.Parameters.AddWithValue("@comment", idMT);
+                            
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm the loai thanh cong!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm the loai that bai.");
+                            }
+                        }
+                        btnXemTL.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnXoaTL_Click(object sender, EventArgs e)
+        {
+            if (dgvTL.SelectedRows.Count > 0)
+            {
+
+                var id = dgvTL.SelectedRows[0].Cells["id"].Value;
+
+                // Xác nhận trước khi xóa
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa the loai này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM TheLoai WHERE id = @id";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Xóa phong chieu thanh cong!");
+                                    btnXemTL.PerformClick(); // Tải lại danh sách sau khi xóa
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa the loai that bai ");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một the loai để xóa.");
+            }
+        }
+
+        private void dgvTL_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvTL.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgvTL.SelectedRows[0];
+                txtMaTheLoai.Text = row.Cells["id"].Value?.ToString();
+                txtTenTheLoai.Text = row.Cells["TenTheLoai"].Value?.ToString();
+                txtMoTaTL.Text = row.Cells["MoTa"].Value?.ToString();              
+            }
+        }
+
+        private void btnSuaTL_Click(object sender, EventArgs e)
+        {
+            if (dgvTL.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvTL.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có ID hợp lệ trong hàng được chọn.");
+                    return;
+                }
+
+
+                // Lấy thông tin mới từ TextBox
+                string idTL = txtMaTheLoai.Text;
+                string tenTL = txtTenTheLoai.Text;
+                string idMT = txtMoTaTL.Text;
+
+
+
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE TheLoai SET TenTheLoai = @Name, MoTa = @comment WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idTL);
+                            cmd.Parameters.AddWithValue("@Name", tenTL);
+                            cmd.Parameters.AddWithValue("@comment", idMT);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                btnXemTL.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy the loai để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+        }
+
+        private void btnXemP_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM Phim";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvP.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
     }
    
 }
