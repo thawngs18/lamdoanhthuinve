@@ -99,7 +99,7 @@ namespace WindowsFormsApp8
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlTheLoai.Visible = true;
-            LoadTheLoaiToCheckedListBox();
+          
         }
 
         private void button21_Click(object sender, EventArgs e)
@@ -110,6 +110,7 @@ namespace WindowsFormsApp8
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlPhim.Visible = true;
+            LoadTheLoaiToCheckedListBox();
         }
 
         private void button22_Click(object sender, EventArgs e)
@@ -1024,7 +1025,7 @@ namespace WindowsFormsApp8
                                 int rowsAffected = cmd.ExecuteNonQuery();
                                 if (rowsAffected > 0)
                                 {
-                                    MessageBox.Show("Xóa phong chieu thanh cong!");
+                                    MessageBox.Show("Xóa the loai thanh cong!");
                                     btnXemTL.PerformClick(); // Tải lại danh sách sau khi xóa
                                 }
                                 else
@@ -1179,8 +1180,194 @@ namespace WindowsFormsApp8
             }
         }
 
+        private void btnSuaP_Click(object sender, EventArgs e)
+        {
+            if (dgvP.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvP.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có phim hợp lệ trong hàng được chọn.");
+                    return;
+                }
 
 
+                // Lấy thông tin mới từ TextBox
+                string idP = txtMaPhimP.Text;
+                string tenP = txtTenPhimP.Text;
+                string MT = txtMoTaP.Text;
+                float thoiluong = float.Parse(txtThoiLuongP.Text);
+                DateTime ngaykc = dtpKCP.Value.Date;
+                DateTime ngaykt = dtpKTP.Value.Date;
+                string sannxuat = txtSanXuatP.Text;
+                string daodien = txtDaoDienP.Text;
+                int namsx = int.Parse(txtNamSXP.Text);
+
+
+
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE Phim SET TenPhim = @Name, MoTa = @comment, ThoiLuong = @TL, NgayKhoiChieu = @NKC, NgayKetThuc = @NKT, SanXuat = @SX, DaoDien = @DD, NamSX = @namsx  WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idP);
+                            cmd.Parameters.AddWithValue("@Name", tenP);
+                            cmd.Parameters.AddWithValue("@comment", MT);
+                            cmd.Parameters.AddWithValue("@TL", thoiluong);
+                            cmd.Parameters.AddWithValue("@NKC", ngaykc);
+                            cmd.Parameters.AddWithValue("@NKT", ngaykt);
+                            cmd.Parameters.AddWithValue("@SX", sannxuat);
+                            cmd.Parameters.AddWithValue("@DD", daodien);
+                            cmd.Parameters.AddWithValue("@namsx", namsx);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                btnXemP.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy phim để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+        }
+
+        private void dgvP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvP.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgvP.SelectedRows[0];
+                txtTenPhimP.Text = row.Cells["TenPhim"].Value?.ToString();
+                txtMoTaP.Text = row.Cells["MoTa"].Value?.ToString();
+                txtSanXuatP.Text = row.Cells["SanXuat"].Value?.ToString();
+                txtThoiLuongP.Text = row.Cells["ThoiLuong"].Value?.ToString();
+                txtMaPhimP.Text = row.Cells["id"].Value?.ToString();
+                txtDaoDienP.Text = row.Cells["DaoDien"].Value?.ToString();
+                dtpKCP.Text = row.Cells["NgayKhoiChieu"].Value?.ToString();
+                dtpKTP.Text = row.Cells["NgayKetThuc"].Value?.ToString();
+                txtNamSXP.Text = row.Cells["NamSX"].Value?.ToString();            
+            }
+        }
+
+        private void btnThemP_Click(object sender, EventArgs e)
+        {
+            {
+                string idP = txtMaPhimP.Text;
+                string tenP = txtTenPhimP.Text;
+                string MT = txtMoTaP.Text;
+                float thoiluong = float.Parse(txtThoiLuongP.Text);
+                DateTime ngaykc = dtpKCP.Value.Date;
+                DateTime ngaykt = dtpKTP.Value.Date;
+                string sannxuat = txtSanXuatP.Text;
+                string daodien = txtDaoDienP.Text;
+                int namsx = int.Parse(txtNamSXP.Text);
+
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO Phim(id,TenPhim, MoTa, ThoiLuong, NgayKhoiChieu, NgayKetThuc, SanXuat, DaoDien, NamSX) VALUES (@id,@Name,@comment,@TL,@NKC,@NKT,@SX,@DD,@namsx)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idP);
+                            cmd.Parameters.AddWithValue("@Name", tenP);
+                            cmd.Parameters.AddWithValue("@comment", MT);
+                            cmd.Parameters.AddWithValue("@TL", thoiluong);
+                            cmd.Parameters.AddWithValue("@NKC", ngaykc);
+                            cmd.Parameters.AddWithValue("@NKT", ngaykt);
+                            cmd.Parameters.AddWithValue("@SX", sannxuat);
+                            cmd.Parameters.AddWithValue("@DD", daodien);
+                            cmd.Parameters.AddWithValue("@namsx", namsx);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm phim thanh cong!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm phim that bai.");
+                            }
+                        }
+                        btnXemP.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnXoaP_Click(object sender, EventArgs e)
+        {
+            if (dgvP.SelectedRows.Count > 0)
+            {
+
+                var id = dgvP.SelectedRows[0].Cells["id"].Value;
+
+                // Xác nhận trước khi xóa
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa phim này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM Phim WHERE id = @id";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Xóa phim thanh cong!");
+                                    btnXemP.PerformClick(); // Tải lại danh sách sau khi xóa
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa phim that bai ");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một phim để xóa.");
+            }
+    }
     }
    
 }
