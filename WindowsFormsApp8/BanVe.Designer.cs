@@ -72,11 +72,12 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(133, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(177, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(479, 53);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(639, 65);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -87,105 +88,117 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(473, 53);
+            this.label1.Size = new System.Drawing.Size(631, 65);
             this.label1.TabIndex = 0;
             this.label1.Text = "MAN HINH";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(133, 62);
+            this.panel1.Location = new System.Drawing.Point(177, 77);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(479, 402);
+            this.panel1.Size = new System.Drawing.Size(639, 495);
             this.panel1.TabIndex = 2;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(20, 62);
+            this.panel2.Location = new System.Drawing.Point(26, 77);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(107, 402);
+            this.panel2.Size = new System.Drawing.Size(143, 495);
             this.panel2.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Red;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(654, 88);
+            this.label2.Location = new System.Drawing.Point(872, 108);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 10);
+            this.label2.Size = new System.Drawing.Size(13, 12);
             this.label2.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Gray;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(654, 133);
+            this.label3.Location = new System.Drawing.Point(872, 164);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(10, 10);
+            this.label3.Size = new System.Drawing.Size(13, 12);
             this.label3.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Location = new System.Drawing.Point(654, 111);
+            this.label4.Location = new System.Drawing.Point(872, 137);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(10, 10);
+            this.label4.Size = new System.Drawing.Size(13, 12);
             this.label4.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(670, 85);
+            this.label5.Location = new System.Drawing.Point(893, 105);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(44, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "label5";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(670, 108);
+            this.label6.Location = new System.Drawing.Point(893, 133);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 8;
             this.label6.Text = "label6";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(670, 130);
+            this.label7.Location = new System.Drawing.Point(893, 160);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(44, 16);
             this.label7.TabIndex = 9;
             this.label7.Text = "label7";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(670, 85);
+            this.label8.Location = new System.Drawing.Point(893, 105);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.Size = new System.Drawing.Size(96, 16);
             this.label8.TabIndex = 7;
             this.label8.Text = "ghe dang chon";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(670, 108);
+            this.label9.Location = new System.Drawing.Point(893, 133);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 13);
+            this.label9.Size = new System.Drawing.Size(88, 16);
             this.label9.TabIndex = 8;
             this.label9.Text = "ghe con trong";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(670, 130);
+            this.label10.Location = new System.Drawing.Point(893, 160);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 13);
+            this.label10.Size = new System.Drawing.Size(81, 16);
             this.label10.TabIndex = 9;
             this.label10.Text = "ghe da chon";
             // 
@@ -196,35 +209,40 @@
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(223, 126);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(297, 155);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loai Ve";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(51, 97);
+            this.textBox1.Location = new System.Drawing.Point(68, 119);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 20);
+            this.textBox1.Size = new System.Drawing.Size(181, 22);
             this.textBox1.TabIndex = 11;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 100);
+            this.label11.Location = new System.Drawing.Point(4, 123);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 13);
+            this.label11.Size = new System.Drawing.Size(51, 16);
             this.label11.TabIndex = 11;
             this.label11.Text = "Gia Ve:";
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 65);
+            this.radioButton3.Location = new System.Drawing.Point(8, 80);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(88, 17);
+            this.radioButton3.Size = new System.Drawing.Size(104, 20);
             this.radioButton3.TabIndex = 13;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Tre Em (U12)";
@@ -233,9 +251,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 42);
+            this.radioButton2.Location = new System.Drawing.Point(8, 52);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(70, 17);
+            this.radioButton2.Size = new System.Drawing.Size(81, 20);
             this.radioButton2.TabIndex = 12;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Sinh Vien";
@@ -244,9 +263,10 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
+            this.radioButton1.Location = new System.Drawing.Point(8, 23);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(74, 17);
+            this.radioButton1.Size = new System.Drawing.Size(86, 20);
             this.radioButton1.TabIndex = 11;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Nguoi Lon";
@@ -256,9 +276,10 @@
             // 
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.groupBox1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(21, 498);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(28, 613);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(237, 136);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(315, 167);
             this.flowLayoutPanel1.TabIndex = 11;
             // 
             // flowLayoutPanel2
@@ -268,26 +289,30 @@
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.Controls.Add(this.panel2);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(21, 85);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(28, 105);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(617, 407);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(822, 500);
             this.flowLayoutPanel2.TabIndex = 12;
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel3.Controls.Add(this.groupBox2);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(264, 498);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(352, 613);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(237, 136);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(315, 167);
             this.flowLayoutPanel3.TabIndex = 13;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Location = new System.Drawing.Point(4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(223, 126);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(297, 155);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thanh Vien";
@@ -295,9 +320,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 20);
+            this.checkBox1.Location = new System.Drawing.Point(8, 25);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(144, 17);
+            this.checkBox1.Size = new System.Drawing.Size(170, 20);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Khach Hang Thanh Vien";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -306,32 +332,37 @@
             // 
             this.flowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel4.Controls.Add(this.groupBox3);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(507, 498);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(676, 613);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(242, 136);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(322, 167);
             this.flowLayoutPanel4.TabIndex = 14;
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Location = new System.Drawing.Point(4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(238, 132);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(317, 162);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
             // label12
             // 
             this.label12.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label12.Location = new System.Drawing.Point(21, 6);
+            this.label12.Location = new System.Drawing.Point(28, 7);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(728, 76);
+            this.label12.Size = new System.Drawing.Size(971, 94);
             this.label12.TabIndex = 15;
+
             // 
-            // Form1
+            // BanVe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 646);
+            this.ClientSize = new System.Drawing.Size(1035, 795);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
@@ -347,9 +378,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "BanVe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
