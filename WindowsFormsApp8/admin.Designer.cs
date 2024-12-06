@@ -147,7 +147,6 @@
             this.button18 = new System.Windows.Forms.Button();
             this.pnlKH = new System.Windows.Forms.Panel();
             this.nmupdown = new System.Windows.Forms.NumericUpDown();
-            this.dgvkhachhang = new System.Windows.Forms.DataGridView();
             this.btnsearchkh = new System.Windows.Forms.Button();
             this.btnXoaKh = new System.Windows.Forms.Button();
             this.btnSuaKh = new System.Windows.Forms.Button();
@@ -216,7 +215,6 @@
             this.panel2.SuspendLayout();
             this.pnlKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmupdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvkhachhang)).BeginInit();
             this.pnlNV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).BeginInit();
             this.pnlDoanhThu.SuspendLayout();
@@ -1471,7 +1469,6 @@
             // pnlKH
             // 
             this.pnlKH.Controls.Add(this.nmupdown);
-            this.pnlKH.Controls.Add(this.dgvkhachhang);
             this.pnlKH.Controls.Add(this.btnsearchkh);
             this.pnlKH.Controls.Add(this.btnXoaKh);
             this.pnlKH.Controls.Add(this.btnSuaKh);
@@ -1502,15 +1499,7 @@
             this.nmupdown.Name = "nmupdown";
             this.nmupdown.Size = new System.Drawing.Size(65, 20);
             this.nmupdown.TabIndex = 6;
-            // 
-            // dgvkhachhang
-            // 
-            this.dgvkhachhang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvkhachhang.Location = new System.Drawing.Point(20, 162);
-            this.dgvkhachhang.Name = "dgvkhachhang";
-            this.dgvkhachhang.RowHeadersWidth = 51;
-            this.dgvkhachhang.Size = new System.Drawing.Size(666, 202);
-            this.dgvkhachhang.TabIndex = 5;
+ 
             // 
             // btnsearchkh
             // 
@@ -1739,6 +1728,7 @@
             this.btnXoaNV.TabIndex = 15;
             this.btnXoaNV.Text = "Xoa";
             this.btnXoaNV.UseVisualStyleBackColor = true;
+            this.btnXoaNV.Click += new System.EventHandler(this.btnXoaNV_Click);
             // 
             // btnSuaNV
             // 
@@ -2044,7 +2034,7 @@
             this.pnlKH.ResumeLayout(false);
             this.pnlKH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmupdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvkhachhang)).EndInit();
+
             this.pnlNV.ResumeLayout(false);
             this.pnlNV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNV)).EndInit();

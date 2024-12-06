@@ -183,11 +183,11 @@ namespace WindowsFormsApp8
                             int rowsAffected = cmd.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("Thêm Nhan Vien thành công!");
+                                MessageBox.Show("Thêm Nhan Vien thanh cong!");
                             }
                             else
                             {
-                                MessageBox.Show("Thêm Nhan Vien thất bại.");
+                                MessageBox.Show("Thêm Nhan Vien that bai.");
                             }
                         }
                         btnXemNV.PerformClick();
@@ -198,6 +198,55 @@ namespace WindowsFormsApp8
                     }
                 }
             }
+        }
+
+        private void btnXoaNV_Click(object sender, EventArgs e)
+        {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                if (dgvNV.SelectedRows.Count > 0)
+                {
+                    // Lấy CustomerID từ hàng được chọn
+                    var id = dgvNV.SelectedRows[0].Cells["id"].Value;
+
+                    // Xác nhận trước khi xóa
+                    DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa nhan vien này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        
+                        using (SqlConnection conn = new SqlConnection(connectionString))
+                        {
+                            try
+                            {
+                                conn.Open();
+                                string query = "DELETE FROM NhanVien WHERE id = @idnv";
+                                using (SqlCommand cmd = new SqlCommand(query, conn))
+                                {
+                                    cmd.Parameters.AddWithValue("@idnv", id);
+
+                                    int rowsAffected = cmd.ExecuteNonQuery();
+                                    if (rowsAffected > 0)
+                                    {
+                                        MessageBox.Show("Xóa nhan vien thanh cong!");
+                                        btnXemNV.PerformClick(); // Tải lại danh sách sau khi xóa
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Xóa nhan vien  that bai ");
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Lỗi: " + ex.Message);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn một nhan vien để xóa.");
+                }
+
         }
     }
 }
