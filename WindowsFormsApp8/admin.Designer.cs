@@ -106,6 +106,7 @@
             this.txtGiaVeLC = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtpGioLC = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayLC = new System.Windows.Forms.DateTimePicker();
             this.cmbMaDDLC = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
@@ -202,7 +203,6 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
-            this.dtpGioLC = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlPhongChieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
@@ -288,10 +288,10 @@
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button5);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 18);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(28, 18);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(672, 58);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(718, 58);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // pnlPhongChieu
@@ -315,9 +315,9 @@
             this.pnlPhongChieu.Controls.Add(this.btnSuaPC);
             this.pnlPhongChieu.Controls.Add(this.btnXoaPC);
             this.pnlPhongChieu.Controls.Add(this.btnThemPC);
-            this.pnlPhongChieu.Location = new System.Drawing.Point(178, 480);
+            this.pnlPhongChieu.Location = new System.Drawing.Point(177, 90);
             this.pnlPhongChieu.Name = "pnlPhongChieu";
-            this.pnlPhongChieu.Size = new System.Drawing.Size(564, 350);
+            this.pnlPhongChieu.Size = new System.Drawing.Size(564, 394);
             this.pnlPhongChieu.TabIndex = 16;
             // 
             // btnXemPC
@@ -533,10 +533,10 @@
             this.pnlPhim.Controls.Add(this.label29);
             this.pnlPhim.Controls.Add(this.label28);
             this.pnlPhim.Controls.Add(this.label27);
-            this.pnlPhim.Location = new System.Drawing.Point(183, 478);
+            this.pnlPhim.Location = new System.Drawing.Point(163, 92);
             this.pnlPhim.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPhim.Name = "pnlPhim";
-            this.pnlPhim.Size = new System.Drawing.Size(571, 350);
+            this.pnlPhim.Size = new System.Drawing.Size(571, 402);
             this.pnlPhim.TabIndex = 19;
             // 
             // dgvP
@@ -805,9 +805,9 @@
             this.pnlDinhDang.Controls.Add(this.btnSuaDD);
             this.pnlDinhDang.Controls.Add(this.btnXoaDD);
             this.pnlDinhDang.Controls.Add(this.btnThemDD);
-            this.pnlDinhDang.Location = new System.Drawing.Point(783, 98);
+            this.pnlDinhDang.Location = new System.Drawing.Point(174, 91);
             this.pnlDinhDang.Name = "pnlDinhDang";
-            this.pnlDinhDang.Size = new System.Drawing.Size(564, 350);
+            this.pnlDinhDang.Size = new System.Drawing.Size(564, 400);
             this.pnlDinhDang.TabIndex = 19;
             // 
             // btnXemDD
@@ -985,9 +985,9 @@
             this.pnlLichChieu.Controls.Add(this.btnSuaLC);
             this.pnlLichChieu.Controls.Add(this.btnXoaLC);
             this.pnlLichChieu.Controls.Add(this.btnThemLC);
-            this.pnlLichChieu.Location = new System.Drawing.Point(793, 490);
+            this.pnlLichChieu.Location = new System.Drawing.Point(170, 90);
             this.pnlLichChieu.Name = "pnlLichChieu";
-            this.pnlLichChieu.Size = new System.Drawing.Size(567, 350);
+            this.pnlLichChieu.Size = new System.Drawing.Size(567, 400);
             this.pnlLichChieu.TabIndex = 20;
             // 
             // textTTLC
@@ -1079,6 +1079,16 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thời Gian Chiếu";
+            // 
+            // dtpGioLC
+            // 
+            this.dtpGioLC.CustomFormat = "dd/MM/yyyy";
+            this.dtpGioLC.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpGioLC.Location = new System.Drawing.Point(33, 40);
+            this.dtpGioLC.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpGioLC.Name = "dtpGioLC";
+            this.dtpGioLC.Size = new System.Drawing.Size(157, 19);
+            this.dtpGioLC.TabIndex = 18;
             // 
             // dtpNgayLC
             // 
@@ -1215,9 +1225,9 @@
             this.pnlLoaiManHinh.Controls.Add(this.button27);
             this.pnlLoaiManHinh.Controls.Add(this.button26);
             this.pnlLoaiManHinh.Controls.Add(this.button25);
-            this.pnlLoaiManHinh.Location = new System.Drawing.Point(176, 485);
+            this.pnlLoaiManHinh.Location = new System.Drawing.Point(176, 91);
             this.pnlLoaiManHinh.Name = "pnlLoaiManHinh";
-            this.pnlLoaiManHinh.Size = new System.Drawing.Size(570, 343);
+            this.pnlLoaiManHinh.Size = new System.Drawing.Size(570, 403);
             this.pnlLoaiManHinh.TabIndex = 15;
             // 
             // button6
@@ -1324,9 +1334,9 @@
             this.pnlTheLoai.Controls.Add(this.btnSuaTL);
             this.pnlTheLoai.Controls.Add(this.btnXoaTL);
             this.pnlTheLoai.Controls.Add(this.btnThemTL);
-            this.pnlTheLoai.Location = new System.Drawing.Point(177, 479);
+            this.pnlTheLoai.Location = new System.Drawing.Point(177, 90);
             this.pnlTheLoai.Name = "pnlTheLoai";
-            this.pnlTheLoai.Size = new System.Drawing.Size(570, 350);
+            this.pnlTheLoai.Size = new System.Drawing.Size(570, 401);
             this.pnlTheLoai.TabIndex = 18;
             // 
             // btnXemTL
@@ -1450,9 +1460,9 @@
             this.panel2.Controls.Add(this.button20);
             this.panel2.Controls.Add(this.button19);
             this.panel2.Controls.Add(this.button18);
-            this.panel2.Location = new System.Drawing.Point(9, 510);
+            this.panel2.Location = new System.Drawing.Point(29, 91);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(155, 353);
+            this.panel2.Size = new System.Drawing.Size(155, 393);
             this.panel2.TabIndex = 14;
             // 
             // button24
@@ -1968,7 +1978,7 @@
             // 
             // txtDoanhThu
             // 
-            this.txtDoanhThu.Location = new System.Drawing.Point(472, 323);
+            this.txtDoanhThu.Location = new System.Drawing.Point(506, 319);
             this.txtDoanhThu.Margin = new System.Windows.Forms.Padding(2);
             this.txtDoanhThu.Name = "txtDoanhThu";
             this.txtDoanhThu.Size = new System.Drawing.Size(126, 20);
@@ -1999,7 +2009,7 @@
             // 
             // btnBaoCao
             // 
-            this.btnBaoCao.Location = new System.Drawing.Point(498, 44);
+            this.btnBaoCao.Location = new System.Drawing.Point(569, 43);
             this.btnBaoCao.Margin = new System.Windows.Forms.Padding(2);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.Size = new System.Drawing.Size(64, 37);
@@ -2009,13 +2019,14 @@
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Location = new System.Drawing.Point(404, 44);
+            this.btnThongKe.Location = new System.Drawing.Point(470, 40);
             this.btnThongKe.Margin = new System.Windows.Forms.Padding(2);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(64, 37);
             this.btnThongKe.TabIndex = 6;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // dtpNgayKT
             // 
@@ -2038,7 +2049,7 @@
             // cmbChonPhim
             // 
             this.cmbChonPhim.FormattingEnabled = true;
-            this.cmbChonPhim.Location = new System.Drawing.Point(128, 26);
+            this.cmbChonPhim.Location = new System.Drawing.Point(135, 26);
             this.cmbChonPhim.Margin = new System.Windows.Forms.Padding(2);
             this.cmbChonPhim.Name = "cmbChonPhim";
             this.cmbChonPhim.Size = new System.Drawing.Size(198, 21);
@@ -2075,21 +2086,11 @@
             this.label55.TabIndex = 0;
             this.label55.Text = "Chọn phim";
             // 
-            // dtpGioLC
-            // 
-            this.dtpGioLC.CustomFormat = "dd/MM/yyyy";
-            this.dtpGioLC.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpGioLC.Location = new System.Drawing.Point(33, 40);
-            this.dtpGioLC.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpGioLC.Name = "dtpGioLC";
-            this.dtpGioLC.Size = new System.Drawing.Size(157, 19);
-            this.dtpGioLC.TabIndex = 18;
-            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.ClientSize = new System.Drawing.Size(1443, 744);
             this.Controls.Add(this.pnlDoanhThu);
             this.Controls.Add(this.pnlNV);
             this.Controls.Add(this.pnlKH);

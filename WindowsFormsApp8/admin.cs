@@ -61,6 +61,7 @@ namespace WindowsFormsApp8
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlDoanhThu.Visible = true;
+            loadCBPhim();
 
         }
 
@@ -1953,6 +1954,39 @@ namespace WindowsFormsApp8
                 cmbPhongChieuLC.SelectedValue = row.Cells["idPhong"].Value?.ToString();
                 txtGiaVeLC.Text = row.Cells["GiaVe"].Value?.ToString();
                 textTTLC.Text = row.Cells["TrangThai"].Value?.ToString();
+            }
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            
+        }
+        public void loadCBPhim()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Lấy dữ liệu từ bảng PhongChieu
+                    string query = "SELECT id, TenPhim FROM Phim"; // Giả sử bảng PhongChieu có cột id và TenPhong
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Gán DataSource cho ComboBox
+                    cmbChonPhim.DataSource = dt;
+                    cmbChonPhim.DisplayMember = "TenPhim"; // Hiển thị TênPhòng
+                    cmbChonPhim.ValueMember = "id"; // Giá trị của ComboBox là id (PhongChieu.id)
+
+                    // Optional: Hiển thị thêm thông tin khi chọn phòng chiếu
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
