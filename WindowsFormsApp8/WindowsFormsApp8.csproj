@@ -71,6 +71,7 @@
     <Compile Include="admin.Designer.cs">
       <DependentUpon>admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComboBoxItem.cs" />
     <Compile Include="DatLaiMK.cs">
       <SubType>Form</SubType>
     </Compile>

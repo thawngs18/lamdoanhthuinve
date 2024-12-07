@@ -122,6 +122,7 @@ namespace WindowsFormsApp8
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlDinhDang.Visible = true;
+            LoadComboBoxData();
         }
 
         private void button23_Click(object sender, EventArgs e)
@@ -132,6 +133,8 @@ namespace WindowsFormsApp8
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlLichChieu.Visible = true;
+            LoadData();
+            LoadPhongChieuData();
 
         }
 
@@ -1426,6 +1429,403 @@ namespace WindowsFormsApp8
                 MessageBox.Show("Vui lòng chọn một phim để xóa.");
             }
     }
+        //Dinh Dang
+        private void btnXemDD_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM DinhDangPhim";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvDD.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void btnThemDD_Click(object sender, EventArgs e)
+        {
+            {
+                string idMaDD = txtMaDD.Text;
+                string idPhimDD = cmbMaPhimDD.Text;
+                string idManHinhDD = cmbMaManHinhDD.Text;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO DinhDangPhim(id, idPhim, idLoaiManHinh) VALUES (@id,@N,@comment)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idMaDD);
+                            cmd.Parameters.AddWithValue("@N", idPhimDD);
+                            cmd.Parameters.AddWithValue("@comment", idManHinhDD);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm the loai thanh cong!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm the loai that bai.");
+                            }
+                        }
+                        btnXemDD.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+
+        }
+
+
+
+        private void LoadComboBoxData()
+        {
+              cmbMaManHinhDD.Items.Clear(); 
+            cmbMaPhimDD.Items.Clear();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Load maPhim
+                SqlCommand cmdPhim = new SqlCommand("SELECT id, TenPhim FROM Phim", connection);
+                SqlDataReader readerPhim = cmdPhim.ExecuteReader();
+                while (readerPhim.Read())
+                {
+                    cmbMaPhimDD.Items.Add(new ComboBoxItem
+                    {
+                        Id = readerPhim["id"].ToString(),
+                        Name = readerPhim["TenPhim"].ToString()
+                    });
+                }
+                readerPhim.Close();
+
+                // Load maMH
+                SqlCommand cmdMH = new SqlCommand("SELECT id, TenMH FROM LoaiManHinh", connection);
+                SqlDataReader readerMH = cmdMH.ExecuteReader();
+                while (readerMH.Read())
+                {
+                    cmbMaManHinhDD.Items.Add(new ComboBoxItem
+                    {
+                        Id = readerMH["id"].ToString(),
+                        Name = readerMH["TenMH"].ToString()
+                    });
+                }
+                readerMH.Close();
+            }
+        }
+
+        private void cmbMaPhimDD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMaPhimDD.SelectedItem != null)
+            {
+                var selectedItem = (dynamic)cmbMaPhimDD.SelectedItem;
+                txtTenPhimDD.Text = selectedItem.Name;
+            }
+        }
+
+        private void cmbMaManHinhDD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMaManHinhDD.SelectedItem != null)
+            {
+                var selectedItem = (dynamic)cmbMaManHinhDD.SelectedItem;
+                txtTenManHinhDD.Text = selectedItem.Name;
+            }
+        }
+
+        private void dgvDD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDD.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dgvDD.SelectedRows[0];
+                txtMaDD.Text = row.Cells["id"].Value?.ToString();
+                cmbMaPhimDD.Text = row.Cells["idPhim"].Value?.ToString();
+                cmbMaManHinhDD.Text = row.Cells["idLoaiManHinh"].Value?.ToString();
+            }
+        }
+
+        private void btnSuaDD_Click(object sender, EventArgs e)
+        {
+            if (dgvDD.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvDD.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có ma dinh dang hợp lệ trong hàng được chọn.");
+                    return;
+                }
+
+
+                // Lấy thông tin mới từ TextBox
+                string idMaDD = txtMaDD.Text;
+                string idPhimDD = cmbMaPhimDD.Text;
+                string idManHinhDD = cmbMaManHinhDD.Text;
+
+
+
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE DinhDangPhim SET  idPhim=@N, idLoaiManHinh=@comment WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idMaDD);
+                            cmd.Parameters.AddWithValue("@N", idPhimDD);
+                            cmd.Parameters.AddWithValue("@comment", idManHinhDD);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                btnXemDD.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy dinh dang để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+        }
+
+        private void btnXoaDD_Click(object sender, EventArgs e)
+        {
+            if (dgvDD.SelectedRows.Count > 0)
+            {
+
+                var id = dgvDD.SelectedRows[0].Cells["id"].Value;
+
+                // Xác nhận trước khi xóa
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa dinh dang này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM DinhDangPhim WHERE id = @id";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Xóa dinh dang thanh cong!");
+                                    btnXemDD.PerformClick(); // Tải lại danh sách sau khi xóa
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa dinh dang that bai ");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một the loai để xóa.");
+            }
+        }
+        //Lich Chieu
+        private void btnXemLC_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Câu truy vấn
+                    string query = "SELECT * FROM LichChieu";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    // Gán dữ liệu vào DataGridView
+                    dgvLC.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+        private void LoadData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Lấy dữ liệu từ bảng DinhDangPhim kết hợp với Phim và LoaiManHinh
+                    string query = @"
+                    SELECT dp.id, p.TenPhim, lm.TenMH
+                    FROM DinhDangPhim dp
+                    JOIN Phim p ON dp.idPhim = p.id
+                    JOIN LoaiManHinh lm ON dp.idLoaiManHinh = lm.id";
+
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Gán DataSource cho ComboBox
+                    cmbMaDDLC.DataSource = dt;
+                    cmbMaDDLC.DisplayMember = "id"; // Hiển thị TênPhim
+                    cmbMaDDLC.ValueMember = "id"; // Giá trị của ComboBox là id (DinhDangPhim.id)
+
+                    // Optional: Hiển thị thêm thông tin về màn hình 2D/3D/IMax
+                    cmbMaDDLC.SelectedIndexChanged += cmbMaDDLC_SelectedIndexChanged;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+     
+        private void cmbMaDDLC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMaDDLC.SelectedItem != null)
+            {
+                DataRowView rowView = (DataRowView)cmbMaDDLC.SelectedItem;
+                string tenPhim = rowView["TenPhim"].ToString();
+                string tenMH = rowView["TenMH"].ToString();
+
+                // Hiển thị tên phim và loại màn hình vào các TextBox
+                txtPhimLC.Text = tenPhim;
+                txtManHinhLC.Text = tenMH;
+            }
+        }
+        private void LoadPhongChieuData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Lấy dữ liệu từ bảng PhongChieu
+                    string query = "SELECT id, TenPhong FROM PhongChieu"; // Giả sử bảng PhongChieu có cột id và TenPhong
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Gán DataSource cho ComboBox
+                    cmbPhongChieuLC.DataSource = dt;
+                    cmbPhongChieuLC.DisplayMember = "TenPhong"; // Hiển thị TênPhòng
+                    cmbPhongChieuLC.ValueMember = "id"; // Giá trị của ComboBox là id (PhongChieu.id)
+
+                    // Optional: Hiển thị thêm thông tin khi chọn phòng chiếu
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+    
+
+        private void btnThemLC_Click(object sender, EventArgs e)
+        {
+            {
+                string idMaLC = txtMaLC.Text;
+                string idMaDDLC = cmbMaDDLC.Text;
+                string idPhongChieuLC = cmbPhongChieuLC.ValueMember;
+                DateTime ngaylc = dtpNgayLC.Value.Date;
+       
+                string Giave = txtGiaVeLC.Text;
+                string TT = textTTLC.Text;
+
+                // Combine date and time into one DateTime
+              
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO LichChieu(id, ThoiGianChieu, idPhong, idDinhDang, GiaVe, TrangThai) " +
+                            "VALUES (@id,@date,@idPhong,@idDinhDang,@Giave,@TT)";
+
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idMaLC);
+                            cmd.Parameters.AddWithValue("@idDinhDang", idMaDDLC); // Corrected
+                            cmd.Parameters.AddWithValue("@idPhong", idPhongChieuLC); // Corrected
+                            cmd.Parameters.AddWithValue("@date", ngaylc); // Use combined DateTime
+                            cmd.Parameters.AddWithValue("@TT", TT);
+                            cmd.Parameters.AddWithValue("@Giave", Giave);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Thêm lịch chiếu thành công!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm lịch chiếu thất bại.");
+                            }
+                        }
+                        btnXemLC.PerformClick();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+       
     }
+   }
    
-}
+
