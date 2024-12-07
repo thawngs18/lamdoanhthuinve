@@ -62,7 +62,7 @@ namespace WindowsFormsApp8
                     connection.Open();
 
                     // Câu truy vấn
-                    String query = "SELECT l.id,p.TenPhim,h.TenMH,l.ThoiGianChieu,p.ThoiLuong,NgayKhoiChieu,NgayKetThuc FROM LichChieu l,LoaiManHinh h,Phim p,DinhDangPhim d where l.idDinhDang = d.id and d.idPhim = p.id and d.idLoaiManHinh = h.id and p.TenPhim = @tenphim and h.TenMH = @tenMH";
+                    String query = "SELECT l.id,p.TenPhim,h.TenMH,l.ThoiGianChieu,p.ThoiLuong,c.SoChoNgoi,TenPhong FROM LichChieu l,LoaiManHinh h,Phim p,DinhDangPhim d,PhongChieu c where l.idDinhDang = d.id and d.idPhim = p.id and d.idLoaiManHinh = h.id and l.idPhong = c.id and p.TenPhim = @tenphim and h.TenMH = @tenMH";
 
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
@@ -82,6 +82,12 @@ namespace WindowsFormsApp8
                     MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BanVe bv = new BanVe();
+            bv.Show();
         }
     }
 }
