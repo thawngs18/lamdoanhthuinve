@@ -230,7 +230,7 @@ namespace WindowsFormsApp8
                 MessageBox.Show("Thanh toán thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Đổi màu ghế đã chọn thành màu xám (hoặc bạn có thể chọn màu khác để đánh dấu ghế đã thanh toán)
-                foreach (Control control in panel2.Controls)
+                foreach (Control control in panel1.Controls)
                 {
                     if (control is Button btn && btn.BackColor == Color.Red)
                     {
@@ -252,6 +252,7 @@ namespace WindowsFormsApp8
                 radSV.Checked = false;
                 radTreEm.Checked = false;
             }
+
         }
     }
 }
