@@ -17,7 +17,7 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim_login;Trusted_Connection=True;";
+        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim;Trusted_Connection=True;";
         private void button1_Click(object sender, EventArgs e)
         {
            
@@ -47,11 +47,11 @@ namespace WindowsFormsApp8
             string query = string.Empty;
             if (cn == "QL")
             {
-                query = @"SELECT FullName FROM Managers WHERE ManagerId = @Username AND Password = @Password AND IsActive = 1";
+                query = @"SELECT HoTen FROM Managers m,NhanVien n WHERE m.id=n.id and ManagerId = @Username AND Password = @Password AND IsActive = 1";
             }
             else if (cn == "BV")
             {
-                query = @"SELECT FullName FROM TicketSellers WHERE SellerId = @Username AND Password = @Password AND IsActive = 1";
+                query = @"SELECT HoTen FROM TicketSellers s,NhanVien n WHERE s.id=n.id and SellerId = @Username AND Password = @Password AND IsActive = 1";
             }
             else
             {

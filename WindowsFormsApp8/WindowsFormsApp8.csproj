@@ -96,12 +96,6 @@
     <Compile Include="chonCN.Designer.cs">
       <DependentUpon>chonCN.cs</DependentUpon>
     </Compile>
-    <Compile Include="LichChieu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LichChieu.Designer.cs">
-      <DependentUpon>LichChieu.cs</DependentUpon>
-    </Compile>
     <Compile Include="ListItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,9 +119,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="chonCN.resx">
       <DependentUpon>chonCN.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LichChieu.resx">
-      <DependentUpon>LichChieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

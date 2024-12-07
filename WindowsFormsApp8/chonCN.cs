@@ -21,8 +21,8 @@ namespace WindowsFormsApp8
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LichChieu form1 = new LichChieu();
-            form1.ShowDialog();
+            Seller s = new Seller();
+            s.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
