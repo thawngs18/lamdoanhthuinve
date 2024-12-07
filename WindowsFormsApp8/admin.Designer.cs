@@ -803,7 +803,7 @@
             this.pnlDinhDang.Controls.Add(this.button38);
             this.pnlDinhDang.Controls.Add(this.button39);
             this.pnlDinhDang.Controls.Add(this.button40);
-            this.pnlDinhDang.Location = new System.Drawing.Point(183, 478);
+            this.pnlDinhDang.Location = new System.Drawing.Point(783, 98);
             this.pnlDinhDang.Name = "pnlDinhDang";
             this.pnlDinhDang.Size = new System.Drawing.Size(564, 350);
             this.pnlDinhDang.TabIndex = 19;
@@ -964,7 +964,7 @@
             this.pnlLichChieu.Controls.Add(this.button41);
             this.pnlLichChieu.Controls.Add(this.button42);
             this.pnlLichChieu.Controls.Add(this.button43);
-            this.pnlLichChieu.Location = new System.Drawing.Point(183, 478);
+            this.pnlLichChieu.Location = new System.Drawing.Point(793, 490);
             this.pnlLichChieu.Name = "pnlLichChieu";
             this.pnlLichChieu.Size = new System.Drawing.Size(567, 350);
             this.pnlLichChieu.TabIndex = 20;
