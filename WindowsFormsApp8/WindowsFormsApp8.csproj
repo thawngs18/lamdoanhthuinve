@@ -101,6 +101,7 @@
     <Compile Include="LichChieu.Designer.cs">
       <DependentUpon>LichChieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="admin.resx">

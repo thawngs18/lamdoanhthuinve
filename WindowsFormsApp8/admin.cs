@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace WindowsFormsApp8
@@ -1124,8 +1125,8 @@ namespace WindowsFormsApp8
             // Chuỗi kết nối tới cơ sở dữ liệu
             using (SqlConnection conn = new SqlConnection(connectionString)) ;
 
-                // Truy vấn lấy tên thể loại
-                string query = "SELECT TenTheLoai FROM TheLoai";
+            // Truy vấn lấy tên thể loại
+            string query = "SELECT id,TenTheLoai FROM TheLoai";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -1142,10 +1143,18 @@ namespace WindowsFormsApp8
                     // Thêm từng tên thể loại vào CheckedListBox
                     while (reader.Read())
                     {
-                        clbTheLoaiP.Items.Add(reader["TenTheLoai"].ToString());
+                        clbTheLoaiP.Items.Add(new ListItem
+                        {
+                            Id = reader["id"].ToString(),
+                            Name = reader["TenTheLoai"].ToString()
+                        }
+                        );
+
                     }
 
                     reader.Close();
+                    clbTheLoaiP.DisplayMember = "TenTheLoai"; // Hiển thị tên thể loại
+                    clbTheLoaiP.ValueMember = "id";    // Lưu id ẩn trong ListItem
                 }
                 catch (Exception ex)
                 {
@@ -1268,6 +1277,50 @@ namespace WindowsFormsApp8
                 txtNamSXP.Text = row.Cells["NamSX"].Value?.ToString();            
             }
         }
+        private List<string> GetCheckedTheLoaiIds()
+        {
+            List<string> checkedIds = new List<string>();
+
+            foreach (var item in clbTheLoaiP.CheckedItems)
+            {
+                if (item is ListItem listItem)
+                {
+                    checkedIds.Add(listItem.Id);
+                }
+            }
+
+            return checkedIds;
+        }
+
+        private void AddPhanLoaiPhim(string maPhim, List<string> theLoaiIds)
+        {
+            string query = "INSERT INTO PhanLoaiPhim (idPhim, idTheLoai) VALUES (@idPhim, @idTheLoai)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    foreach (string theLoaiId in theLoaiIds)
+                    {
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@idPhim", maPhim);
+                            command.Parameters.AddWithValue("@idTheLoai", theLoaiId);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
 
         private void btnThemP_Click(object sender, EventArgs e)
         {
@@ -1281,6 +1334,9 @@ namespace WindowsFormsApp8
                 string sannxuat = txtSanXuatP.Text;
                 string daodien = txtDaoDienP.Text;
                 int namsx = int.Parse(txtNamSXP.Text);
+                
+
+                List<string> theLoaiIds = GetCheckedTheLoaiIds();
 
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -1313,6 +1369,8 @@ namespace WindowsFormsApp8
                             }
                         }
                         btnXemP.PerformClick();
+                        AddPhanLoaiPhim(idP, theLoaiIds);
+                        
                     }
                     catch (Exception ex)
                     {
