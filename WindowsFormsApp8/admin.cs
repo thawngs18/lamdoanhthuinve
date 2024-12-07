@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.SqlTypes;
 
 
 namespace WindowsFormsApp8
@@ -1695,6 +1696,8 @@ namespace WindowsFormsApp8
                 }
             }
         }
+
+        //load data dinhdangtronglichchieu
         private void LoadData()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -1778,11 +1781,12 @@ namespace WindowsFormsApp8
             {
                 string idMaLC = txtMaLC.Text;
                 string idMaDDLC = cmbMaDDLC.Text;
-                string idPhongChieuLC = cmbPhongChieuLC.ValueMember;
+                string idPhongChieuLC = cmbPhongChieuLC.SelectedValue.ToString();
                 DateTime ngaylc = dtpNgayLC.Value.Date;
-       
-                string Giave = txtGiaVeLC.Text;
-                string TT = textTTLC.Text;
+                DateTime ngaygio = dtpGioLC.Value; // Assuming you want both date and time
+                DateTime thoiGianChieu = new DateTime(ngaylc.Year, ngaylc.Month, ngaylc.Day, ngaygio.Hour, ngaygio.Minute, 0);
+                int Giave = int.Parse(txtGiaVeLC.Text);
+                int TT = int.Parse(textTTLC.Text);
 
                 // Combine date and time into one DateTime
               
@@ -1800,7 +1804,7 @@ namespace WindowsFormsApp8
                             cmd.Parameters.AddWithValue("@id", idMaLC);
                             cmd.Parameters.AddWithValue("@idDinhDang", idMaDDLC); // Corrected
                             cmd.Parameters.AddWithValue("@idPhong", idPhongChieuLC); // Corrected
-                            cmd.Parameters.AddWithValue("@date", ngaylc); // Use combined DateTime
+                            cmd.Parameters.AddWithValue("@date", thoiGianChieu); // Use combined DateTime
                             cmd.Parameters.AddWithValue("@TT", TT);
                             cmd.Parameters.AddWithValue("@Giave", Giave);
 
@@ -1824,8 +1828,134 @@ namespace WindowsFormsApp8
             }
         }
 
-       
+        private void btnXoaLC_Click(object sender, EventArgs e)
+        {
+            if (dgvLC.SelectedRows.Count > 0)
+            {
+
+                var id = dgvLC.SelectedRows[0].Cells["id"].Value;
+
+                // Xác nhận trước khi xóa
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa lich chieu này?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM LichChieu WHERE id = @id";
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", id);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Xóa dinh dang thanh cong!");
+                                    btnXemLC.PerformClick(); // Tải lại danh sách sau khi xóa
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa dinh dang that bai ");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi: " + ex.Message);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnSuaLC_Click(object sender, EventArgs e)
+        {
+            if (dgvLC.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                // Lấy ID từ hàng được chọn
+                var cellValue = dgvLC.SelectedRows[0].Cells["id"].Value;
+
+                if (cellValue == null || cellValue == DBNull.Value || string.IsNullOrEmpty(cellValue.ToString()))
+                {
+                    MessageBox.Show("Không có ma dinh dang hợp lệ trong hàng được chọn.");
+                    return;
+                }
+
+
+                // Lấy thông tin mới từ TextBox
+                string idMaLC = txtMaLC.Text;
+                string idMaDDLC = cmbMaDDLC.Text;
+                string idPhongChieuLC = cmbPhongChieuLC.SelectedValue.ToString();
+                DateTime ngaylc = dtpNgayLC.Value.Date;
+                DateTime ngaygio = dtpGioLC.Value; // Assuming you want both date and time
+                DateTime thoiGianChieu = new DateTime(ngaylc.Year, ngaylc.Month, ngaylc.Day, ngaygio.Hour, ngaygio.Minute, 0);
+                int Giave = int.Parse(txtGiaVeLC.Text);
+                int TT = int.Parse(textTTLC.Text);
+
+
+
+
+                // Chuẩn bị câu lệnh SQL UPDATE
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "UPDATE LichChieu SET   ThoiGianChieu = @date, idPhong=@idPhong, idDinhDang=@idDinhDang, GiaVe=@Giave ,TrangThai =@TT  WHERE id = @ID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idMaLC);
+                            cmd.Parameters.AddWithValue("@idDinhDang", idMaDDLC); // Corrected
+                            cmd.Parameters.AddWithValue("@idPhong", idPhongChieuLC); // Corrected
+                            cmd.Parameters.AddWithValue("@date", thoiGianChieu); // Use combined DateTime
+                            cmd.Parameters.AddWithValue("@TT", TT);
+                            cmd.Parameters.AddWithValue("@Giave", Giave);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cập nhật thông tin thành công!");
+                                btnXemLC.PerformClick(); // Tải lại danh sách sau khi cập nhật
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy Lich Chieu để cập nhật.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Lỗi: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để sửa.");
+            }
+
+        }
+
+        private void dgvLC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvLC.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+               // id, ThoiGianChieu, idPhong, idDinhDang, GiaVe, TrangThai
+                var row = dgvLC.SelectedRows[0];
+                txtMaLC.Text = row.Cells["id"].Value?.ToString();
+                DateTime thoiGianChieu = (DateTime)row.Cells["ThoiGianChieu"].Value;
+                dtpNgayLC.Value = thoiGianChieu;
+                dtpGioLC.Value = thoiGianChieu;
+                cmbPhongChieuLC.SelectedValue = row.Cells["idPhong"].Value?.ToString();
+                txtGiaVeLC.Text = row.Cells["GiaVe"].Value?.ToString();
+                textTTLC.Text = row.Cells["TrangThai"].Value?.ToString();
+            }
+        }
     }
-   }
+}
    
 

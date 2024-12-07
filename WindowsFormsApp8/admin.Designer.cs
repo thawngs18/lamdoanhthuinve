@@ -202,6 +202,7 @@
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
+            this.dtpGioLC = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlPhongChieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
@@ -991,7 +992,7 @@
             // 
             // textTTLC
             // 
-            this.textTTLC.Location = new System.Drawing.Point(423, 257);
+            this.textTTLC.Location = new System.Drawing.Point(442, 264);
             this.textTTLC.Margin = new System.Windows.Forms.Padding(2);
             this.textTTLC.Name = "textTTLC";
             this.textTTLC.Size = new System.Drawing.Size(92, 20);
@@ -1001,7 +1002,7 @@
             // 
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(352, 260);
+            this.label59.Location = new System.Drawing.Point(348, 264);
             this.label59.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(73, 13);
@@ -1027,20 +1028,20 @@
             this.dgvLC.RowHeadersWidth = 51;
             this.dgvLC.Size = new System.Drawing.Size(324, 248);
             this.dgvLC.TabIndex = 21;
+            this.dgvLC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLC_CellClick);
             // 
             // cmbPhongChieuLC
             // 
             this.cmbPhongChieuLC.FormattingEnabled = true;
-            this.cmbPhongChieuLC.Location = new System.Drawing.Point(422, 171);
+            this.cmbPhongChieuLC.Location = new System.Drawing.Point(442, 169);
             this.cmbPhongChieuLC.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPhongChieuLC.Name = "cmbPhongChieuLC";
             this.cmbPhongChieuLC.Size = new System.Drawing.Size(92, 21);
             this.cmbPhongChieuLC.TabIndex = 20;
-            
             // 
             // txtManHinhLC
             // 
-            this.txtManHinhLC.Location = new System.Drawing.Point(422, 144);
+            this.txtManHinhLC.Location = new System.Drawing.Point(442, 145);
             this.txtManHinhLC.Margin = new System.Windows.Forms.Padding(2);
             this.txtManHinhLC.Name = "txtManHinhLC";
             this.txtManHinhLC.Size = new System.Drawing.Size(92, 20);
@@ -1048,7 +1049,7 @@
             // 
             // txtGiaVeLC
             // 
-            this.txtGiaVeLC.Location = new System.Drawing.Point(422, 291);
+            this.txtGiaVeLC.Location = new System.Drawing.Point(442, 289);
             this.txtGiaVeLC.Margin = new System.Windows.Forms.Padding(2);
             this.txtGiaVeLC.Name = "txtGiaVeLC";
             this.txtGiaVeLC.Size = new System.Drawing.Size(92, 20);
@@ -1058,7 +1059,7 @@
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(364, 298);
+            this.label52.Location = new System.Drawing.Point(348, 289);
             this.label52.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(45, 13);
@@ -1067,6 +1068,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dtpGioLC);
             this.groupBox3.Controls.Add(this.dtpNgayLC);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(344, 195);
@@ -1080,9 +1082,9 @@
             // 
             // dtpNgayLC
             // 
-            this.dtpNgayLC.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dtpNgayLC.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayLC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayLC.Location = new System.Drawing.Point(14, 24);
+            this.dtpNgayLC.Location = new System.Drawing.Point(33, 18);
             this.dtpNgayLC.Margin = new System.Windows.Forms.Padding(2);
             this.dtpNgayLC.Name = "dtpNgayLC";
             this.dtpNgayLC.Size = new System.Drawing.Size(157, 19);
@@ -1091,7 +1093,7 @@
             // cmbMaDDLC
             // 
             this.cmbMaDDLC.FormattingEnabled = true;
-            this.cmbMaDDLC.Location = new System.Drawing.Point(423, 92);
+            this.cmbMaDDLC.Location = new System.Drawing.Point(442, 91);
             this.cmbMaDDLC.Margin = new System.Windows.Forms.Padding(2);
             this.cmbMaDDLC.Name = "cmbMaDDLC";
             this.cmbMaDDLC.Size = new System.Drawing.Size(92, 21);
@@ -1133,7 +1135,7 @@
             // 
             // txtPhimLC
             // 
-            this.txtPhimLC.Location = new System.Drawing.Point(423, 119);
+            this.txtPhimLC.Location = new System.Drawing.Point(442, 118);
             this.txtPhimLC.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhimLC.Name = "txtPhimLC";
             this.txtPhimLC.Size = new System.Drawing.Size(92, 20);
@@ -1141,7 +1143,7 @@
             // 
             // txtMaLC
             // 
-            this.txtMaLC.Location = new System.Drawing.Point(423, 61);
+            this.txtMaLC.Location = new System.Drawing.Point(442, 60);
             this.txtMaLC.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaLC.Name = "txtMaLC";
             this.txtMaLC.Size = new System.Drawing.Size(92, 20);
@@ -1178,6 +1180,7 @@
             this.btnSuaLC.TabIndex = 2;
             this.btnSuaLC.Text = "Sửa";
             this.btnSuaLC.UseVisualStyleBackColor = true;
+            this.btnSuaLC.Click += new System.EventHandler(this.btnSuaLC_Click);
             // 
             // btnXoaLC
             // 
@@ -1188,6 +1191,7 @@
             this.btnXoaLC.TabIndex = 1;
             this.btnXoaLC.Text = "Xóa";
             this.btnXoaLC.UseVisualStyleBackColor = true;
+            this.btnXoaLC.Click += new System.EventHandler(this.btnXoaLC_Click);
             // 
             // btnThemLC
             // 
@@ -2071,6 +2075,16 @@
             this.label55.TabIndex = 0;
             this.label55.Text = "Chọn phim";
             // 
+            // dtpGioLC
+            // 
+            this.dtpGioLC.CustomFormat = "dd/MM/yyyy";
+            this.dtpGioLC.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpGioLC.Location = new System.Drawing.Point(33, 40);
+            this.dtpGioLC.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpGioLC.Name = "dtpGioLC";
+            this.dtpGioLC.Size = new System.Drawing.Size(157, 19);
+            this.dtpGioLC.TabIndex = 18;
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2323,5 +2337,6 @@
         private System.Windows.Forms.Button btnXemLC;
         private System.Windows.Forms.TextBox textTTLC;
         private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.DateTimePicker dtpGioLC;
     }
 }
