@@ -33,9 +33,13 @@ namespace WindowsFormsApp8
 
             return sb.ToString();
         }
-        public BanVe()
+        public BanVe( string idphong, string tenphim, string tenMh, string time)
         {
             InitializeComponent();
+            lblipphong.Text = idphong;
+            lbltenphim.Text = tenphim;
+            lblTenMh.Text = tenMh;
+            lbltgchieu.Text = time;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -254,5 +258,11 @@ namespace WindowsFormsApp8
             }
 
         }
+
+        public void SetLabelData(string data)
+        {
+            lblHienTTin.Text = data;  // Giả sử bạn có một Label với tên label1
+        }
+
     }
 }

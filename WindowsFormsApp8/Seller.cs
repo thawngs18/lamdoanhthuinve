@@ -84,10 +84,30 @@ namespace WindowsFormsApp8
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        string idphong = "";
+        string tenphim = "";
+        string tenmh = "";
+        string time = "";
+        private void dtgLichChieuP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            BanVe bv = new BanVe();
-            bv.Show();
+            if (dtgLichChieuP.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            {
+                var row = dtgLichChieuP.SelectedRows[0];
+                 idphong = row.Cells["id"].Value?.ToString();
+                tenphim = row.Cells["TenPhim"].Value?.ToString();
+                tenmh = row.Cells["TenMH"].Value?.ToString();
+                time = row.Cells["ThoiGianChieu"].Value?.ToString();
+
+                
+            }
+                
         }
+        private void button2_Click(object sender, EventArgs e)
+        {           
+                    BanVe bv = new BanVe(idphong,tenphim,tenmh,time);
+                    bv.Show();       
+        }
+
+
     }
 }

@@ -54,10 +54,15 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
+            this.lblHienTTin = new System.Windows.Forms.Label();
+            this.lblipphong = new System.Windows.Forms.Label();
+            this.lblTenMh = new System.Windows.Forms.Label();
+            this.lbltenphim = new System.Windows.Forms.Label();
+            this.lbltgchieu = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -329,14 +334,6 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.NavajoWhite;
-            this.label12.Location = new System.Drawing.Point(21, 6);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(728, 76);
-            this.label12.TabIndex = 15;
-            // 
             // btnThanhToan
             // 
             this.btnThanhToan.Location = new System.Drawing.Point(41, 80);
@@ -364,12 +361,75 @@
             this.txtThanhTien.Size = new System.Drawing.Size(159, 20);
             this.txtThanhTien.TabIndex = 3;
             // 
+            // lblHienTTin
+            // 
+            this.lblHienTTin.BackColor = System.Drawing.Color.NavajoWhite;
+            this.lblHienTTin.Location = new System.Drawing.Point(21, 6);
+            this.lblHienTTin.Name = "lblHienTTin";
+            this.lblHienTTin.Size = new System.Drawing.Size(728, 76);
+            this.lblHienTTin.TabIndex = 15;
+            // 
+            // lblipphong
+            // 
+            this.lblipphong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblipphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblipphong.Location = new System.Drawing.Point(34, 28);
+            this.lblipphong.Name = "lblipphong";
+            this.lblipphong.Size = new System.Drawing.Size(79, 24);
+            this.lblipphong.TabIndex = 16;
+            this.lblipphong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTenMh
+            // 
+            this.lblTenMh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblTenMh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenMh.Location = new System.Drawing.Point(34, 52);
+            this.lblTenMh.Name = "lblTenMh";
+            this.lblTenMh.Size = new System.Drawing.Size(79, 23);
+            this.lblTenMh.TabIndex = 17;
+            this.lblTenMh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbltenphim
+            // 
+            this.lbltenphim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbltenphim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltenphim.Location = new System.Drawing.Point(119, 28);
+            this.lbltenphim.Name = "lbltenphim";
+            this.lbltenphim.Size = new System.Drawing.Size(160, 23);
+            this.lbltenphim.TabIndex = 18;
+            this.lbltenphim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbltgchieu
+            // 
+            this.lbltgchieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbltgchieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltgchieu.Location = new System.Drawing.Point(119, 52);
+            this.lbltgchieu.Name = "lbltgchieu";
+            this.lbltgchieu.Size = new System.Drawing.Size(160, 23);
+            this.lbltgchieu.TabIndex = 19;
+            this.lbltgchieu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(22, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 23);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Thong Tin";
+            // 
             // BanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 646);
             this.Controls.Add(this.label12);
+            this.Controls.Add(this.lbltgchieu);
+            this.Controls.Add(this.lbltenphim);
+            this.Controls.Add(this.lblTenMh);
+            this.Controls.Add(this.lblipphong);
+            this.Controls.Add(this.lblHienTTin);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel2);
@@ -435,10 +495,15 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblHienTTin;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtThanhTien;
+        private System.Windows.Forms.Label lblipphong;
+        private System.Windows.Forms.Label lblTenMh;
+        private System.Windows.Forms.Label lbltenphim;
+        private System.Windows.Forms.Label lbltgchieu;
+        private System.Windows.Forms.Label label12;
     }
 }
 

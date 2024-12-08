@@ -19,8 +19,7 @@ namespace WindowsFormsApp8
         }
         string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim;Trusted_Connection=True;";
         private void button1_Click(object sender, EventArgs e)
-        {
-           
+        {         
 
             string cn = "";
             if (radioButton1.Checked == true)
