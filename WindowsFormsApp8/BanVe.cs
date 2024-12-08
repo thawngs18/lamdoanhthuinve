@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace WindowsFormsApp8
 {
@@ -33,6 +34,32 @@ namespace WindowsFormsApp8
 
             return sb.ToString();
         }
+
+        public BanVe ( bool rs)
+        {
+            InitializeComponent();
+            bool result = rs;
+            if (!rs)
+            {
+                uncheck();
+            }
+        }
+        public BanVe() {
+            InitializeComponent();
+
+        }
+       
+        public void uncheck()
+        {
+            chkTV.Checked = false;
+
+        }
+
+        private void DangNhapTV_CancelClicked(object sender, EventArgs e)
+        {
+            uncheck(); // Gọi phương thức uncheck
+        }
+
         public BanVe( string idphong, string tenphim, string tenMh, string time)
         {
             InitializeComponent();
@@ -41,7 +68,7 @@ namespace WindowsFormsApp8
             lblTenMh.Text = tenMh;
             lbltgchieu.Text = time;
         }
-
+      
         private void Form1_Load(object sender, EventArgs e)
         {
             khoitaosoghe(11, 15);
@@ -263,6 +290,20 @@ namespace WindowsFormsApp8
         {
             lblHienTTin.Text = data;  // Giả sử bạn có một Label với tên label1
         }
+        private void taikhoan_CancelClicked(object sender, EventArgs e)
+        {
+            uncheck(); // Gọi phương thức uncheck
+        }
+        private void chkTV_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTV.Checked)
+            {
+                DangNhapTV tk = new DangNhapTV();
+                tk.CancelClicked += taikhoan_CancelClicked; // Đăng ký sự kiện
+                tk.Show();
 
+            }
+        }
+        
     }
 }

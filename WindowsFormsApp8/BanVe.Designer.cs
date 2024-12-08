@@ -51,7 +51,7 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkTV = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnThanhToan = new System.Windows.Forms.Button();
@@ -63,6 +63,8 @@
             this.lbltenphim = new System.Windows.Forms.Label();
             this.lbltgchieu = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblTenKh = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -296,7 +298,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.lblTenKh);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.chkTV);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(223, 126);
@@ -304,15 +308,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thanh Vien";
             // 
-            // checkBox1
+            // chkTV
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(144, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Khach Hang Thanh Vien";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkTV.AutoSize = true;
+            this.chkTV.Location = new System.Drawing.Point(6, 20);
+            this.chkTV.Name = "chkTV";
+            this.chkTV.Size = new System.Drawing.Size(144, 17);
+            this.chkTV.TabIndex = 0;
+            this.chkTV.Text = "Khach Hang Thanh Vien";
+            this.chkTV.UseVisualStyleBackColor = true;
+            this.chkTV.CheckedChanged += new System.EventHandler(this.chkTV_CheckedChanged);
             // 
             // flowLayoutPanel4
             // 
@@ -419,6 +424,25 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "Thong Tin";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(6, 44);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(164, 16);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Thong Tin Khach Hang";
+            // 
+            // lblTenKh
+            // 
+            this.lblTenKh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenKh.Location = new System.Drawing.Point(15, 65);
+            this.lblTenKh.Name = "lblTenKh";
+            this.lblTenKh.Size = new System.Drawing.Size(202, 48);
+            this.lblTenKh.TabIndex = 2;
+            this.lblTenKh.Text = "label15";
+            // 
             // BanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,7 +516,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkTV;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblHienTTin;
@@ -504,6 +528,8 @@
         private System.Windows.Forms.Label lbltenphim;
         private System.Windows.Forms.Label lbltgchieu;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblTenKh;
+        private System.Windows.Forms.Label label14;
     }
 }
 

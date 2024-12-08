@@ -72,6 +72,12 @@
       <DependentUpon>admin.cs</DependentUpon>
     </Compile>
     <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="DangNhapTV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhapTV.Designer.cs">
+      <DependentUpon>DangNhapTV.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatLaiMK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhapTV.resx">
+      <DependentUpon>DangNhapTV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DatLaiMK.resx">
       <DependentUpon>DatLaiMK.cs</DependentUpon>
