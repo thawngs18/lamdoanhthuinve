@@ -21,6 +21,7 @@ namespace WindowsFormsApp8
         }
         string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim;Trusted_Connection=True;";
         public event EventHandler CancelClicked;
+        public event EventHandler OKClicked;
 
      
         private void btnThoat_Click(object sender, EventArgs e)
@@ -33,18 +34,18 @@ namespace WindowsFormsApp8
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            string username = txtTKTV.Text.Trim();
-            string password = txtMKTV.Text.Trim();
+            string makh = txtTKTV.Text.Trim();
+            
 
             // Kiểm tra dữ liệu nhập vào
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(makh))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập ma khach hang", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Chuỗi truy vấn SQL để xác thực người dùng (không cần IsActive)
-            string query = @"SELECT HoTen FROM KhachHang WHERE id = @Username AND idpassword = @Password";
+            string query = @"SELECT HoTen FROM KhachHang WHERE id = @makh" ;
 
             // Kết nối với cơ sở dữ liệu
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -56,8 +57,8 @@ namespace WindowsFormsApp8
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         // Thêm tham số vào câu lệnh SQL
-                        command.Parameters.AddWithValue("@Username", username);
-                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@makh", makh);
+                        
 
                         // Thực thi câu lệnh SQL và lấy kết quả
                         SqlDataReader reader = command.ExecuteReader();
@@ -68,17 +69,16 @@ namespace WindowsFormsApp8
                             reader.Read();
                             string hoTen = reader["HoTen"].ToString();
                         
-                            MessageBox.Show($"Đăng nhập thành công! Xin chào {hoTen}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Xin chào KHTV : {hoTen}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Mở form tiếp theo hoặc thực hiện hành động khác
                             // Ví dụ: mở form BanVe hoặc hành động khác
-                    
-
-                            this.Hide();  // Ẩn form đăng nhập
+                            this.Close();
+                            // Ẩn form đăng nhập
                         }
                         else
                         {
-                            MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Khong tim thay ma khach hang thanh vien", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -88,6 +88,7 @@ namespace WindowsFormsApp8
                 }
             }
         }
+
 
     }
 }

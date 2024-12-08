@@ -23,6 +23,8 @@ namespace WindowsFormsApp8
         private decimal giaVeSV = 75000;         // Giá vé sinh viên
         private decimal giaVeTreEm = 50000;     // Giá vé trẻ em
         private decimal tongTien = 0;
+        private decimal GiamGia = 0;
+        private decimal thanhtoan = 0;
         public static string GetAsciiString(int[] numbers)
         {
             StringBuilder sb = new StringBuilder();
@@ -44,11 +46,12 @@ namespace WindowsFormsApp8
                 uncheck();
             }
         }
+
         public BanVe() {
             InitializeComponent();
-
         }
        
+   
         public void uncheck()
         {
             chkTV.Checked = false;
@@ -73,6 +76,7 @@ namespace WindowsFormsApp8
         {
             khoitaosoghe(11, 15);
             khoitaoday(11, 1);
+           
         }
 
         private void khoitaoday(int v1, int v2)
@@ -226,29 +230,43 @@ namespace WindowsFormsApp8
 
             // Tính tổng tiền chung
             tongTien = tongTienNguoiLon + tongTienSV + tongTienTreEm;
-
+            thanhtoan = tongTien;
 
             // Hiển thị tổng tiền vào TextBox "Thanh Tiền"
             txtThanhTien.Text = tongTien.ToString("C");
+            textBox2.Text = thanhtoan.ToString("C");
 
+        }
+        private void TinhGiamGia()
+        {
+            GiamGia = tongTien * 10 / 100;
+            textBox1.Text = GiamGia.ToString("C");
+        }
+        private void TinhTT()
+        {
+            thanhtoan = tongTien - GiamGia;
+            textBox2.Text = thanhtoan.ToString("C");
         }
 
         private void radNguoiLon_CheckedChanged(object sender, EventArgs e)
         {
             TinhGiaVe();
             TinhThanhTien();
+            TinhTT();
         }
 
         private void radSV_CheckedChanged(object sender, EventArgs e)
         {
             TinhGiaVe();
             TinhThanhTien();
+            TinhTT();
         }
 
         private void radTreEm_CheckedChanged(object sender, EventArgs e)
         {
             TinhGiaVe();
             TinhThanhTien();
+            TinhTT();
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
@@ -276,12 +294,17 @@ namespace WindowsFormsApp8
 
                 // Reset lại tổng tiền
                 tongTien = 0;
+                thanhtoan = 0;
+                GiamGia = 0;
                 txtThanhTien.Clear();  // Xóa hiển thị tổng tiền
+                textBox1.Clear();
+                textBox2.Clear();
 
                 // Reset lại các radio button (nếu cần thiết)
                 radNguoiLon.Checked = false;
                 radSV.Checked = false;
                 radTreEm.Checked = false;
+                chkTV.Checked = false;
             }
 
         }
@@ -300,10 +323,20 @@ namespace WindowsFormsApp8
             {
                 DangNhapTV tk = new DangNhapTV();
                 tk.CancelClicked += taikhoan_CancelClicked; // Đăng ký sự kiện
-                tk.Show();
-
+                tk.Show();  
             }
+            if (chkTV.Checked == true)
+            {
+                TinhGiamGia();
+                TinhTT();
+            }
+            else
+            {
+                textBox1.Text = string.Empty;
+                textBox2.Text = tongTien.ToString("C");
+            }
+
         }
-        
+
     }
 }
