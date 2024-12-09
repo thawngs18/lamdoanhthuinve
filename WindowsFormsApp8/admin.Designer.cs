@@ -272,7 +272,7 @@
             this.button1.Location = new System.Drawing.Point(2, 251);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(234, 245);
+            this.button1.Size = new System.Drawing.Size(295, 245);
             this.button1.TabIndex = 0;
             this.button1.Text = "Doanh Thu";
             this.button1.UseVisualStyleBackColor = true;
@@ -280,21 +280,24 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(2, 2);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(234, 245);
+            this.button2.Size = new System.Drawing.Size(295, 245);
             this.button2.TabIndex = 1;
             this.button2.Text = "Dữ Liệu";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(240, 2);
+            this.button3.Location = new System.Drawing.Point(301, 2);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(234, 245);
+            this.button3.Size = new System.Drawing.Size(295, 245);
             this.button3.TabIndex = 2;
             this.button3.Text = "Nhân Viên";
             this.button3.UseVisualStyleBackColor = true;
@@ -302,21 +305,24 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(478, 2);
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(600, 2);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(234, 245);
+            this.button4.Size = new System.Drawing.Size(295, 245);
             this.button4.TabIndex = 3;
             this.button4.Text = "Khách Hàng";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(240, 251);
+            this.button5.Location = new System.Drawing.Point(301, 251);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(234, 245);
+            this.button5.Size = new System.Drawing.Size(295, 245);
             this.button5.TabIndex = 4;
             this.button5.Text = "Tài Khoản";
             this.button5.UseVisualStyleBackColor = true;
@@ -328,7 +334,7 @@
             this.flp_admin.Controls.Add(this.button4);
             this.flp_admin.Controls.Add(this.button1);
             this.flp_admin.Controls.Add(this.button5);
-            this.flp_admin.Location = new System.Drawing.Point(119, 29);
+            this.flp_admin.Location = new System.Drawing.Point(1032, 138);
             this.flp_admin.Margin = new System.Windows.Forms.Padding(2);
             this.flp_admin.Name = "flp_admin";
             this.flp_admin.Size = new System.Drawing.Size(906, 502);
@@ -2101,6 +2107,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 35;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox6
             // 
@@ -2112,6 +2119,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 36;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox5
             // 
@@ -2134,6 +2142,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 40;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // button16
             // 
@@ -2153,6 +2162,7 @@
             this.button15.Size = new System.Drawing.Size(96, 75);
             this.button15.TabIndex = 29;
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button14
             // 
@@ -2162,6 +2172,7 @@
             this.button14.Size = new System.Drawing.Size(96, 75);
             this.button14.TabIndex = 28;
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -2171,6 +2182,7 @@
             this.button13.Size = new System.Drawing.Size(96, 75);
             this.button13.TabIndex = 27;
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button7
             // 
@@ -2290,6 +2302,7 @@
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 46;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // button32
             // 
@@ -2299,6 +2312,7 @@
             this.button32.Size = new System.Drawing.Size(133, 93);
             this.button32.TabIndex = 45;
             this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // pictureBox11
             // 
@@ -2310,6 +2324,7 @@
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox11.TabIndex = 44;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
             // button31
             // 
@@ -2319,6 +2334,7 @@
             this.button31.Size = new System.Drawing.Size(133, 93);
             this.button31.TabIndex = 43;
             this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // pictureBox10
             // 
@@ -2330,6 +2346,7 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 42;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // button30
             // 
@@ -2339,6 +2356,7 @@
             this.button30.Size = new System.Drawing.Size(133, 93);
             this.button30.TabIndex = 41;
             this.button30.UseVisualStyleBackColor = false;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // pictureBox9
             // 
@@ -2350,6 +2368,7 @@
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 40;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // button29
             // 
@@ -2359,6 +2378,7 @@
             this.button29.Size = new System.Drawing.Size(133, 93);
             this.button29.TabIndex = 39;
             this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
             // pictureBox8
             // 
@@ -2370,6 +2390,7 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 38;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // button28
             // 
@@ -2379,6 +2400,7 @@
             this.button28.Size = new System.Drawing.Size(133, 93);
             this.button28.TabIndex = 37;
             this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // pictureBox7
             // 
@@ -2390,6 +2412,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 36;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // button24
             // 
@@ -2399,6 +2422,7 @@
             this.button24.Size = new System.Drawing.Size(133, 93);
             this.button24.TabIndex = 35;
             this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // admin
             // 
