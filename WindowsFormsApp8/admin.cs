@@ -26,21 +26,24 @@ namespace WindowsFormsApp8
 
         private void admin_Load(object sender, EventArgs e)
         {
-            Panel[] panels = { panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            Panel[] panels = {flp_admin, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
             foreach (var pan in panels)
             {
                 pan.Visible = false;
             }
+            btnQuayLai.Visible = false;
+            flp_admin.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Text = "Nhan Vien";
-            Panel[] panels = { panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            Panel[] panels = { flp_admin, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
             foreach (var pan in panels)
             {
                 pan.Visible = false;
             }
+            btnQuayLai.Visible = true;
             pnlNV.Visible = true;
             
         }
@@ -48,19 +51,21 @@ namespace WindowsFormsApp8
         private void button4_Click(object sender, EventArgs e)
         {
             this.Text = "Khach Hang";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlKH.Visible = true;
+            btnQuayLai.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Text = "Doanh Thu";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             pnlDoanhThu.Visible = true;
+            btnQuayLai.Visible = true;
             loadCBPhim();
 
         }
@@ -68,73 +73,80 @@ namespace WindowsFormsApp8
         private void button2_Click(object sender, EventArgs e)
         {
             this.Text = "Du Lieu";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = {flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
+            btnQuayLai.Visible = true;
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
             this.Text = "Loai Man Hinh";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlLoaiManHinh.Visible = true;
+            btnQuayLai.Visible = true;
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
             this.Text = "Phong Chieu";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlPhongChieu.Visible = true;
+            btnQuayLai.Visible = true;
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
             this.Text = "The Loai";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlTheLoai.Visible = true;
-          
+            btnQuayLai.Visible = true;
+
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
             this.Text = "Phim";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlPhim.Visible = true;
+            btnQuayLai.Visible = true;
             LoadTheLoaiToCheckedListBox();
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
             this.Text = "Dinh Dang";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlDinhDang.Visible = true;
+            btnQuayLai.Visible = true;
             LoadComboBoxData();
         }
 
         private void button23_Click(object sender, EventArgs e)
         {
             this.Text = "Lich Chieu";
-            Panel[] p = { panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
+            Panel[] p = { flp_admin, panel2, pnlDinhDang, pnlKH, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlPhongChieu, pnlTheLoai };
             foreach (var panel in p)
             { panel.Visible = false; }
             panel2.Visible = true;
             pnlLichChieu.Visible = true;
+            btnQuayLai.Visible = true;
             LoadData();
             LoadPhongChieuData();
 
@@ -1988,6 +2000,17 @@ namespace WindowsFormsApp8
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Panel[] panels = { flp_admin, panel2, pnlKH, pnlDinhDang, pnlDoanhThu, pnlLichChieu, pnlLoaiManHinh, pnlNV, pnlPhim, pnlTheLoai, pnlPhongChieu };
+            foreach (var pan in panels)
+            {
+                pan.Visible = false;
+            }
+            btnQuayLai.Visible = false;
+            flp_admin.Visible = true;
         }
     }
 }
