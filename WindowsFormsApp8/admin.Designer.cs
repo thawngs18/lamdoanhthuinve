@@ -121,6 +121,7 @@
             this.btnXoaLC = new System.Windows.Forms.Button();
             this.btnThemLC = new System.Windows.Forms.Button();
             this.pnlLoaiManHinh = new System.Windows.Forms.Panel();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
             this.dgvLMH = new System.Windows.Forms.DataGridView();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -229,7 +230,6 @@
             this.button28 = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button24 = new System.Windows.Forms.Button();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.flp_admin.SuspendLayout();
             this.pnlPhongChieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPC)).BeginInit();
@@ -241,6 +241,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLC)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.pnlLoaiManHinh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLMH)).BeginInit();
             this.pnlTheLoai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTL)).BeginInit();
@@ -266,7 +267,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -372,76 +372,78 @@
             this.pnlPhongChieu.Controls.Add(this.btnSuaPC);
             this.pnlPhongChieu.Controls.Add(this.btnXoaPC);
             this.pnlPhongChieu.Controls.Add(this.btnThemPC);
-            this.pnlPhongChieu.Location = new System.Drawing.Point(121, 133);
+            this.pnlPhongChieu.Location = new System.Drawing.Point(130, 139);
             this.pnlPhongChieu.Name = "pnlPhongChieu";
             this.pnlPhongChieu.Size = new System.Drawing.Size(903, 393);
             this.pnlPhongChieu.TabIndex = 16;
             // 
             // btnXemPC
             // 
-            this.btnXemPC.Location = new System.Drawing.Point(371, 6);
+            this.btnXemPC.Image = ((System.Drawing.Image)(resources.GetObject("btnXemPC.Image")));
+            this.btnXemPC.Location = new System.Drawing.Point(15, 296);
             this.btnXemPC.Name = "btnXemPC";
             this.btnXemPC.Size = new System.Drawing.Size(73, 49);
             this.btnXemPC.TabIndex = 19;
-            this.btnXemPC.Text = "Xem";
             this.btnXemPC.UseVisualStyleBackColor = true;
             this.btnXemPC.Click += new System.EventHandler(this.btnXemPC_Click);
             // 
             // dgvPC
             // 
+            this.dgvPC.AllowUserToAddRows = false;
+            this.dgvPC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPC.Location = new System.Drawing.Point(15, 63);
+            this.dgvPC.Location = new System.Drawing.Point(15, 15);
             this.dgvPC.Name = "dgvPC";
             this.dgvPC.RowHeadersWidth = 51;
-            this.dgvPC.Size = new System.Drawing.Size(304, 167);
+            this.dgvPC.Size = new System.Drawing.Size(667, 246);
             this.dgvPC.TabIndex = 18;
             this.dgvPC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPC_CellClick);
             // 
             // txtGheMoiHangPC
             // 
-            this.txtGheMoiHangPC.Location = new System.Drawing.Point(412, 258);
+            this.txtGheMoiHangPC.Location = new System.Drawing.Point(698, 341);
             this.txtGheMoiHangPC.Margin = new System.Windows.Forms.Padding(2);
             this.txtGheMoiHangPC.Name = "txtGheMoiHangPC";
-            this.txtGheMoiHangPC.Size = new System.Drawing.Size(76, 20);
+            this.txtGheMoiHangPC.Size = new System.Drawing.Size(182, 20);
             this.txtGheMoiHangPC.TabIndex = 17;
             // 
             // txtHangGhePC
             // 
-            this.txtHangGhePC.Location = new System.Drawing.Point(412, 228);
+            this.txtHangGhePC.Location = new System.Drawing.Point(698, 296);
             this.txtHangGhePC.Margin = new System.Windows.Forms.Padding(2);
             this.txtHangGhePC.Name = "txtHangGhePC";
-            this.txtHangGhePC.Size = new System.Drawing.Size(76, 20);
+            this.txtHangGhePC.Size = new System.Drawing.Size(182, 20);
             this.txtHangGhePC.TabIndex = 16;
             // 
             // txtTinhTrangPc
             // 
-            this.txtTinhTrangPc.Location = new System.Drawing.Point(412, 195);
+            this.txtTinhTrangPc.Location = new System.Drawing.Point(698, 241);
             this.txtTinhTrangPc.Margin = new System.Windows.Forms.Padding(2);
             this.txtTinhTrangPc.Name = "txtTinhTrangPc";
-            this.txtTinhTrangPc.Size = new System.Drawing.Size(76, 20);
+            this.txtTinhTrangPc.Size = new System.Drawing.Size(182, 20);
             this.txtTinhTrangPc.TabIndex = 15;
             // 
             // txtChoNgoiPC
             // 
-            this.txtChoNgoiPC.Location = new System.Drawing.Point(412, 162);
+            this.txtChoNgoiPC.Location = new System.Drawing.Point(698, 193);
             this.txtChoNgoiPC.Margin = new System.Windows.Forms.Padding(2);
             this.txtChoNgoiPC.Name = "txtChoNgoiPC";
-            this.txtChoNgoiPC.Size = new System.Drawing.Size(76, 20);
+            this.txtChoNgoiPC.Size = new System.Drawing.Size(182, 20);
             this.txtChoNgoiPC.TabIndex = 14;
             // 
             // txtMHPC
             // 
-            this.txtMHPC.Location = new System.Drawing.Point(412, 129);
+            this.txtMHPC.Location = new System.Drawing.Point(698, 147);
             this.txtMHPC.Margin = new System.Windows.Forms.Padding(2);
             this.txtMHPC.Name = "txtMHPC";
-            this.txtMHPC.Size = new System.Drawing.Size(76, 20);
+            this.txtMHPC.Size = new System.Drawing.Size(182, 20);
             this.txtMHPC.TabIndex = 13;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(328, 258);
+            this.label26.Location = new System.Drawing.Point(695, 326);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(88, 13);
@@ -452,7 +454,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(328, 228);
+            this.label25.Location = new System.Drawing.Point(695, 281);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(83, 13);
@@ -463,7 +465,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(328, 195);
+            this.label24.Location = new System.Drawing.Point(695, 226);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(69, 13);
@@ -474,7 +476,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(328, 162);
+            this.label23.Location = new System.Drawing.Point(695, 178);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(78, 13);
@@ -485,7 +487,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(328, 129);
+            this.label22.Location = new System.Drawing.Point(695, 132);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(61, 13);
@@ -494,25 +496,25 @@
             // 
             // txtTenPC
             // 
-            this.txtTenPC.Location = new System.Drawing.Point(412, 98);
+            this.txtTenPC.Location = new System.Drawing.Point(698, 92);
             this.txtTenPC.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenPC.Name = "txtTenPC";
-            this.txtTenPC.Size = new System.Drawing.Size(76, 20);
+            this.txtTenPC.Size = new System.Drawing.Size(182, 20);
             this.txtTenPC.TabIndex = 7;
             // 
             // txtMaPc
             // 
-            this.txtMaPc.Location = new System.Drawing.Point(412, 61);
+            this.txtMaPc.Location = new System.Drawing.Point(698, 42);
             this.txtMaPc.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaPc.Name = "txtMaPc";
-            this.txtMaPc.Size = new System.Drawing.Size(76, 20);
+            this.txtMaPc.Size = new System.Drawing.Size(182, 20);
             this.txtMaPc.TabIndex = 6;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(328, 98);
+            this.label20.Location = new System.Drawing.Point(695, 77);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(69, 13);
@@ -523,7 +525,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(328, 63);
+            this.label21.Location = new System.Drawing.Point(695, 15);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(64, 13);
@@ -532,34 +534,34 @@
             // 
             // btnSuaPC
             // 
-            this.btnSuaPC.Location = new System.Drawing.Point(245, 6);
+            this.btnSuaPC.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaPC.Image")));
+            this.btnSuaPC.Location = new System.Drawing.Point(339, 296);
             this.btnSuaPC.Margin = new System.Windows.Forms.Padding(2);
             this.btnSuaPC.Name = "btnSuaPC";
             this.btnSuaPC.Size = new System.Drawing.Size(73, 49);
             this.btnSuaPC.TabIndex = 2;
-            this.btnSuaPC.Text = "Sửa";
             this.btnSuaPC.UseVisualStyleBackColor = true;
             this.btnSuaPC.Click += new System.EventHandler(this.btnSuaPC_Click);
             // 
             // btnXoaPC
             // 
-            this.btnXoaPC.Location = new System.Drawing.Point(129, 6);
+            this.btnXoaPC.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaPC.Image")));
+            this.btnXoaPC.Location = new System.Drawing.Point(501, 296);
             this.btnXoaPC.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaPC.Name = "btnXoaPC";
             this.btnXoaPC.Size = new System.Drawing.Size(73, 49);
             this.btnXoaPC.TabIndex = 1;
-            this.btnXoaPC.Text = "Xóa";
             this.btnXoaPC.UseVisualStyleBackColor = true;
             this.btnXoaPC.Click += new System.EventHandler(this.btnXoaPC_Click);
             // 
             // btnThemPC
             // 
-            this.btnThemPC.Location = new System.Drawing.Point(19, 6);
+            this.btnThemPC.Image = ((System.Drawing.Image)(resources.GetObject("btnThemPC.Image")));
+            this.btnThemPC.Location = new System.Drawing.Point(177, 296);
             this.btnThemPC.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemPC.Name = "btnThemPC";
             this.btnThemPC.Size = new System.Drawing.Size(73, 49);
             this.btnThemPC.TabIndex = 0;
-            this.btnThemPC.Text = "Thêm";
             this.btnThemPC.UseVisualStyleBackColor = true;
             this.btnThemPC.Click += new System.EventHandler(this.btnThemPC_Click);
             // 
@@ -1283,15 +1285,25 @@
             this.pnlLoaiManHinh.Controls.Add(this.button27);
             this.pnlLoaiManHinh.Controls.Add(this.button26);
             this.pnlLoaiManHinh.Controls.Add(this.button25);
-            this.pnlLoaiManHinh.Location = new System.Drawing.Point(128, 132);
+            this.pnlLoaiManHinh.Location = new System.Drawing.Point(130, 132);
             this.pnlLoaiManHinh.Name = "pnlLoaiManHinh";
             this.pnlLoaiManHinh.Size = new System.Drawing.Size(906, 391);
             this.pnlLoaiManHinh.TabIndex = 15;
             // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(768, 254);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox13.TabIndex = 10;
+            this.pictureBox13.TabStop = false;
+            // 
             // button6
             // 
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(508, 6);
+            this.button6.Location = new System.Drawing.Point(19, 5);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(73, 49);
             this.button6.TabIndex = 9;
@@ -1351,7 +1363,7 @@
             // button27
             // 
             this.button27.Image = ((System.Drawing.Image)(resources.GetObject("button27.Image")));
-            this.button27.Location = new System.Drawing.Point(345, 6);
+            this.button27.Location = new System.Drawing.Point(334, 6);
             this.button27.Margin = new System.Windows.Forms.Padding(2);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(73, 49);
@@ -1362,7 +1374,7 @@
             // button26
             // 
             this.button26.Image = ((System.Drawing.Image)(resources.GetObject("button26.Image")));
-            this.button26.Location = new System.Drawing.Point(182, 6);
+            this.button26.Location = new System.Drawing.Point(503, 7);
             this.button26.Margin = new System.Windows.Forms.Padding(2);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(73, 49);
@@ -1374,7 +1386,7 @@
             // 
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button25.Image = ((System.Drawing.Image)(resources.GetObject("button25.Image")));
-            this.button25.Location = new System.Drawing.Point(19, 6);
+            this.button25.Location = new System.Drawing.Point(165, 7);
             this.button25.Margin = new System.Windows.Forms.Padding(2);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(73, 49);
@@ -2452,16 +2464,6 @@
             this.button24.UseVisualStyleBackColor = false;
             this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(768, 254);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox13.TabIndex = 10;
-            this.pictureBox13.TabStop = false;
-            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2501,6 +2503,7 @@
             this.groupBox3.ResumeLayout(false);
             this.pnlLoaiManHinh.ResumeLayout(false);
             this.pnlLoaiManHinh.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLMH)).EndInit();
             this.pnlTheLoai.ResumeLayout(false);
             this.pnlTheLoai.PerformLayout();
@@ -2530,7 +2533,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
