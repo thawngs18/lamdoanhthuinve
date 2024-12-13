@@ -127,10 +127,132 @@ namespace WindowsFormsApp8
                 y += kc;
             } 
         }
+        private Dictionary<int, List<int>> gheDaChon = new Dictionary<int, List<int>>();
+        private bool KiemTraGheBiBoGiua()
+        {
+            foreach (var kvp in gheDaChon)
+            {
+                List<int> gheDaChonTrongHang = kvp.Value;
+
+                // Nếu danh sách ghế trong hàng rỗng hoặc chỉ có một ghế, không cần kiểm tra
+                if (gheDaChonTrongHang.Count <= 1)
+                    continue;
+
+                // Sắp xếp danh sách theo tọa độ X
+                gheDaChonTrongHang.Sort();
+
+                // Duyệt qua danh sách ghế để kiểm tra khoảng trống
+                for (int i = 0; i < gheDaChonTrongHang.Count - 1; i++)
+                {
+                    // Kiểm tra khoảng cách giữa hai ghế liên tiếp
+                    if (gheDaChonTrongHang[i + 1] - gheDaChonTrongHang[i] > 30)
+                    {
+                        // Phát hiện ghế bị bỏ giữa trong một nhóm liên tiếp
+                        return true;
+                    }
+                }
+            }
+
+            // Không có ghế bị bỏ giữa trong bất kỳ hàng nào
+            return false;
+        }
+        private bool KiemTraGheCot1DaChon(int yPosition)
+        {
+            // Duyệt qua các ghế đã chọn trong panel2 để tìm ghế ở cột 1 cùng hàng
+            foreach (Control control in panel2.Controls)
+            {
+                if (control is Button btn && btn.Location.Y == yPosition)
+                {
+                    // Kiểm tra nếu ghế ở cột 1 (vị trí x = 11) đã được chọn (màu đỏ)
+                    if (btn.Location.X == 11 && btn.BackColor == Color.Red)
+                    {
+                        return true;  // Nếu ghế ở cột 1 đã chọn
+                    }
+                }
+            }
+            return false;  // Không có ghế ở cột 1 đã chọn
+        }
+        private void CapNhatGheDaChon(Button b)
+        {
+            int yPosition = b.Location.Y; // Hàng của ghế
+            int xPosition = b.Location.X; // Tọa độ X của ghế
+
+            if (!gheDaChon.ContainsKey(yPosition))
+            {
+                gheDaChon[yPosition] = new List<int>();
+            }
+
+            if (b.BackColor == Color.Red) // Ghế được chọn
+            {
+                if (!gheDaChon[yPosition].Contains(xPosition))
+                {
+                    gheDaChon[yPosition].Add(xPosition);
+                }
+            }
+            else // Ghế bị bỏ chọn
+            {
+                if (gheDaChon[yPosition].Contains(xPosition))
+                {
+                    gheDaChon[yPosition].Remove(xPosition);
+                }
+
+                // Nếu không còn ghế nào trong hàng được chọn, xóa hàng khỏi danh sách
+                if (gheDaChon[yPosition].Count == 0)
+                {
+                    gheDaChon.Remove(yPosition);
+                }
+            }
+        }
+        private bool KiemTraGheCungHang(int yPosition)
+        {
+            if (gheDaChon.ContainsKey(yPosition))
+            {
+                // Kiểm tra nếu có ghế ở cột 1 (X = 11) trong danh sách các ghế đã chọn trong cùng hàng
+                if (gheDaChon[yPosition].Contains(11))
+                {
+                    return true;  // Ghế ở cột 1 đã được chọn
+                }
+            }
+            return false;
+        }
+        private bool HasEmptySeatBetween(Button selectedSeat)
+        {
+            if (gheDaChon.ContainsKey(selectedSeat.Location.Y))
+            {
+                List<int> selectedSeatsInRow = gheDaChon[selectedSeat.Location.Y];
+
+                int leftSeat = Math.Min(selectedSeat.Location.X, selectedSeatsInRow[0]);
+                int rightSeat = Math.Max(selectedSeat.Location.X, selectedSeatsInRow[0]);
+
+                // Kiểm tra có ghế trống giữa không
+                for (int x = leftSeat + 30; x < rightSeat; x += 30) // Giả sử kích thước ghế là 30px
+                {
+                    if (IsSeatEmpty(x, selectedSeat.Location.Y))
+                    {
+                        return true;  // Có ghế trống giữa
+                    }
+                }
+            }
+            return false;
+        }
+        private bool IsSeatEmpty(int x, int y)
+        {
+            foreach (Control control in panel2.Controls)
+            {
+                if (control is Button btn && btn.Location.X == x && btn.Location.Y == y && btn.BackColor == Color.White)
+                {
+                    return true;  // Ghế trống
+                }
+            }
+            return false; // Không có ghế trống
+        }
+
 
         private void BtnGhe_Click(object sender, EventArgs e)
         {
             Button b = sender as Button;
+
+            // Kiểm tra xem người dùng đã chọn loại vé chưa
             if (!radNguoiLon.Checked && !radSV.Checked && !radTreEm.Checked)
             {
                 MessageBox.Show("Vui lòng chọn loại vé trước khi chọn ghế!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -158,11 +280,8 @@ namespace WindowsFormsApp8
                     soLuongTreEm++;
                 }
 
-
                 b.BackColor = Color.Red;
-
-                // Tính lại tổng tiền sau khi chọn ghế
-                TinhThanhTien();
+                CapNhatGheDaChon(b);
             }
             else if (b.BackColor == Color.Red)
             {
@@ -180,12 +299,17 @@ namespace WindowsFormsApp8
                     soLuongTreEm--;
                 }
 
-
                 b.BackColor = Color.White;
-
-                // Tính lại tổng tiền sau khi bỏ chọn ghế
-                TinhThanhTien();
+                CapNhatGheDaChon(b);
             }
+
+            // Tính lại tổng tiền sau khi thay đổi trạng thái ghế
+            TinhThanhTien();
+
+            // Cập nhật giảm giá và tổng thanh toán
+            TinhGiamGia();
+            TinhTT();
+
         }
 
         private void TinhGiaVe()
@@ -239,13 +363,35 @@ namespace WindowsFormsApp8
         }
         private void TinhGiamGia()
         {
-            GiamGia = tongTien * 10 / 100;
+            // Kiểm tra xem khách hàng có phải là khách hàng thân thiết hay không
+            if (chkTV.Checked)
+            {
+                GiamGia = tongTien * 10 / 100;  // Giảm giá 10% nếu là khách hàng thân thiết
+            }
+            else
+            {
+                GiamGia = 0;  // Không giảm giá nếu không phải khách hàng thân thiết
+            }
+
+            // Hiển thị giảm giá vào TextBox
             textBox1.Text = GiamGia.ToString("C");
+
         }
         private void TinhTT()
         {
-            thanhtoan = tongTien - GiamGia;
+            // Chỉ trừ giảm giá nếu khách hàng thân thiết
+            if (chkTV.Checked)
+            {
+                thanhtoan = tongTien - GiamGia;  // Giảm giá nếu khách hàng thân thiết
+            }
+            else
+            {
+                thanhtoan = tongTien;  // Không giảm giá nếu không phải khách hàng thân thiết
+            }
+
+            // Hiển thị tổng thanh toán vào TextBox
             textBox2.Text = thanhtoan.ToString("C");
+
         }
 
         private void radNguoiLon_CheckedChanged(object sender, EventArgs e)
@@ -271,19 +417,48 @@ namespace WindowsFormsApp8
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            // Kiểm tra số lượng ghế đã chọn
+            int soLuongGheDaChon = gheDaChon.Values.Sum(list => list.Count);
+            if (soLuongGheDaChon == 0)
+            {
+                MessageBox.Show("Bạn chưa chọn ghế nào!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra nếu có ghế bị bỏ giữa
+            if (KiemTraGheBiBoGiua())
+            {
+                MessageBox.Show("Không thể thanh toán vì có ghế bị bỏ giữa trong một nhóm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra ghế cột 2 mà không chọn cột 1
+            foreach (var kvp in gheDaChon)
+            {
+                int yPosition = kvp.Key; // Lấy hàng hiện tại
+                List<int> gheTrongHang = kvp.Value; // Danh sách các ghế đã chọn trong hàng
+
+                // Kiểm tra nếu ghế ở cột 2 (X = 41) được chọn mà không chọn ghế ở cột 1 (X = 11)
+                if (gheTrongHang.Contains(41) && !gheTrongHang.Contains(11)) // 41 là tọa độ X của ghế cột 2, 11 là tọa độ X của ghế cột 1
+                {
+                    MessageBox.Show("Bạn phải chọn ghế ở cột 1 trước khi chọn ghế ở cột 2!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // Xác nhận thanh toán
             DialogResult result = MessageBox.Show("Bạn có muốn thanh toán?", "Thông Báo", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
-                // Thông báo thanh toán thành công
                 MessageBox.Show("Thanh toán thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Đổi màu ghế đã chọn thành màu xám (hoặc bạn có thể chọn màu khác để đánh dấu ghế đã thanh toán)
+                // Đổi màu ghế đã chọn thành màu xám
                 foreach (Control control in panel1.Controls)
                 {
                     if (control is Button btn && btn.BackColor == Color.Red)
                     {
-                        btn.BackColor = Color.Gray;  // Đổi màu ghế đã chọn thành màu xám (hoặc màu khác nếu muốn)
+                        btn.BackColor = Color.Gray; // Đổi màu ghế đã chọn thành màu xám
                     }
                 }
 
@@ -323,18 +498,21 @@ namespace WindowsFormsApp8
             {
                 DangNhapTV tk = new DangNhapTV();
                 tk.CancelClicked += taikhoan_CancelClicked; // Đăng ký sự kiện
-                tk.Show();  
+                tk.Show();
             }
-            if (chkTV.Checked == true)
+            // Nếu checkbox khách hàng thân thiết được chọn
+            if (chkTV.Checked)
             {
-                TinhGiamGia();
-                TinhTT();
+                TinhGiamGia();  // Tính giảm giá
+                TinhTT();        // Cập nhật tổng thanh toán
             }
             else
             {
-                textBox1.Text = string.Empty;
-                textBox2.Text = tongTien.ToString("C");
+                // Nếu checkbox khách hàng thân thiết không được chọn, reset giảm giá
+                textBox1.Text = string.Empty;  // Xóa giảm giá
+                textBox2.Text = tongTien.ToString("C");  // Cập nhật lại tổng thanh toán mà không có giảm giá
             }
+
 
         }
 
