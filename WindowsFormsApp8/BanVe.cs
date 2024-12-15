@@ -259,6 +259,13 @@ namespace WindowsFormsApp8
                 MessageBox.Show("Vui lòng chọn loại vé trước khi chọn ghế!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            // Kiểm tra số lượng ghế đã chọn không vượt quá giới hạn
+            int totalSeatsSelected = gheDaChon.Values.Sum(list => list.Count);
+            if (totalSeatsSelected >= 7 && b.BackColor == Color.White) // Chỉ chặn nếu thêm ghế mới
+            {
+                MessageBox.Show("Không thể chọn hơn 7 ghế trong một lần!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             // Kiểm tra trạng thái ghế
             if (b.BackColor == Color.Gray)
@@ -415,7 +422,7 @@ namespace WindowsFormsApp8
             TinhThanhTien();
             TinhTT();
         }
-
+      
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             // Kiểm tra số lượng ghế đã chọn
@@ -462,6 +469,26 @@ namespace WindowsFormsApp8
                         btn.BackColor = Color.Gray; // Đổi màu ghế đã chọn thành màu xám
                     }
                 }
+                // Tạo danh sách ghế đã chọn để truyền qua form "Vé"
+                List<string> danhSachGhe = new List<string>();
+                foreach (var hang in gheDaChon)
+                {
+                    char tenHang = (char)((hang.Key - 16) / 30 + 65); // Chuyển tọa độ Y thành A, B, C...
+                    foreach (var ghe in hang.Value)
+                    {
+                        int soGhe = (ghe - 11) / 30 + 1; // Chuyển tọa độ X thành số ghế
+                        danhSachGhe.Add($"{tenHang}{soGhe}");
+                    }
+                }
+
+                string danhSachGheString = string.Join(", ", danhSachGhe);
+                // Tạo mới Form "Vé" mỗi lần
+                Ve ve = new Ve(lbltenphong.Text, lbltenphim.Text, lbltgchieu.Text, danhSachGheString);
+
+                // Reset nội dung form trước khi hiển thị
+                ve.ResetLabelsInPanel();
+                ve.ShowDialog();
+
 
                 // Reset lại số lượng vé đã chọn
                 soLuongNguoiLon = 0;
@@ -481,15 +508,16 @@ namespace WindowsFormsApp8
                 radSV.Checked = false;
                 radTreEm.Checked = false;
                 chkTV.Checked = false;
-                Ve ve = new Ve(lbltenphong.Text,lbltenphim.Text,lbltgchieu.Text,"");
-                ve.Show();
+                //Ve ve = new Ve(lbltenphong.Text,lbltenphim.Text,lbltgchieu.Text, danhSachGheString);
+                //ve.Show();
               
                 
             }
 
 
         }
-
+        private Ve formVe;
+      
         public void SetLabelData(string data)
         {
             lblHienTTin.Text = data;  // Giả sử bạn có một Label với tên label1

@@ -60,6 +60,7 @@
             this.pnlVe.Name = "pnlVe";
             this.pnlVe.Size = new System.Drawing.Size(287, 260);
             this.pnlVe.TabIndex = 1;
+            this.pnlVe.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlVe_Paint);
             // 
             // lblTenPhim
             // 

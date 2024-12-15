@@ -21,6 +21,7 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
 
+
         }
         public Ve(string tenphong, string tenPhim, string date, string tenghe)
         {
@@ -38,13 +39,34 @@ namespace WindowsFormsApp8
             qr.MdiParent = this;
             qr.Show();
         }
+    
+
 
         private void Ve_Load(object sender, EventArgs e)
         {
+            ResetLabelsInPanel();
+
             lblPhong.Text = tenphong;
             lblTenPhim.Text=tenPhim;
             lblDate.Text=date;
             lblTenghe.Text=tenghe;
+            
+        }
+        public void ResetLabelsInPanel()
+        {
+            // Duyệt qua tất cả các Control trong pnlVe
+            foreach (Control control in pnlVe.Controls)
+            {
+                if (control is Label lbl)
+                {
+                    lbl.Text = ""; // Xóa nội dung của Label
+                }
+            }
+        }
+
+        private void pnlVe_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
