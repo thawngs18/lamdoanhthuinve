@@ -18,11 +18,12 @@ namespace WindowsFormsApp8
         private string tenPhim;
         private string date;
         private string tenghe;
-       
+        private List<string> danhSachGhe;
+
         public QR()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
+          
            
         }
         public QR(string tenphong, string tenPhim, string date, string tenghe)
@@ -31,6 +32,8 @@ namespace WindowsFormsApp8
             this.tenPhim = tenPhim;
             this.date = date;
             this.tenghe = tenghe;
+            this.danhSachGhe = danhSachGhe ?? new List<string>();
+            this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
            
         }
@@ -41,13 +44,23 @@ namespace WindowsFormsApp8
         }
         public void qr()
         {
+            if (danhSachGhe == null)
+            {
+                danhSachGhe = new List<string>();
+            }
+            string danhSachGheStr = string.Join(", ", danhSachGhe);
             string qrConten = string.Format(
     "========= Ve Xem Phim ========= \n" +
     " {0,-24} : {1,-32}\n" +
     " {2,-13} : {3,-34}\n" +
     " {4,-16} : {5,-30}\n" +
+    " {6,-16} : {7,-30}\n" +
     "==============================",
     "Phim", tenPhim, "Thoi Gian Chieu", date, "Phong Chieu", tenphong, "So ghe", tenghe);
+            if (danhSachGhe.Count > 0)
+            {
+                qrConten += "\n" + "Danh Sach Ghe: " + danhSachGheStr;
+            }
             using (QRCodeGenerator qr = new QRCodeGenerator())
             {
                 QRCodeData data = qr.CreateQrCode(qrConten, QRCodeGenerator.ECCLevel.Q);
