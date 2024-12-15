@@ -135,27 +135,33 @@ namespace WindowsFormsApp8
             {
                 List<int> gheDaChonTrongHang = kvp.Value;
 
-                // Nếu danh sách ghế trong hàng rỗng hoặc chỉ có một ghế, không cần kiểm tra
+                // Bỏ qua hàng nếu có 1 ghế hoặc không đủ kiểm tra
                 if (gheDaChonTrongHang.Count <= 1)
                     continue;
 
-                // Sắp xếp danh sách theo tọa độ X
+                // Sắp xếp danh sách ghế trong hàng
                 gheDaChonTrongHang.Sort();
 
-                // Duyệt qua danh sách ghế để kiểm tra khoảng trống
+                // Kiểm tra các ghế đã chọn
                 for (int i = 0; i < gheDaChonTrongHang.Count - 1; i++)
                 {
-                    // Kiểm tra khoảng cách giữa hai ghế liên tiếp
-                    if (gheDaChonTrongHang[i + 1] - gheDaChonTrongHang[i] > 30)
+                    int ghe1 = gheDaChonTrongHang[i];
+                    int ghe2 = gheDaChonTrongHang[i + 1];
+
+                    // Nếu khoảng cách giữa 2 ghế là 2 ghế (tức có 1 ghế trống chính giữa)
+                    if (ghe2 - ghe1 == 60) // 60px = 30px * 2 (mỗi ghế cách nhau 30px)
                     {
-                        // Phát hiện ghế bị bỏ giữa trong một nhóm liên tiếp
-                        return true;
+                        int gheTrungTam = ghe1 + 30; // Ghế nằm giữa hai ghế đã chọn
+
+                        if (IsSeatEmpty(gheTrungTam, kvp.Key))
+                        {
+                            return true; // Phát hiện có 1 ghế trống chính giữa
+                        }
                     }
                 }
             }
 
-            // Không có ghế bị bỏ giữa trong bất kỳ hàng nào
-            return false;
+            return false; // Không phát hiện ghế bị bỏ chính gi
         }
         private bool KiemTraGheCot1DaChon(int yPosition)
         {
@@ -469,6 +475,7 @@ namespace WindowsFormsApp8
                         btn.BackColor = Color.Gray; // Đổi màu ghế đã chọn thành màu xám
                     }
                 }
+           
                 // Tạo danh sách ghế đã chọn để truyền qua form "Vé"
                 List<string> danhSachGhe = new List<string>();
                 foreach (var hang in gheDaChon)
@@ -485,11 +492,12 @@ namespace WindowsFormsApp8
                 // Tạo mới Form "Vé" mỗi lần
                 Ve ve = new Ve(lbltenphong.Text, lbltenphim.Text, lbltgchieu.Text, danhSachGheString);
 
+                
                 // Reset nội dung form trước khi hiển thị
                 ve.ResetLabelsInPanel();
                 ve.ShowDialog();
 
-
+                gheDaChon.Clear();
                 // Reset lại số lượng vé đã chọn
                 soLuongNguoiLon = 0;
                 soLuongSV = 0;
