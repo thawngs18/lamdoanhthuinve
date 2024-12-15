@@ -62,11 +62,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.lblHienTTin = new System.Windows.Forms.Label();
-            this.lblipphong = new System.Windows.Forms.Label();
+            this.lblidlc = new System.Windows.Forms.Label();
             this.lblTenMh = new System.Windows.Forms.Label();
             this.lbltenphim = new System.Windows.Forms.Label();
             this.lbltgchieu = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lbltenphong = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -415,15 +416,15 @@
             this.lblHienTTin.Size = new System.Drawing.Size(728, 76);
             this.lblHienTTin.TabIndex = 15;
             // 
-            // lblipphong
+            // lblidlc
             // 
-            this.lblipphong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.lblipphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblipphong.Location = new System.Drawing.Point(34, 28);
-            this.lblipphong.Name = "lblipphong";
-            this.lblipphong.Size = new System.Drawing.Size(79, 24);
-            this.lblipphong.TabIndex = 16;
-            this.lblipphong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblidlc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblidlc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidlc.Location = new System.Drawing.Point(34, 28);
+            this.lblidlc.Name = "lblidlc";
+            this.lblidlc.Size = new System.Drawing.Size(79, 24);
+            this.lblidlc.TabIndex = 16;
+            this.lblidlc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTenMh
             // 
@@ -465,16 +466,24 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "Thong Tin";
             // 
+            // lbltenphong
+            // 
+            this.lbltenphong.Location = new System.Drawing.Point(285, 29);
+            this.lbltenphong.Name = "lbltenphong";
+            this.lbltenphong.Size = new System.Drawing.Size(100, 23);
+            this.lbltenphong.TabIndex = 21;
+            // 
             // BanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 646);
+            this.Controls.Add(this.lbltenphong);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lbltgchieu);
             this.Controls.Add(this.lbltenphim);
             this.Controls.Add(this.lblTenMh);
-            this.Controls.Add(this.lblipphong);
+            this.Controls.Add(this.lblidlc);
             this.Controls.Add(this.lblHienTTin);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
@@ -545,7 +554,7 @@
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtThanhTien;
-        private System.Windows.Forms.Label lblipphong;
+        private System.Windows.Forms.Label lblidlc;
         private System.Windows.Forms.Label lblTenMh;
         private System.Windows.Forms.Label lbltenphim;
         private System.Windows.Forms.Label lbltgchieu;
@@ -554,6 +563,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lbltenphong;
     }
 }
 

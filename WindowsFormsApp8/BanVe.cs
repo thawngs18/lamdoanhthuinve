@@ -63,13 +63,14 @@ namespace WindowsFormsApp8
             uncheck(); // Gọi phương thức uncheck
         }
 
-        public BanVe( string idphong, string tenphim, string tenMh, string time)
+        public BanVe(string idlc, string tenphong, string tenphim, string tenMh, string time)
         {
             InitializeComponent();
-            lblipphong.Text = idphong;
+            lblidlc.Text = idlc;
             lbltenphim.Text = tenphim;
             lblTenMh.Text = tenMh;
             lbltgchieu.Text = time;
+            lbltenphong.Text = tenphong;
         }
       
         private void Form1_Load(object sender, EventArgs e)
@@ -480,7 +481,12 @@ namespace WindowsFormsApp8
                 radSV.Checked = false;
                 radTreEm.Checked = false;
                 chkTV.Checked = false;
+                Ve ve = new Ve(lbltenphong.Text,lbltenphim.Text,lbltgchieu.Text,"");
+                ve.Show();
+              
+                
             }
+
 
         }
 
