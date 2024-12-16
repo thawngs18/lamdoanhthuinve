@@ -64,9 +64,6 @@ namespace WindowsFormsApp8
             }
         }
 
-        private void pnlVe_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+  
     }
 }

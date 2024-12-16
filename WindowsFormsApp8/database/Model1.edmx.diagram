@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d39c7b8fc9e641eda4117f2dc72d4877" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="rapphimModel.DinhDangPhim" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.KhachHang" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.LichChieu" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.LoaiManHinh" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.Manager" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.NhanVien" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.Phim" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.PhongChieu" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.TheLoai" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.TicketSeller" Width="1.5" PointX="8" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rapphimModel.DoanhThu" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="rapphimModel.FK__DinhDangP__idLoa__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__DinhDangP__idPhi__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__LichChieu__idDin__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__DoanhThu__idLich__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__LichChieu__idPho__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__PhongChie__idMan__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__Managers__id__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__TicketSeller__id__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.FK__DoanhThu__idPhim__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="rapphimModel.PhanLoaiPhim" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp8.database;
 
 namespace WindowsFormsApp8
 {
@@ -18,70 +19,63 @@ namespace WindowsFormsApp8
         {
             InitializeComponent();
         }
-        string connectionString = "Server=.\\SQLEXPRESS;Database=rapphim;Trusted_Connection=True;";
+
         private void Seller_Load(object sender, EventArgs e)
         {
-            // Câu truy vấn SQL để lấy dữ liệu từ cột
-            string query = "SELECT TenPhim FROM Phim";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (var context = new rapphimEntities()) // DbContext được tạo tự động
             {
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                // Đổ dữ liệu vào ComboBox
-                comboBox1.DisplayMember = "TenPhim"; // Cột hiển thị
+                // Lấy danh sách tên phim
+                var danhSachPhim = context.Phims.Select(p => new { p.id, p.TenPhim }).ToList();
+                comboBox1.DisplayMember = "TenPhim";
                 comboBox1.ValueMember = "id";
-                comboBox1.DataSource = dataTable;
-            }
+                comboBox1.DataSource = danhSachPhim;
 
-            query = "SElECT TenMH FROM LoaiManHinh";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                // Đổ dữ liệu vào ComboBox
-                comboBox2.DisplayMember = "TenMH"; // Cột hiển thị
+                // Lấy danh sách loại màn hình
+                var danhSachMH = context.LoaiManHinhs.Select(mh => new { mh.id, mh.TenMH }).ToList();
+                comboBox2.DisplayMember = "TenMH";
                 comboBox2.ValueMember = "id";
-                comboBox2.DataSource = dataTable;
+                comboBox2.DataSource = danhSachMH;
             }
-            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string tenP = comboBox1.Text;
             string tenMH = comboBox2.Text;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+
+            using (var context = new rapphimEntities())
             {
                 try
                 {
-                    connection.Open();
+                    // Truy vấn dữ liệu với LINQ
+                    var lichChieu = (from lc in context.LichChieux
+                                     join dd in context.DinhDangPhims on lc.idDinhDang equals dd.id
+                                     join phim in context.Phims on dd.idPhim equals phim.id
+                                     join mh in context.LoaiManHinhs on dd.idLoaiManHinh equals mh.id
+                                     join phong in context.PhongChieux on lc.idPhong equals phong.id
+                                     where phim.TenPhim == tenP && mh.TenMH == tenMH
+                                     select new
+                                     {
+                                         lc.id,
+                                         phim.TenPhim,
+                                         mh.TenMH,
+                                         lc.ThoiGianChieu,
+                                         phim.ThoiLuong,
+                                         phong.SoChoNgoi,
+                                         phong.TenPhong
+                                     }).ToList();
 
-                    // Câu truy vấn
-                    String query = "SELECT l.id,p.TenPhim,h.TenMH,l.ThoiGianChieu,p.ThoiLuong,c.SoChoNgoi,TenPhong FROM LichChieu l,LoaiManHinh h,Phim p,DinhDangPhim d,PhongChieu c where l.idDinhDang = d.id and d.idPhim = p.id and d.idLoaiManHinh = h.id and l.idPhong = c.id and p.TenPhim = @tenphim and h.TenMH = @tenMH";
-
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@tenphim", tenP);
-                        cmd.Parameters.AddWithValue("@tenMH", tenMH);
-
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-
-                        // Gán dữ liệu vào DataGridView
-                        dtgLichChieuP.DataSource = dataTable;
-                    }
+                    // Gán dữ liệu vào DataGridView
+                    dtgLichChieuP.DataSource = lichChieu;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi: " + ex.Message);
                 }
             }
+
         }
 
         string idlc = "";
@@ -91,23 +85,23 @@ namespace WindowsFormsApp8
         string tenphong = "";
         private void dtgLichChieuP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtgLichChieuP.SelectedRows.Count > 0) // Kiểm tra xem có hàng nào được chọn không
+            if (e.RowIndex >= 0) // Kiểm tra xem hàng có hợp lệ không
             {
-                var row = dtgLichChieuP.SelectedRows[0];
+                var row = dtgLichChieuP.Rows[e.RowIndex];
                 idlc = row.Cells["id"].Value?.ToString();
                 tenphim = row.Cells["TenPhim"].Value?.ToString();
                 tenmh = row.Cells["TenMH"].Value?.ToString();
                 time = row.Cells["ThoiGianChieu"].Value?.ToString();
                 tenphong = row.Cells["TenPhong"].Value?.ToString();
-
-
             }
-                
+
+
         }
         private void button2_Click(object sender, EventArgs e)
-        {           
-                    BanVe bv = new BanVe(idlc,tenphong,tenphim,tenmh,time);
-                    bv.Show();       
+        {
+            BanVe bv = new BanVe(idlc, tenphong, tenphim, tenmh, time);
+            bv.Show();
+
         }
 
 

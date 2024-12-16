@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ve));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.pnlVe = new System.Windows.Forms.Panel();
-            this.lblTenPhim = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTenghe = new System.Windows.Forms.Label();
-            this.lblPhong = new System.Windows.Forms.Label();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.pnlVe = new System.Windows.Forms.Panel();
+            this.lblPhong = new System.Windows.Forms.Label();
+            this.lblTenghe = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTenPhim = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.pnlVe.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +50,16 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // pnlVe
             // 
             this.pnlVe.Controls.Add(this.lblPhong);
@@ -58,36 +68,9 @@
             this.pnlVe.Controls.Add(this.lblTenPhim);
             this.pnlVe.Location = new System.Drawing.Point(42, 40);
             this.pnlVe.Name = "pnlVe";
-            this.pnlVe.Size = new System.Drawing.Size(287, 260);
+            this.pnlVe.Size = new System.Drawing.Size(287, 274);
             this.pnlVe.TabIndex = 1;
-            this.pnlVe.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlVe_Paint);
-            // 
-            // lblTenPhim
-            // 
-            this.lblTenPhim.AutoSize = true;
-            this.lblTenPhim.Location = new System.Drawing.Point(57, 65);
-            this.lblTenPhim.Name = "lblTenPhim";
-            this.lblTenPhim.Size = new System.Drawing.Size(35, 13);
-            this.lblTenPhim.TabIndex = 0;
-            this.lblTenPhim.Text = "label1";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(57, 103);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(35, 13);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "label2";
-            // 
-            // lblTenghe
-            // 
-            this.lblTenghe.AutoSize = true;
-            this.lblTenghe.Location = new System.Drawing.Point(57, 141);
-            this.lblTenghe.Name = "lblTenghe";
-            this.lblTenghe.Size = new System.Drawing.Size(35, 13);
-            this.lblTenghe.TabIndex = 2;
-            this.lblTenghe.Text = "label3";
+
             // 
             // lblPhong
             // 
@@ -98,15 +81,32 @@
             this.lblPhong.TabIndex = 2;
             this.lblPhong.Text = "label3";
             // 
-            // toolStripButton1
+            // lblTenghe
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.lblTenghe.AutoSize = true;
+            this.lblTenghe.Location = new System.Drawing.Point(57, 141);
+            this.lblTenghe.Name = "lblTenghe";
+            this.lblTenghe.Size = new System.Drawing.Size(35, 13);
+            this.lblTenghe.TabIndex = 2;
+            this.lblTenghe.Text = "label3";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(57, 103);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(35, 13);
+            this.lblDate.TabIndex = 1;
+            this.lblDate.Text = "label2";
+            // 
+            // lblTenPhim
+            // 
+            this.lblTenPhim.AutoSize = true;
+            this.lblTenPhim.Location = new System.Drawing.Point(57, 65);
+            this.lblTenPhim.Name = "lblTenPhim";
+            this.lblTenPhim.Size = new System.Drawing.Size(35, 13);
+            this.lblTenPhim.TabIndex = 0;
+            this.lblTenPhim.Text = "label1";
             // 
             // Ve
             // 

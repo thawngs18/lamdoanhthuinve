@@ -516,10 +516,9 @@ namespace WindowsFormsApp8
                 radSV.Checked = false;
                 radTreEm.Checked = false;
                 chkTV.Checked = false;
-                //Ve ve = new Ve(lbltenphong.Text,lbltenphim.Text,lbltgchieu.Text, danhSachGheString);
-                //ve.Show();
-              
-                
+             
+
+
             }
 
 

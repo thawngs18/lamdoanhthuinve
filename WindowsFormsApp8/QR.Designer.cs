@@ -41,6 +41,7 @@
             this.btnIn.TabIndex = 1;
             this.btnIn.Text = "Print";
             this.btnIn.UseVisualStyleBackColor = true;
+     
             // 
             // pictureBox1
             // 
